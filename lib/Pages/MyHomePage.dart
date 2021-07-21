@@ -1,17 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portfoliom/project.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -22,6 +14,39 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    List<projects> proj = [];
+    proj.add(projects(
+      date: DateTime.now(),
+      imgsrc:
+          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
+      summary:
+          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
+      title: 'Card-Space',
+    ));
+    proj.add(projects(
+      date: DateTime.now(),
+      imgsrc:
+          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
+      summary:
+          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
+      title: 'Card-Space',
+    ));
+    proj.add(projects(
+      date: DateTime.now(),
+      imgsrc:
+          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
+      summary:
+          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
+      title: 'Card-Space',
+    ));
+    proj.add(projects(
+      date: DateTime.now(),
+      imgsrc:
+          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
+      summary:
+          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
+      title: 'Card-Space',
+    ));
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
@@ -65,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  'articles',
+                                  'Skills',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
@@ -78,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               Expanded(
                                 child: Text(
-                                  'articles',
+                                  'Resume',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
@@ -92,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               Expanded(
                                 child: Text(
-                                  'articles',
+                                  'Contact Me',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
@@ -135,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: Text(
-                      'Bonjour, I am Louis the front-end physiotherapist! 👨‍⚕️I can help with your flex issues.',
+                      'Bonjour, I am Yogesh.',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 40,
@@ -153,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.75,
                     child: Text(
-                      'Bonjour, I am Louis the front-end physiotherapist! 👨‍⚕️I can help with your flex issues.',
+                      'Bonjour, I am Yogesh.',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 40,
@@ -174,10 +199,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                     : 1,
 
                         mainAxisExtent:
-                            500, // <== change the height to fit your needs
+                            600, // <== change the height to fit your needs
                       ),
-                      itemCount: 3,
-                      itemBuilder: (context, index) {
+                      itemCount: (MediaQuery.of(context).size.width > 960)
+                          ? 3
+                          : proj.length,
+                      itemBuilder: (context, i) {
                         return Container(
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.white, width: 1),
@@ -186,7 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                '06-12-2122',
+                                proj[i].date.toString(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 14,
@@ -194,9 +221,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                 textAlign: TextAlign.center,
                               ),
                               Image.network(
-                                  'https://dummyimage.com/600x400/000/fff'),
+                                proj[i].imgsrc.toString(),
+                                height: 200,
+                                width: 200,
+                              ),
                               Text(
-                                'Topic',
+                                proj[i].title.toString(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 26,
@@ -204,7 +234,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 textAlign: TextAlign.center,
                               ),
                               Text(
-                                'summary',
+                                proj[i].summary.toString(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16,
@@ -220,6 +250,119 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         );
                       }),
+                ),
+                Visibility(
+                  visible: (MediaQuery.of(context).size.width > 960),
+                  child: Container(
+                    height: 600,
+                    child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4,
+                          mainAxisExtent:
+                              600, // <== change the height to fit your needs
+                        ),
+                        itemCount: proj.length,
+                        itemBuilder: (context, i) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 1),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text(
+                                  proj[i].date.toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Image.network(
+                                  proj[i].imgsrc.toString(),
+                                  height: 200,
+                                  width: 200,
+                                ),
+                                Text(
+                                  proj[i].title.toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 26,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  proj[i].summary.toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Container(
+                                  width: 200,
+                                  height: 50,
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            width: 400,
+                            height: 150,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 1),
+                            ),
+                            child: Text(
+                              'Currently Working On',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                          Container(
+                            width: 400,
+                            height: 150,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 1),
+                            ),
+                            child: Text(
+                              'Learning',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                          Container(
+                            width: 400,
+                            height: 150,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 1),
+                            ),
+                            child: Text(
+                              'I want to be',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 450,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 1),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
