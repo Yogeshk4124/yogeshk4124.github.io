@@ -246,6 +246,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 50,
                                 color: Colors.white,
                               ),
+                              Container(),
                             ],
                           ),
                         );
@@ -254,12 +255,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Visibility(
                   visible: (MediaQuery.of(context).size.width > 960),
                   child: Container(
-                    height: 600,
+                    height: 650,
                     child: GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4,
                           mainAxisExtent:
-                              600, // <== change the height to fit your needs
+                              650, // <== change the height to fit your needs
                         ),
                         itemCount: proj.length,
                         itemBuilder: (context, i) {
@@ -304,6 +305,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   height: 50,
                                   color: Colors.white,
                                 ),
+                                Container(),
                               ],
                             ),
                           );
@@ -324,7 +326,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             child: Text(
                               'Currently Working On',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.white, fontSize: 40),
                             ),
                           ),
                           Container(
@@ -336,7 +338,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             child: Text(
                               'Learning',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.white, fontSize: 40),
                             ),
                           ),
                           Container(
@@ -348,7 +350,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             child: Text(
                               'I want to be',
-                              style: TextStyle(color: Colors.white),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 40),
                             ),
                           ),
                         ],
@@ -359,6 +362,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.white, width: 1),
                           ),
+                          child: Image.asset('flutter.jpg'),
                         ),
                       ),
                     ],
