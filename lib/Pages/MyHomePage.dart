@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliom/project.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -326,7 +327,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             child: Text(
                               'Currently Working On',
-                              style: TextStyle(color: Colors.white, fontSize: 40),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 36),
                             ),
                           ),
                           Container(
@@ -338,7 +340,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             child: Text(
                               'Learning',
-                              style: TextStyle(color: Colors.white, fontSize: 40),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 36),
                             ),
                           ),
                           Container(
@@ -351,7 +354,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text(
                               'I want to be',
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 40),
+                                  TextStyle(color: Colors.white, fontSize: 36),
                             ),
                           ),
                         ],
@@ -365,6 +368,52 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Image.asset('flutter.jpg'),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white, width: 1),
+                  ),
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: 35,
+                        alignment: Alignment.center,
+                        child: FaIcon(
+                          FontAwesomeIcons.instagram,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                      ),
+                      Container(
+                        width: 35,
+                        alignment: Alignment.center,
+                        child: FaIcon(
+                          FontAwesomeIcons.linkedin,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                      ),
+                      Container(
+                        width: 35,
+                        alignment: Alignment.center,
+                        child: FaIcon(
+                          FontAwesomeIcons.envelope,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        'Made with love',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Container(
+                        width: 20,
+                      )
                     ],
                   ),
                 ),
