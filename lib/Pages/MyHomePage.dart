@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliom/project.dart';
 
+import '../NavBar.dart';
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -55,372 +57,257 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.symmetric(vertical: 20, horizontal: 40)
               : EdgeInsets.zero,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 1),
-                  ),
-                  height: 50,
-                  child: Row(
+          child: Column(
+            children: [
+              NavBar(),
+              Expanded(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
                     children: [
-                      Expanded(
-                        flex: 3,
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 1),
+                        ),
+                        height: 350,
+                        alignment: Alignment.center,
                         child: Container(
-                          padding: EdgeInsets.only(left: 20),
+                          width: MediaQuery.of(context).size.width * 0.6,
                           child: Text(
-                            'Yogesh',
+                            'Bonjour, I am Yogesh.',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 40,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
-                      if (MediaQuery.of(context).size.width > 960)
-                        VerticalDivider(
-                          color: Colors.white,
-                          width: 10,
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 1),
                         ),
-                      if (MediaQuery.of(context).size.width > 960)
-                        Expanded(
-                          flex: 2,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  'Skills',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                              VerticalDivider(
-                                color: Colors.white,
-                              ),
-                              Expanded(
-                                child: Text(
-                                  'Resume',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                              VerticalDivider(
-                                color: Colors.white,
-                                width: 10,
-                              ),
-                              Expanded(
-                                child: Text(
-                                  'Contact Me',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      else
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              VerticalDivider(
-                                color: Colors.white,
-                                width: 10,
-                              ),
-                              Icon(
-                                Icons.menu,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                width: 5,
-                              )
-                            ],
+                        height: 350,
+                        alignment: Alignment.center,
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.75,
+                          child: Text(
+                            'Bonjour, I am Yogesh.',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 40,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                    ],
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 1),
-                  ),
-                  height: 350,
-                  alignment: Alignment.center,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.6,
-                    child: Text(
-                      'Bonjour, I am Yogesh.',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 1),
-                  ),
-                  height: 350,
-                  alignment: Alignment.center,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.75,
-                    child: Text(
-                      'Bonjour, I am Yogesh.',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 600,
-                  child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount:
-                            (MediaQuery.of(context).size.width > 960)
+                      Container(
+                        child: GridView.builder(
+                            primary: false,
+                            scrollDirection: Axis.vertical,
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: (MediaQuery.of(context)
+                                          .size
+                                          .width >
+                                      960)
+                                  ? 3
+                                  : (MediaQuery.of(context).size.width > 700)
+                                      ? 2
+                                      : 1,
+                              // childAspectRatio: 4,
+                              mainAxisExtent:
+                                  600, // <== change the height to fit your needs
+                            ),
+                            itemCount: (MediaQuery.of(context).size.width > 960)
                                 ? 3
-                                : (MediaQuery.of(context).size.width > 700)
-                                    ? 2
-                                    : 1,
-
-                        mainAxisExtent:
-                            600, // <== change the height to fit your needs
+                                : proj.length,
+                            itemBuilder: (context, i) {
+                              return buildProjectCard(proj, i);
+                            }),
                       ),
-                      itemCount: (MediaQuery.of(context).size.width > 960)
-                          ? 3
-                          : proj.length,
-                      itemBuilder: (context, i) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 1),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text(
-                                proj[i].date.toString(),
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                ),
-                                textAlign: TextAlign.center,
+                      Visibility(
+                        visible: (MediaQuery.of(context).size.width > 960),
+                        child: Container(
+                          height: 650,
+                          child: GridView.builder(
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 4,
+                                mainAxisExtent:
+                                    650, // <== change the height to fit your needs
                               ),
-                              Image.network(
-                                proj[i].imgsrc.toString(),
-                                height: 200,
-                                width: 200,
-                              ),
-                              Text(
-                                proj[i].title.toString(),
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 26,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              Text(
-                                proj[i].summary.toString(),
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              Container(
-                                width: 200,
-                                height: 50,
-                                color: Colors.white,
-                              ),
-                              Container(),
-                            ],
-                          ),
-                        );
-                      }),
-                ),
-                Visibility(
-                  visible: (MediaQuery.of(context).size.width > 960),
-                  child: Container(
-                    height: 650,
-                    child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 4,
-                          mainAxisExtent:
-                              650, // <== change the height to fit your needs
+                              itemCount: proj.length,
+                              itemBuilder: (context, i) {
+                                return buildProjectCard(proj, i);
+                              }),
                         ),
-                        itemCount: proj.length,
-                        itemBuilder: (context, i) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 1),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Column(
                               children: [
-                                Text(
-                                  proj[i].date.toString(),
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
+                                Container(
+                                  width: 400,
+                                  height: 150,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
                                   ),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Image.network(
-                                  proj[i].imgsrc.toString(),
-                                  height: 200,
-                                  width: 200,
-                                ),
-                                Text(
-                                  proj[i].title.toString(),
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 26,
+                                  child: Text(
+                                    'Currently Working On',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 36),
                                   ),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  proj[i].summary.toString(),
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                  ),
-                                  textAlign: TextAlign.center,
                                 ),
                                 Container(
-                                  width: 200,
-                                  height: 50,
-                                  color: Colors.white,
+                                  width: 400,
+                                  height: 150,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                  ),
+                                  child: Text(
+                                    'Learning',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 36),
+                                  ),
                                 ),
-                                Container(),
+                                Container(
+                                  width: 400,
+                                  height: 150,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                  ),
+                                  child: Text(
+                                    'I want to be',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 36),
+                                  ),
+                                ),
                               ],
                             ),
-                          );
-                        }),
-                  ),
-                ),
-                Container(
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          Container(
-                            width: 400,
-                            height: 150,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 1),
+                            Expanded(
+                              child: Container(
+                                height: 450,
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.white, width: 1),
+                                ),
+                                child: Image.asset('flutter.jpg'),
+                              ),
                             ),
-                            child: Text(
-                              'Currently Working On',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 36),
-                            ),
-                          ),
-                          Container(
-                            width: 400,
-                            height: 150,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 1),
-                            ),
-                            child: Text(
-                              'Learning',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 36),
-                            ),
-                          ),
-                          Container(
-                            width: 400,
-                            height: 150,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 1),
-                            ),
-                            child: Text(
-                              'I want to be',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 36),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                      Expanded(
-                        child: Container(
-                          height: 450,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white, width: 1),
-                          ),
-                          child: Image.asset('flutter.jpg'),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 1),
+                        ),
+                        height: 50,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              width: 35,
+                              alignment: Alignment.center,
+                              child: FaIcon(
+                                FontAwesomeIcons.instagram,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              alignment: Alignment.center,
+                              child: FaIcon(
+                                FontAwesomeIcons.linkedin,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              alignment: Alignment.center,
+                              child: FaIcon(
+                                FontAwesomeIcons.envelope,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                            ),
+                            Spacer(),
+                            Text(
+                              'Made with love',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Container(
+                              width: 20,
+                            )
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white, width: 1),
-                  ),
-                  height: 50,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: 35,
-                        alignment: Alignment.center,
-                        child: FaIcon(
-                          FontAwesomeIcons.instagram,
-                          color: Colors.white,
-                          size: 25,
-                        ),
-                      ),
-                      Container(
-                        width: 35,
-                        alignment: Alignment.center,
-                        child: FaIcon(
-                          FontAwesomeIcons.linkedin,
-                          color: Colors.white,
-                          size: 25,
-                        ),
-                      ),
-                      Container(
-                        width: 35,
-                        alignment: Alignment.center,
-                        child: FaIcon(
-                          FontAwesomeIcons.envelope,
-                          color: Colors.white,
-                          size: 25,
-                        ),
-                      ),
-                      Spacer(),
-                      Text(
-                        'Made with love',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Container(
-                        width: 20,
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
+      ),
+    );
+  }
+
+  Container buildProjectCard(List<projects> proj, int i) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.white, width: 1),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            proj[i].date.toString(),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          Image.network(
+            proj[i].imgsrc.toString(),
+            height: 200,
+            width: 200,
+          ),
+          Text(
+            proj[i].title.toString(),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 26,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            proj[i].summary.toString(),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          Container(
+            width: 200,
+            height: 50,
+            color: Colors.white,
+          ),
+          Container(),
+        ],
       ),
     );
   }
