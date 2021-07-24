@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfoliom/project.dart';
 
+import '../CustomBuilder.dart';
 import '../NavBar.dart';
+import '../project.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: Container(
           padding: (MediaQuery.of(context).size.width > 700)
-              ? EdgeInsets.symmetric(vertical: 20, horizontal: 40)
+              ? EdgeInsets.only(top: 20, left: 40, right: 40)
               : EdgeInsets.zero,
           child: Column(
             children: [
@@ -207,52 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1),
-                        ),
-                        height: 50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              width: 35,
-                              alignment: Alignment.center,
-                              child: FaIcon(
-                                FontAwesomeIcons.instagram,
-                                color: Colors.white,
-                                size: 25,
-                              ),
-                            ),
-                            Container(
-                              width: 35,
-                              alignment: Alignment.center,
-                              child: FaIcon(
-                                FontAwesomeIcons.linkedin,
-                                color: Colors.white,
-                                size: 25,
-                              ),
-                            ),
-                            Container(
-                              width: 35,
-                              alignment: Alignment.center,
-                              child: FaIcon(
-                                FontAwesomeIcons.envelope,
-                                color: Colors.white,
-                                size: 25,
-                              ),
-                            ),
-                            Spacer(),
-                            Text(
-                              'Made with love',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            Container(
-                              width: 20,
-                            )
-                          ],
-                        ),
-                      ),
+                      CustomBuilder.buildContactFooter(),
                     ],
                   ),
                 ),
