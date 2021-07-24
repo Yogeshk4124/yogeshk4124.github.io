@@ -19,9 +19,10 @@ class _NavBarState extends State<NavBar> {
     InkWell buildInkWell(String text, int index) {
       return InkWell(
         onTap: () {
+          Navigator.pushReplacementNamed(context, '/Skills');
           // Navigator.pushNamed(context, '/Skills');
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (pageContext) => navLinks[index]));
+          // Navigator.of(context).push(
+          //     MaterialPageRoute(builder: (pageContext) => navLinks[index]));
         },
         onHover: (isInside) {
           print(isInside);
@@ -86,10 +87,10 @@ class _NavBarState extends State<NavBar> {
                     child: buildInkWell('Skills', 0),
                   ),
                   Expanded(
-                    child: buildInkWell('Resume', 1),
+                    child: buildInkWell('Project', 1),
                   ),
                   Expanded(
-                    child: buildInkWell('Contact Me', 2),
+                    child: buildInkWell('Resume', 2),
                   ),
                 ],
               ),
