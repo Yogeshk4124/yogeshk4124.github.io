@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Pages/Skills.dart';
+
 class NavBar extends StatefulWidget {
+  // BuildContext pageContext;
+  // NavBar({required this.pageContext});
   @override
   _NavBarState createState() => _NavBarState();
 }
@@ -9,8 +13,49 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   List<Color> navItemBgColor = [Colors.black87, Colors.black87, Colors.black87],
       navItemTextColor = [Colors.white, Colors.white, Colors.white];
+  List navLinks = [Skills(), Skills(), Skills()];
   @override
   Widget build(BuildContext context) {
+    InkWell buildInkWell(String text, int index) {
+      return InkWell(
+        onTap: () {
+          // Navigator.pushNamed(context, '/Skills');
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (pageContext) => navLinks[index]));
+        },
+        onHover: (isInside) {
+          print(isInside);
+          setState(() {
+            if (isInside) {
+              navItemBgColor[index] = Colors.white;
+              navItemTextColor[index] = Colors.black87;
+            } else {
+              navItemBgColor[index] = Colors.black87;
+              navItemTextColor[index] = Colors.white;
+            }
+          });
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: navItemBgColor[index],
+            border: Border(
+              left: BorderSide(width: 1.0, color: Colors.white),
+              right: BorderSide(width: 1.0, color: Colors.white),
+            ),
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: navItemTextColor[index],
+              fontSize: 18,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
+    }
+
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white, width: 1),
@@ -47,13 +92,11 @@ class _NavBarState extends State<NavBar> {
                     child: buildInkWell('Contact Me', 2),
                   ),
                 ],
-                // VerticalDivider(
-                //   color: Colors.white,
-                // ),
               ),
             )
           else
             GestureDetector(
+              onTap: () {},
               child: Container(
                 width: 40,
                 decoration: BoxDecoration(
@@ -72,52 +115,5 @@ class _NavBarState extends State<NavBar> {
         ],
       ),
     );
-  }
-
-  InkWell buildInkWell(String text, int index) {
-    return InkWell(
-      onTap: () {},
-      onHover: (isInside) {
-        print(isInside);
-        setState(() {
-          if (isInside) {
-            navItemBgColor[index] = Colors.white;
-            navItemTextColor[index] = Colors.black87;
-          } else {
-            navItemBgColor[index] = Colors.black87;
-            navItemTextColor[index] = Colors.white;
-          }
-        });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: navItemBgColor[index],
-          border: Border(
-            left: BorderSide(width: 1.0, color: Colors.white),
-            right: BorderSide(width: 1.0, color: Colors.white),
-          ),
-        ),
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: navItemTextColor[index],
-            fontSize: 18,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-  }
-
-  onSelected(BuildContext context, int item) {
-    switch (item) {
-      case 0:
-        break;
-      case 1:
-        break;
-      case 2:
-        break;
-    }
   }
 }
