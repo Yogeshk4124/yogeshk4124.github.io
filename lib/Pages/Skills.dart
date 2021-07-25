@@ -21,7 +21,7 @@ class _SkillsState extends State<Skills> {
       body: SafeArea(
         child: Container(
           padding: (MediaQuery.of(context).size.width > 700)
-              ? EdgeInsets.only(top: 20, left: 40, right: 40)
+              ? EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 10)
               : EdgeInsets.zero,
           child: Column(
             children: [

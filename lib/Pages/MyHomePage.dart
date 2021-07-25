@@ -20,7 +20,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     List<projects> proj = [];
     proj.add(projects(
-      date: DateTime.now(),
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
       summary:
@@ -28,7 +27,6 @@ class _MyHomePageState extends State<MyHomePage> {
       title: 'Card-Space',
     ));
     proj.add(projects(
-      date: DateTime.now(),
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
       summary:
@@ -36,7 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
       title: 'Card-Space',
     ));
     proj.add(projects(
-      date: DateTime.now(),
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
       summary:
@@ -44,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
       title: 'Card-Space',
     ));
     proj.add(projects(
-      date: DateTime.now(),
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
       summary:
@@ -56,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: Container(
           padding: (MediaQuery.of(context).size.width > 700)
-              ? EdgeInsets.only(top: 20, left: 40, right: 40)
+              ? EdgeInsets.only(top: 20, left: 40, bottom: 10, right: 40)
               : EdgeInsets.zero,
           child: Column(
             children: [
@@ -229,10 +225,10 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            proj[i].date.toString(),
+            proj[i].title.toString(),
             style: TextStyle(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: 26,
             ),
             textAlign: TextAlign.center,
           ),
@@ -240,14 +236,6 @@ class _MyHomePageState extends State<MyHomePage> {
             proj[i].imgsrc.toString(),
             height: 200,
             width: 200,
-          ),
-          Text(
-            proj[i].title.toString(),
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 26,
-            ),
-            textAlign: TextAlign.center,
           ),
           Text(
             proj[i].summary.toString(),
