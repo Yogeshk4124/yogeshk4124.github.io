@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import './Skills.dart';
 import '../CustomBuilder.dart';
 import '../NavBar.dart';
 import '../project.dart';
@@ -51,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       title: 'Card-Space',
     ));
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: black,
       body: SafeArea(
         child: Container(
           padding: (MediaQuery.of(context).size.width > 700)

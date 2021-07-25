@@ -18,7 +18,10 @@ class _NavBarState extends State<NavBar> {
     InkWell buildInkWell(String text, int index) {
       return InkWell(
         onTap: () {
-          Navigator.pushReplacementNamed(context, navLinks[index]);
+          Navigator.pushReplacementNamed(
+            context,
+            navLinks[index],
+          );
           // Navigator.pushNamed(context, '/Skills');
           // Navigator.of(context).push(
           //     MaterialPageRoute(builder: (pageContext) => navLinks[index]));
@@ -59,6 +62,7 @@ class _NavBarState extends State<NavBar> {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white, width: 1),
+        color: black,
       ),
       height: 50,
       child: Row(

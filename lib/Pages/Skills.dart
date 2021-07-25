@@ -95,8 +95,9 @@ class _SkillsState extends State<Skills> {
           FAProgressBar(
             currentValue: percent,
             displayText: '%',
-            backgroundColor: Colors.black87,
-            progressColor: Colors.yellow,
+            backgroundColor: black,
+            // progressColor: Color(0xffbb86fc),
+            progressColor: Colors.grey,
             displayTextStyle: TextStyle(color: Colors.black),
             border: Border(
               right: BorderSide(color: Colors.white),
