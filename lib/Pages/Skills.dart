@@ -4,6 +4,8 @@ import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.da
 import 'package:portfoliom/CustomBuilder.dart';
 import 'package:portfoliom/NavBar.dart';
 
+Color black = Color(0xff121212);
+
 class Skills extends StatefulWidget {
   // const Skills({Key key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class _SkillsState extends State<Skills> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: black,
       body: SafeArea(
         child: Container(
           padding: (MediaQuery.of(context).size.width > 700)
@@ -29,6 +31,20 @@ class _SkillsState extends State<Skills> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
+                      Container(
+                        height: 200,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 1),
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          'On a long journey, Need to learn a lot of new things.',
+                          style: TextStyle(
+                            fontSize: 34,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                       Container(
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.white, width: 1),
@@ -63,19 +79,24 @@ class _SkillsState extends State<Skills> {
   Container buildSkillBar(String text, int percent) {
     return Container(
       margin: EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.1),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             text,
-            style: TextStyle(color: Colors.white, fontSize: 15),
-            textAlign: TextAlign.left,
+            style: TextStyle(color: Colors.white, fontSize: 18),
+            // textAlign: TextAlign.left,
+          ),
+          SizedBox(
+            height: 10,
           ),
           FAProgressBar(
             currentValue: percent,
             displayText: '%',
             backgroundColor: Colors.black87,
-            progressColor: Colors.white,
+            progressColor: Colors.yellow,
             displayTextStyle: TextStyle(color: Colors.black),
             border: Border(
               right: BorderSide(color: Colors.white),

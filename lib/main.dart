@@ -4,6 +4,7 @@ import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 
 import 'Pages/MyHomePage.dart';
+import 'Pages/Projects.dart';
 import 'Pages/Skills.dart';
 
 void main() {
@@ -44,6 +45,8 @@ class MyApp extends StatelessWidget {
                     return MyHomePage(title: 'dsds');
                   case '/Skills':
                     return Skills();
+                  case '/Projects':
+                    return Projects();
                   default:
                     return Skills();
                 }

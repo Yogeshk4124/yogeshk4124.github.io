@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'Pages/Skills.dart';
+import 'package:portfoliom/Pages/Skills.dart';
 
 class NavBar extends StatefulWidget {
   // BuildContext pageContext;
@@ -11,15 +10,15 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  List<Color> navItemBgColor = [Colors.black87, Colors.black87, Colors.black87],
+  List<Color> navItemBgColor = [black, black, black],
       navItemTextColor = [Colors.white, Colors.white, Colors.white];
-  List navLinks = [Skills(), Skills(), Skills()];
+  List navLinks = ['/Skills', '/Projects', '/Projects'];
   @override
   Widget build(BuildContext context) {
     InkWell buildInkWell(String text, int index) {
       return InkWell(
         onTap: () {
-          Navigator.pushReplacementNamed(context, '/Skills');
+          Navigator.pushReplacementNamed(context, navLinks[index]);
           // Navigator.pushNamed(context, '/Skills');
           // Navigator.of(context).push(
           //     MaterialPageRoute(builder: (pageContext) => navLinks[index]));
@@ -29,9 +28,9 @@ class _NavBarState extends State<NavBar> {
           setState(() {
             if (isInside) {
               navItemBgColor[index] = Colors.white;
-              navItemTextColor[index] = Colors.black87;
+              navItemTextColor[index] = black;
             } else {
-              navItemBgColor[index] = Colors.black87;
+              navItemBgColor[index] = black;
               navItemTextColor[index] = Colors.white;
             }
           });
@@ -66,13 +65,19 @@ class _NavBarState extends State<NavBar> {
         children: [
           Expanded(
             flex: 3,
-            child: Container(
-              padding: EdgeInsets.only(left: 20),
-              child: Text(
-                'Yogesh',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+              onHover: (val) {},
+              child: Container(
+                padding: EdgeInsets.only(left: 20),
+                child: Text(
+                  'Yogesh',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
