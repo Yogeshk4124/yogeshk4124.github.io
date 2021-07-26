@@ -75,14 +75,11 @@ class _ProjectsState extends State<Projects> {
                       ),
                       for (int i = 0; i < proj.length; i++)
                         Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                          ),
-                          padding: EdgeInsets.only(left: 20),
-                          child: (i % 2 == 0)
-                              ? buildProjectRowLeft(proj[i], i)
-                              : buildProjectRowRight(proj[i], i),
-                        ),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white),
+                            ),
+                            padding: EdgeInsets.only(left: 20),
+                            child: buildProjectRow(proj[i], i)),
                       CustomBuilder.buildContactFooter(),
                     ],
                   ),
@@ -95,34 +92,252 @@ class _ProjectsState extends State<Projects> {
     );
   }
 
-  Row buildProjectRowRight(projects proj, int i) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          flex: 2,
-          child: Container(
-            height: 600,
-            padding: EdgeInsets.all(50),
+  Widget buildProjectRow(projects proj, int i) {
+    List<Widget> r = [
+      Expanded(
+        flex: 2,
+        child: Container(
+          height: 600,
+          padding: EdgeInsets.all(50),
+          child: Image.network(
+            proj.imgsrc.toString(),
+            width: 200,
+          ),
+        ),
+      ),
+      Expanded(
+        flex: 4,
+        child: Container(
+          height: 600,
+          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 50),
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 30),
+                child: Text(
+                  proj.title.toString(),
+                  style: TextStyle(color: Colors.white, fontSize: 40),
+                ),
+              ),
+              Container(
+                child: Text(
+                  proj.title.toString(),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 30),
+                child: Text(
+                  proj.summary.toString(),
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Languages Used:',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Text(
+                      'Flutter',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(top: 30),
+                    child: InkWell(
+                      onTap: () {},
+                      onHover: (val) {
+                        setState(() {
+                          if (val) {
+                            buttonBG[i] = Colors.white;
+                            buttonFG[i] = Colors.black87;
+                            buttonShadow[i] = Colors.black87;
+                          } else {
+                            buttonBG[i] = black;
+                            buttonFG[i] = Colors.white;
+                            buttonShadow[i] = Colors.white;
+                          }
+                        });
+                      },
+                      child: Container(
+                        width: 150,
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: buttonBG[i],
+                          border: Border.all(color: Colors.white),
+                          boxShadow: [
+                            BoxShadow(
+                              color: buttonShadow[i],
+                              offset: const Offset(
+                                5.0,
+                                4.0,
+                              ),
+                              spreadRadius: 2.0,
+                            ), //BoxShadow
+                            BoxShadow(
+                              color: buttonShadow[i],
+                              offset: const Offset(0.0, 0.0),
+                              spreadRadius: 0.0,
+                            ), //BoxShadow
+                          ],
+                        ),
+                        child: Text(
+                          'View More',
+                          style: TextStyle(color: buttonFG[i], fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 30),
+                    child: InkWell(
+                      onTap: () {},
+                      onHover: (val) {
+                        setState(() {
+                          if (val) {
+                            buttonBG1[i] = Colors.white;
+                            buttonFG1[i] = Colors.black87;
+                            buttonShadow1[i] = Colors.black87;
+                          } else {
+                            buttonBG1[i] = black;
+                            buttonFG1[i] = Colors.white;
+                            buttonShadow1[i] = Colors.white;
+                          }
+                        });
+                      },
+                      child: Container(
+                        width: 150,
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: buttonBG1[i],
+                          border: Border.all(color: Colors.white),
+                          boxShadow: [
+                            BoxShadow(
+                              color: buttonShadow1[i],
+                              offset: const Offset(
+                                5.0,
+                                4.0,
+                              ),
+                              spreadRadius: 2.0,
+                            ), //BoxShadow
+                            BoxShadow(
+                              color: buttonShadow1[i],
+                              offset: const Offset(0.0, 0.0),
+                              spreadRadius: 0.0,
+                            ), //BoxShadow
+                          ],
+                        ),
+                        child: Text(
+                          'Download APK',
+                          style: TextStyle(color: buttonFG1[i], fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 30),
+                    child: InkWell(
+                      onTap: () {},
+                      onHover: (val) {
+                        setState(() {
+                          if (val) {
+                            buttonBG2[i] = Colors.white;
+                            buttonFG2[i] = Colors.black87;
+                            buttonShadow2[i] = Colors.black87;
+                          } else {
+                            buttonBG2[i] = black;
+                            buttonFG2[i] = Colors.white;
+                            buttonShadow2[i] = Colors.white;
+                          }
+                        });
+                      },
+                      child: Container(
+                        width: 150,
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: buttonBG2[i],
+                          border: Border.all(color: Colors.white),
+                          boxShadow: [
+                            BoxShadow(
+                              color: buttonShadow2[i],
+                              offset: const Offset(
+                                5.0,
+                                4.0,
+                              ),
+                              spreadRadius: 2.0,
+                            ), //BoxShadow
+                            BoxShadow(
+                              color: buttonShadow2[i],
+                              offset: const Offset(0.0, 0.0),
+                              spreadRadius: 0.0,
+                            ), //BoxShadow
+                          ],
+                        ),
+                        child: Text(
+                          'Download Code',
+                          style: TextStyle(color: buttonFG2[i], fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    ];
+
+    if (MediaQuery.of(context).size.width > 900)
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: i % 2 == 0 ? r.reversed.toList() : r,
+      );
+    else
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 350,
+            padding: EdgeInsets.symmetric(vertical: 10),
             decoration: BoxDecoration(
               border: Border(
-                right: BorderSide(color: Colors.white),
+                right: MediaQuery.of(context).size.width > 900
+                    ? BorderSide(color: Colors.white)
+                    : BorderSide.none,
               ),
             ),
+            alignment: Alignment.center,
             child: Image.network(
               proj.imgsrc.toString(),
               width: 200,
             ),
           ),
-        ),
-        Expanded(
-          flex: 4,
-          child: Container(
-            height: 600,
-            padding: EdgeInsets.symmetric(horizontal: 20),
+          Container(
+            // height: 450,
+            padding: EdgeInsets.only(left: 40, right: 40, bottom: 30),
             alignment: Alignment.center,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
               // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
@@ -133,14 +348,43 @@ class _ProjectsState extends State<Projects> {
                   ),
                 ),
                 Container(
+                  child: Text(
+                    proj.title.toString(),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+                Container(
                   padding: EdgeInsets.only(top: 30),
                   child: Text(
                     proj.summary.toString(),
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                Container(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Languages Used:',
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(8),
+                        margin: EdgeInsets.symmetric(horizontal: 30),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
+                        child: Text(
+                          'Flutter',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Wrap(
+                  spacing: 10,
                   children: [
                     Container(
                       padding: EdgeInsets.only(top: 30),
@@ -287,198 +531,8 @@ class _ProjectsState extends State<Projects> {
                 ),
               ],
             ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Row buildProjectRowLeft(projects proj, int i) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 4,
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  proj.title.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 24),
-                ),
-                Text(
-                  proj.summary.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 30),
-                      child: InkWell(
-                        onTap: () {},
-                        onHover: (val) {
-                          setState(() {
-                            if (val) {
-                              buttonBG[i] = Colors.white;
-                              buttonFG[i] = Colors.black87;
-                              buttonShadow[i] = Colors.black87;
-                            } else {
-                              buttonBG[i] = black;
-                              buttonFG[i] = Colors.white;
-                              buttonShadow[i] = Colors.white;
-                            }
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: buttonBG[i],
-                            border: Border.all(color: Colors.white),
-                            boxShadow: [
-                              BoxShadow(
-                                color: buttonShadow[i],
-                                offset: const Offset(
-                                  5.0,
-                                  4.0,
-                                ),
-                                spreadRadius: 2.0,
-                              ), //BoxShadow
-                              BoxShadow(
-                                color: buttonShadow[i],
-                                offset: const Offset(0.0, 0.0),
-                                spreadRadius: 0.0,
-                              ), //BoxShadow
-                            ],
-                          ),
-                          child: Text(
-                            'View More',
-                            style: TextStyle(color: buttonFG[i], fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 30),
-                      child: InkWell(
-                        onTap: () {},
-                        onHover: (val) {
-                          setState(() {
-                            if (val) {
-                              buttonBG1[i] = Colors.white;
-                              buttonFG1[i] = Colors.black87;
-                              buttonShadow1[i] = Colors.black87;
-                            } else {
-                              buttonBG1[i] = black;
-                              buttonFG1[i] = Colors.white;
-                              buttonShadow1[i] = Colors.white;
-                            }
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: buttonBG1[i],
-                            border: Border.all(color: Colors.white),
-                            boxShadow: [
-                              BoxShadow(
-                                color: buttonShadow1[i],
-                                offset: const Offset(
-                                  5.0,
-                                  4.0,
-                                ),
-                                spreadRadius: 2.0,
-                              ), //BoxShadow
-                              BoxShadow(
-                                color: buttonShadow1[i],
-                                offset: const Offset(0.0, 0.0),
-                                spreadRadius: 0.0,
-                              ), //BoxShadow
-                            ],
-                          ),
-                          child: Text(
-                            'Download APK',
-                            style: TextStyle(color: buttonFG1[i], fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 30),
-                      child: InkWell(
-                        onTap: () {},
-                        onHover: (val) {
-                          setState(() {
-                            if (val) {
-                              buttonBG2[i] = Colors.white;
-                              buttonFG2[i] = Colors.black87;
-                              buttonShadow2[i] = Colors.black87;
-                            } else {
-                              buttonBG2[i] = black;
-                              buttonFG2[i] = Colors.white;
-                              buttonShadow2[i] = Colors.white;
-                            }
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: buttonBG2[i],
-                            border: Border.all(color: Colors.white),
-                            boxShadow: [
-                              BoxShadow(
-                                color: buttonShadow2[i],
-                                offset: const Offset(
-                                  5.0,
-                                  4.0,
-                                ),
-                                spreadRadius: 2.0,
-                              ), //BoxShadow
-                              BoxShadow(
-                                color: buttonShadow2[i],
-                                offset: const Offset(0.0, 0.0),
-                                spreadRadius: 0.0,
-                              ), //BoxShadow
-                            ],
-                          ),
-                          child: Text(
-                            'Download Code',
-                            style: TextStyle(color: buttonFG2[i], fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 2,
-          child: Container(
-            padding: EdgeInsets.all(50),
-            decoration: BoxDecoration(
-              border: Border(
-                left: BorderSide(color: Colors.white),
-              ),
-            ),
-            child: Image.network(
-              proj.imgsrc.toString(),
-              width: 250,
-              height: 600,
-            ),
-          ),
-        ),
-      ],
-    );
+          )
+        ],
+      );
   }
 }
