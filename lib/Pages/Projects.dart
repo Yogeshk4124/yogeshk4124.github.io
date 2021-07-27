@@ -384,7 +384,8 @@ class _ProjectsState extends State<Projects> {
                   ),
                 ),
                 Wrap(
-                  spacing: 10,
+                  spacing: 20,
+                  alignment: WrapAlignment.center,
                   children: [
                     Container(
                       padding: EdgeInsets.only(top: 30),
