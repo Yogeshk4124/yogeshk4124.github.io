@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import './Skills.dart';
 import '../CustomBuilder.dart';
@@ -19,6 +20,36 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     List<projects> proj = [];
+    List<Widget> icons = [
+      Icon(
+        Icons.android,
+        color: Colors.white,
+        size: 50,
+      ),
+      Icon(
+        Icons.language,
+        color: Colors.white,
+        size: 50,
+      ),
+      Icon(
+        Icons.android,
+        color: Colors.white,
+        size: 50,
+      ),
+      Icon(
+        Icons.filter_b_and_w,
+        color: Colors.white,
+        size: 50,
+      ),
+      Text(
+        'UI/UX',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 32,
+        ),
+      )
+    ];
+    List<String> title = ['Android', 'Web', '', 'UI/UX'];
     proj.add(projects(
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
@@ -98,6 +129,106 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                       ),
+                      // Container(
+                      //   alignment: Alignment.center,
+                      //   decoration: BoxDecoration(
+                      //     border: Border(
+                      //       left: BorderSide(
+                      //         color: Colors.white,
+                      //         width: 2,
+                      //       ),
+                      //       right: BorderSide(
+                      //         color: Colors.white,
+                      //         width: 2,
+                      //       ),
+                      //     ),
+                      //   ),
+                      //   padding: EdgeInsets.symmetric(vertical: 40),
+                      //   // height: 200,
+                      //   child: Wrap(
+                      //     alignment: WrapAlignment.center,
+                      //     spacing: 80,
+                      //     runSpacing: 30,
+                      //     crossAxisAlignment: WrapCrossAlignment.center,
+                      //     direction: Axis.horizontal,
+                      //     children: [
+                      //       for (int i = 0; i < 4; i++)
+                      //         Container(
+                      //           child: Column(
+                      //             mainAxisAlignment: MainAxisAlignment.center,
+                      //             children: [
+                      //               CircleAvatar(
+                      //                 radius: 50,
+                      //                 backgroundColor: Colors.redAccent,
+                      //                 child: icons[i],
+                      //               ),
+                      //               SizedBox(
+                      //                 height: 10,
+                      //               ),
+                      //               Text(
+                      //                 title[i],
+                      //                 style: TextStyle(
+                      //                     color: Colors.white, fontSize: 20),
+                      //               ),
+                      //             ],
+                      //           ),
+                      //         ),
+                      //     ],
+                      //   ),
+                      // ),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border(
+                            left: BorderSide(
+                              color: Colors.white,
+                              width: 2,
+                            ),
+                            right: BorderSide(
+                              color: Colors.white,
+                              width: 2,
+                            ),
+                          ),
+                        ),
+                        child: GridView.builder(
+                            primary: false,
+                            scrollDirection: Axis.vertical,
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount:
+                                  (MediaQuery.of(context).size.width > 560)
+                                      ? 4
+                                      : 2,
+                              // childAspectRatio: 4,
+                              mainAxisExtent:
+                                  150, // <== change the height to fit your needs
+                            ),
+                            itemCount: 4,
+                            itemBuilder: (context, i) {
+                              return Container(
+                                width: 100,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    CircleAvatar(
+                                      radius: 40,
+                                      backgroundColor: Colors.redAccent,
+                                      child: icons[i],
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      title[i],
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 20),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }),
+                      ),
                       Container(
                         child: GridView.builder(
                             primary: false,
@@ -124,23 +255,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             itemBuilder: (context, i) {
                               return buildProjectCard(proj, i);
                             }),
-                      ),
-                      Visibility(
-                        visible: (MediaQuery.of(context).size.width > 960),
-                        child: Container(
-                          height: 650,
-                          child: GridView.builder(
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 4,
-                                mainAxisExtent:
-                                    650, // <== change the height to fit your needs
-                              ),
-                              itemCount: proj.length,
-                              itemBuilder: (context, i) {
-                                return buildProjectCard(proj, i);
-                              }),
-                        ),
                       ),
                       Container(
                         child: Row(
