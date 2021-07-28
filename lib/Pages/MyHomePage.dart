@@ -202,7 +202,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       : 2,
                               // childAspectRatio: 4,
                               mainAxisExtent:
-                                  150, // <== change the height to fit your needs
+                                  200, // <== change the height to fit your needs
                             ),
                             itemCount: 4,
                             itemBuilder: (context, i) {
@@ -257,7 +257,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             }),
                       ),
                       Container(
+                        height: 450,
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Column(
                               children: [
@@ -307,12 +309,15 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Expanded(
                               child: Container(
-                                height: 450,
+                                // height: 450,
                                 decoration: BoxDecoration(
                                   border:
                                       Border.all(color: Colors.white, width: 1),
                                 ),
-                                child: Image.asset('flutter.jpg'),
+                                child: Image.asset(
+                                  'flutter.jpg',
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
                           ],
