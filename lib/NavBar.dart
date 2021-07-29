@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:graphx/graphx.dart';
 import 'package:portfoliom/Pages/Skills.dart';
-
-import 'LinedButtonScreen.dart';
 
 class NavBar extends StatefulWidget {
   // BuildContext pageContext;
@@ -12,7 +9,7 @@ class NavBar extends StatefulWidget {
   _NavBarState createState() => _NavBarState();
 }
 
-class _NavBarState extends State<NavBar> {
+class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   List<Color> navItemBgColor = [black, black, black],
       navItemTextColor = [Colors.white, Colors.white, Colors.white];
   List navLinks = ['/Skills', '/Projects', '/Projects'];
@@ -20,6 +17,16 @@ class _NavBarState extends State<NavBar> {
   double height = 0;
   double height1 = 0;
   double height2 = 0;
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 10),
+    vsync: this,
+  )..repeat();
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     InkWell buildInkWell(String text, int index) {
@@ -102,10 +109,6 @@ class _NavBarState extends State<NavBar> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        SceneBuilderWidget(
-                          builder: () =>
-                              SceneController(front: LinedButtonScene()),
-                        ),
                         Expanded(
                           child: buildInkWell('Skills', 0),
                         ),
