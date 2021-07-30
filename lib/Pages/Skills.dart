@@ -4,6 +4,8 @@ import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.da
 import 'package:portfoliom/CustomBuilder.dart';
 import 'package:portfoliom/NavBar.dart';
 
+import '../BarChart.dart';
+
 Color black = Color(0xff121212);
 
 class Skills extends StatefulWidget {
@@ -20,9 +22,12 @@ class _SkillsState extends State<Skills> {
       backgroundColor: black,
       body: SafeArea(
         child: Container(
-          padding: (MediaQuery.of(context).size.width > 700)
+          margin: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 10)
               : EdgeInsets.zero,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.white, width: 1),
+          ),
           child: Column(
             children: [
               NavBar(),
@@ -45,25 +50,27 @@ class _SkillsState extends State<Skills> {
                           ),
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1),
-                        ),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            buildSkillBar('Flutter', 80),
-                            buildSkillBar('C++', 80),
-                            buildSkillBar('Python', 70),
-                            buildSkillBar('Java', 70),
-                            buildSkillBar('Html', 80),
-                            buildSkillBar('CSS', 70),
-                            buildSkillBar('JavaScript', 60),
-                          ],
-                        ),
-                      ),
+                      BarChartSample1(chartWidth: 500, chartHeight: 400),
+
+                      // Container(
+                      //   decoration: BoxDecoration(
+                      //     border: Border.all(color: Colors.white, width: 1),
+                      //   ),
+                      //   padding:
+                      //       EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+                      //   child: Column(
+                      //     mainAxisSize: MainAxisSize.min,
+                      //     children: [
+                      //       buildSkillBar('Flutter', 80),
+                      //       buildSkillBar('C++', 80),
+                      //       buildSkillBar('Python', 70),
+                      //       buildSkillBar('Java', 70),
+                      //       buildSkillBar('Html', 80),
+                      //       buildSkillBar('CSS', 70),
+                      //       buildSkillBar('JavaScript', 60),
+                      //     ],
+                      //   ),
+                      // ),
                       CustomBuilder.buildContactFooter(),
                     ],
                   ),
