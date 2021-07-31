@@ -183,14 +183,12 @@ class CustomBuilder {
 
   static AnimatedList buildCpp() {
     Cpp cpp = new Cpp();
-    print(cpp.title.length + 1);
     return AnimatedList(
       initialItemCount: cpp.title.length + 1,
       itemBuilder: (context, i, anim) {
-        if (i > 1) return Container();
+        if (i > cpp.title.length) return Container();
         if (i == 0)
           return Card(
-            // color: Colors.accents.elementAt(Random().nextInt(16)),
             color: myColor[colorgenerator()],
             child: Text(
               'C++',
@@ -250,14 +248,80 @@ class CustomBuilder {
     );
   }
 
+  static AnimatedList buildJavaScript() {
+    JavaScript javaScript = new JavaScript();
+    return AnimatedList(
+      initialItemCount: javaScript.title.length + 1,
+      itemBuilder: (context, i, anim) {
+        if (i == 0)
+          return Card(
+            color: myColor[colorgenerator()],
+            child: Text(
+              'JavaScript',
+              style: TextStyle(fontSize: 26, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          );
+        return Card(
+          color: Color(0xff505050),
+          child: Container(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  javaScript.title[i - 1],
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  javaScript.subheading[i - 1],
+                  style: TextStyle(
+                    color: Colors.grey.shade400,
+                    fontSize: 12,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    javaScript.body[i - 1],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  margin: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    border: Border.all(color: Colors.white, width: 2),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    javaScript.buttonText[i - 1],
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   static AnimatedList ListbuildHandler(String skill) {
     switch (skill) {
       case 'HTML':
         return buildHtml();
       case 'C++':
         return buildCpp();
-      case 'HTML':
-        return buildHtml();
+      case 'JavaScript':
+        return buildJavaScript();
       case 'HTML':
         return buildHtml();
       case 'HTML':
@@ -292,7 +356,9 @@ class Html {
 }
 
 class Cpp {
-  List<String> title = ['Algorithmic Toolbox'];
+  List<String> title = [
+    'Algorithmic Toolbox',
+  ];
   List<String> subheading = [
     'By Coursera',
   ];
@@ -305,8 +371,22 @@ class Cpp {
 }
 
 class JavaScript {
-  List<String> title = ['html', 'html', 'html', 'html', 'html'];
-  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+  List<String> title = [
+    'HTML, CSS and JavaScript for Web Developer',
+    'Programmer Clock',
+  ];
+  List<String> subheading = [
+    'By Coursera',
+    'Project',
+  ];
+  List<String> body = [
+    'Offered by Johns Hopkins University. A introductory course for web development.',
+    'Programmer Clock is a clock with weather forecast.',
+  ];
+  List<String> buttonText = [
+    'View Certificate',
+    'View Website',
+  ];
 }
 
 class Python {
@@ -325,6 +405,6 @@ class Css {
 }
 
 class Java {
-  List<String> title = ['html', 'html', 'html', 'html', 'html'];
-  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+  List<String> title = ['html'];
+  List<String> subheading = ['html'];
 }

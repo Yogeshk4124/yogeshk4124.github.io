@@ -149,7 +149,7 @@ class BarChartSample1State extends State<BarChartSample1> {
       x: x,
       barRods: [
         BarChartRodData(
-          y: isTouched ? y + 1 : y,
+          y: isTouched ? y : y,
           colors: isTouched ? [Colors.yellow] : [barColor],
           width: width,
           backDrawRodData: BackgroundBarChartRodData(
@@ -176,9 +176,9 @@ class BarChartSample1State extends State<BarChartSample1> {
           case 4:
             return makeGroupData(4, 75, isTouched: i == touchedIndex);
           case 5:
-            return makeGroupData(5, 75, isTouched: i == touchedIndex);
+            return makeGroupData(5, 60, isTouched: i == touchedIndex);
           case 6:
-            return makeGroupData(6, 60, isTouched: i == touchedIndex);
+            return makeGroupData(6, 75, isTouched: i == touchedIndex);
           default:
             return throw Error();
         }
@@ -207,10 +207,10 @@ class BarChartSample1State extends State<BarChartSample1> {
                   skill = 'HTML';
                   break;
                 case 5:
-                  skill = 'CSS';
+                  skill = 'JavaScript';
                   break;
                 case 6:
-                  skill = 'JavaScript';
+                  skill = 'CSS';
                   break;
                 default:
                   throw Error();
@@ -224,7 +224,7 @@ class BarChartSample1State extends State<BarChartSample1> {
                 ),
                 children: <TextSpan>[
                   TextSpan(
-                    text: (rod.y - 1).toString(),
+                    text: (rod.y).toString(),
                     style: TextStyle(
                       color: Colors.yellow,
                       fontSize: 16,
@@ -278,9 +278,9 @@ class BarChartSample1State extends State<BarChartSample1> {
               case 4:
                 return 'HTML';
               case 5:
-                return 'CSS';
-              case 6:
                 return 'JavaScript';
+              case 6:
+                return 'CSS';
               default:
                 return '';
             }
