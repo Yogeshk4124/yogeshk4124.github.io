@@ -447,7 +447,73 @@ class CustomBuilder {
     );
   }
 
-  static AnimatedList ListbuildHandler(String skill) {
+  static ListView buildFlutter() {
+    Flutter flutter = new Flutter();
+
+    return ListView.builder(
+      itemCount: flutter.title.length + 1,
+      // initialItemCount: flutter.title.length,
+      itemBuilder: (context, i) {
+        if (i == 0)
+          return Card(
+            color: myColor[colorgenerator()],
+            child: Text(
+              'Flutter',
+              style: TextStyle(fontSize: 20, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          );
+        return Card(
+          color: Color(0xff505050),
+          child: Container(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  flutter.title[i - 1],
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+                Text(
+                  flutter.subheading[i - 1],
+                  style: TextStyle(
+                    color: Colors.grey.shade400,
+                    fontSize: 12,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    flutter.body[i - 1],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  margin: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    border: Border.all(color: Colors.white, width: 2),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    flutter.buttonText[i - 1],
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  static Widget ListbuildHandler(String skill) {
     switch (skill) {
       case 'HTML':
         return buildHtml();
@@ -460,7 +526,7 @@ class CustomBuilder {
       case 'Python':
         return buildPython();
       case 'Flutter':
-        return buildHtml();
+        return buildFlutter();
       case 'Java':
         return buildHtml();
       default:
@@ -538,8 +604,34 @@ class Python {
 }
 
 class Flutter {
-  List<String> title = ['html', 'html', 'html', 'html', 'html'];
-  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+  List<String> title = [
+    'Gmail Clone',
+    'Card Space',
+    'Sync Player',
+    'Calorie Meter',
+    'Weather App'
+  ];
+  List<String> subheading = [
+    'Fun Project',
+    'Project',
+    'Project',
+    'Learning Project',
+    'Learning Project'
+  ];
+  List<String> body = [
+    'Gmail App UI Clone in Flutter.',
+    'A simple app for managing our day-to-day life cards like bank cards, business cards, organization cards, etc.',
+    'Sync Player is an app that syncs any video or music with other members in a room.',
+    'Calorie Meter is an android app that helps the user to measure their daily BMI(Body Mass Index) and BMR (Basal Metabolic Rate) and let them achieve their goal.',
+    'A simple weather app.',
+  ];
+  List<String> buttonText = [
+    'View More',
+    'View More',
+    'View More',
+    'View More',
+    'View More',
+  ];
 }
 
 class Css {
