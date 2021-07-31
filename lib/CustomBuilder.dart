@@ -314,6 +314,72 @@ class CustomBuilder {
     );
   }
 
+  static AnimatedList buildCSS() {
+    Css css = new Css();
+    return AnimatedList(
+      initialItemCount: css.title.length + 1,
+      itemBuilder: (context, i, anim) {
+        if (i == 0)
+          return Card(
+            color: myColor[colorgenerator()],
+            child: Text(
+              'CSS',
+              style: TextStyle(fontSize: 26, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          );
+        return Card(
+          color: Color(0xff505050),
+          child: Container(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  css.title[i - 1],
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  css.subheading[i - 1],
+                  style: TextStyle(
+                    color: Colors.grey.shade400,
+                    fontSize: 12,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    css.body[i - 1],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  margin: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    border: Border.all(color: Colors.white, width: 2),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    css.buttonText[i - 1],
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   static AnimatedList ListbuildHandler(String skill) {
     switch (skill) {
       case 'HTML':
@@ -322,8 +388,8 @@ class CustomBuilder {
         return buildCpp();
       case 'JavaScript':
         return buildJavaScript();
-      case 'HTML':
-        return buildHtml();
+      case 'CSS':
+        return buildCSS();
       case 'HTML':
         return buildHtml();
       case 'HTML':
@@ -400,8 +466,22 @@ class Flutter {
 }
 
 class Css {
-  List<String> title = ['html', 'html', 'html', 'html', 'html'];
-  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+  List<String> title = [
+    'HTML, CSS and JavaScript for Web Developer',
+    'Programmer Clock',
+  ];
+  List<String> subheading = [
+    'By Coursera',
+    'Project',
+  ];
+  List<String> body = [
+    'Offered by Johns Hopkins University. A introductory course for web development.',
+    'Programmer Clock is a clock with weather forecast.',
+  ];
+  List<String> buttonText = [
+    'View Certificate',
+    'View Website',
+  ];
 }
 
 class Java {
