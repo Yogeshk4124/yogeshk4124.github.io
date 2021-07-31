@@ -1,9 +1,32 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliom/project.dart';
 
+List<Color> myColor = [
+  Colors.deepOrangeAccent,
+  Colors.orangeAccent,
+  Colors.pinkAccent,
+  Colors.redAccent,
+  Colors.blueAccent,
+  Colors.indigoAccent,
+  Colors.lightBlueAccent,
+  Colors.purpleAccent,
+];
+int headingColor = 0;
+
 class CustomBuilder {
+  static int colorgenerator() {
+    int x = 0;
+    while (x == headingColor) {
+      x = Random().nextInt(8);
+    }
+    headingColor = x;
+    return x;
+  }
+
   static Container buildContactFooter() {
     return Container(
       decoration: BoxDecoration(
@@ -89,28 +112,51 @@ class CustomBuilder {
   }
 
   static AnimatedList buildHtml() {
+    Html html = new Html();
     return AnimatedList(
-      initialItemCount: 4,
+      initialItemCount: html.title.length + 1,
       itemBuilder: (context, i, anim) {
         if (i == 0)
-          return Text(
-            'HTML',
-            style: TextStyle(color: Colors.white),
-            textAlign: TextAlign.center,
+          return Card(
+            // color: Colors.accents.elementAt(Random().nextInt(16)),
+            color: myColor[colorgenerator()],
+            child: Text(
+              'HTML',
+              style: TextStyle(fontSize: 26, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
           );
         return Card(
           color: Color(0xff505050),
           child: Container(
             padding: EdgeInsets.all(10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Algorithmic Toolbox',
-                  style: TextStyle(color: Colors.white),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  child: Text(
+                    html.title[i - 1],
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
                 ),
-                Text(
-                  'By Coursera',
-                  style: TextStyle(color: Colors.white),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  child: Text(
+                    html.subheading[i - 1],
+                    style: TextStyle(fontSize: 12, color: Colors.grey.shade400),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  // margin: EdgeInsets.all(2),
+                  child: Text(
+                    html.body[i - 1],
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
@@ -123,7 +169,7 @@ class CustomBuilder {
                     ),
                   ),
                   child: Text(
-                    'View Certificate',
+                    html.buttonText[i - 1],
                     style: TextStyle(color: Colors.black),
                   ),
                 ),
@@ -134,39 +180,151 @@ class CustomBuilder {
       },
     );
   }
+
+  static AnimatedList buildCpp() {
+    Cpp cpp = new Cpp();
+    print(cpp.title.length + 1);
+    return AnimatedList(
+      initialItemCount: cpp.title.length + 1,
+      itemBuilder: (context, i, anim) {
+        if (i > 1) return Container();
+        if (i == 0)
+          return Card(
+            // color: Colors.accents.elementAt(Random().nextInt(16)),
+            color: myColor[colorgenerator()],
+            child: Text(
+              'C++',
+              style: TextStyle(fontSize: 26, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          );
+        return Card(
+          color: Color(0xff505050),
+          child: Container(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  cpp.title[i - 1],
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  cpp.subheading[i - 1],
+                  style: TextStyle(
+                    color: Colors.grey.shade400,
+                    fontSize: 12,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    cpp.body[i - 1],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  margin: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    border: Border.all(color: Colors.white, width: 2),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    cpp.buttonText[i - 1],
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  static AnimatedList ListbuildHandler(String skill) {
+    switch (skill) {
+      case 'HTML':
+        return buildHtml();
+      case 'C++':
+        return buildCpp();
+      case 'HTML':
+        return buildHtml();
+      case 'HTML':
+        return buildHtml();
+      case 'HTML':
+        return buildHtml();
+      case 'HTML':
+        return buildHtml();
+      case 'HTML':
+        return buildHtml();
+      default:
+        return buildHtml();
+    }
+  }
 }
 
-class html {
+class Html {
+  List<String> title = [
+    'HTML, CSS and JavaScript for Web Developer',
+    'Programmer Clock',
+  ];
+  List<String> subheading = [
+    'By Coursera',
+    'Project',
+  ];
+  List<String> body = [
+    'Offered by Johns Hopkins University. A introductory course for web development.',
+    'Programmer Clock is a clock with weather forecast.',
+  ];
+  List<String> buttonText = [
+    'View Certificate',
+    'View Website',
+  ];
+}
+
+class Cpp {
+  List<String> title = ['Algorithmic Toolbox'];
+  List<String> subheading = [
+    'By Coursera',
+  ];
+  List<String> body = [
+    'The course covers basic algorithmic techniques and ideas for computational problems arising frequently in practical applications: sorting and searching, divide and conquer, greedy algorithms, dynamic programming.',
+  ];
+  List<String> buttonText = [
+    'View Certificate',
+  ];
+}
+
+class JavaScript {
   List<String> title = ['html', 'html', 'html', 'html', 'html'];
   List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
 }
 
-class cpp {
+class Python {
   List<String> title = ['html', 'html', 'html', 'html', 'html'];
   List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
 }
 
-class javaScript {
+class Flutter {
   List<String> title = ['html', 'html', 'html', 'html', 'html'];
   List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
 }
 
-class python {
+class Css {
   List<String> title = ['html', 'html', 'html', 'html', 'html'];
   List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
 }
 
-class flutter {
-  List<String> title = ['html', 'html', 'html', 'html', 'html'];
-  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
-}
-
-class css {
-  List<String> title = ['html', 'html', 'html', 'html', 'html'];
-  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
-}
-
-class java {
+class Java {
   List<String> title = ['html', 'html', 'html', 'html', 'html'];
   List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
 }

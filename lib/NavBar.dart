@@ -41,7 +41,6 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
           //     MaterialPageRoute(builder: (pageContext) => navLinks[index]));
         },
         onHover: (isInside) {
-          print(isInside);
           setState(() {
             if (isInside) {
               navItemBgColor[index] = Colors.white;

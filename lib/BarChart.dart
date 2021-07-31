@@ -2,8 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+import 'CustomBuilder.dart';
 
 class BarChartSample1 extends StatefulWidget {
   final List<Color> availableColors = [
@@ -38,7 +39,8 @@ class BarChartSample1State extends State<BarChartSample1> {
   Widget build(BuildContext context) {
     return Wrap(
       direction: Axis.horizontal,
-      alignment: WrapAlignment.start,
+      alignment: WrapAlignment.center,
+      runAlignment: WrapAlignment.center,
       children: [
         Container(
           margin: EdgeInsets.symmetric(vertical: 20),
@@ -59,7 +61,7 @@ class BarChartSample1State extends State<BarChartSample1> {
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       Text(
-                        'skills',
+                        'Skills',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 24,
@@ -129,70 +131,7 @@ class BarChartSample1State extends State<BarChartSample1> {
               Radius.circular(20),
             ),
           ),
-          child: AnimatedList(
-            initialItemCount: 4,
-            itemBuilder: (context, i, anim) {
-              if (i == 0)
-                return Text(
-                  currentSkill,
-                  style: TextStyle(color: Colors.white),
-                  textAlign: TextAlign.center,
-                );
-              return Card(
-                color: Color(0xff505050),
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Algorithmic Toolbox',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Text(
-                        'By Coursera',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 2, horizontal: 5),
-                        margin: EdgeInsets.all(2),
-                        decoration: BoxDecoration(
-                          color: Color(0xffffffff),
-                          border: Border.all(color: Colors.white, width: 2),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20),
-                          ),
-                        ),
-                        child: Text(
-                          'View Certificate',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-
-            // duration: Duration(seconds: 1),
-            // height: height,
-            // child: Column(
-            //   children: [
-            //     Text(
-            //       'ds',
-            //       style: TextStyle(color: Colors.white),
-            //     ),
-            //     Text(
-            //       'ds',
-            //       style: TextStyle(color: Colors.white),
-            //     ),
-            //     Text(
-            //       'ds',
-            //       style: TextStyle(color: Colors.white),
-            //     ),
-            //   ],
-            // ),
-          ),
+          child: CustomBuilder.ListbuildHandler(skill),
         ),
       ],
     );
@@ -296,21 +235,27 @@ class BarChartSample1State extends State<BarChartSample1> {
               );
             }),
         touchCallback: (barTouchResponse) {
-          setState(() {
-            if (barTouchResponse.spot != null &&
-                barTouchResponse.touchInput is PointerDownEvent) {
+          if (barTouchResponse.spot != null &&
+              // barTouchResponse.touchInput is PointerDownEvent) {
+              barTouchResponse.clickHappened) {
+            setState(() {
               height = widget.chartHeight;
               margin = 50;
               width = 300;
               currentSkill = skill;
-            } else if (barTouchResponse.spot != null &&
-                barTouchResponse.touchInput is! PointerUpEvent &&
-                barTouchResponse.touchInput is! PointerExitEvent) {
               touchedIndex = barTouchResponse.spot!.touchedBarGroupIndex;
-            } else {
-              touchedIndex = -1;
-            }
-          });
+            });
+          }
+          // else if (barTouchResponse.spot != null &&
+          //     barTouchResponse.touchInput is! PointerUpEvent &&
+          //     barTouchResponse.touchInput is! PointerExitEvent) {
+          //   setState(() {
+          //     // touchedIndex = barTouchResponse.spot!.touchedBarGroupIndex;
+          //   });
+          // }
+          else {
+            touchedIndex = -1;
+          }
         },
       ),
       titlesData: FlTitlesData(
