@@ -122,7 +122,7 @@ class CustomBuilder {
             color: myColor[colorgenerator()],
             child: Text(
               'HTML',
-              style: TextStyle(fontSize: 26, color: Colors.white),
+              style: TextStyle(fontSize: 20, color: Colors.white),
               textAlign: TextAlign.center,
             ),
           );
@@ -152,7 +152,7 @@ class CustomBuilder {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   // margin: EdgeInsets.all(2),
                   child: Text(
                     html.body[i - 1],
@@ -192,7 +192,7 @@ class CustomBuilder {
             color: myColor[colorgenerator()],
             child: Text(
               'C++',
-              style: TextStyle(fontSize: 26, color: Colors.white),
+              style: TextStyle(fontSize: 20, color: Colors.white),
               textAlign: TextAlign.center,
             ),
           );
@@ -207,9 +207,8 @@ class CustomBuilder {
                   cpp.title[i - 1],
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 26,
+                    fontSize: 20,
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 Text(
                   cpp.subheading[i - 1],
@@ -217,7 +216,6 @@ class CustomBuilder {
                     color: Colors.grey.shade400,
                     fontSize: 12,
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 10),
@@ -251,14 +249,14 @@ class CustomBuilder {
   static AnimatedList buildJavaScript() {
     JavaScript javaScript = new JavaScript();
     return AnimatedList(
-      initialItemCount: javaScript.title.length + 1,
+      initialItemCount: javaScript.title.length,
       itemBuilder: (context, i, anim) {
         if (i == 0)
           return Card(
             color: myColor[colorgenerator()],
             child: Text(
               'JavaScript',
-              style: TextStyle(fontSize: 26, color: Colors.white),
+              style: TextStyle(fontSize: 20, color: Colors.white),
               textAlign: TextAlign.center,
             ),
           );
@@ -273,9 +271,8 @@ class CustomBuilder {
                   javaScript.title[i - 1],
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 26,
+                    fontSize: 20,
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 Text(
                   javaScript.subheading[i - 1],
@@ -283,7 +280,6 @@ class CustomBuilder {
                     color: Colors.grey.shade400,
                     fontSize: 12,
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 10),
@@ -324,7 +320,7 @@ class CustomBuilder {
             color: myColor[colorgenerator()],
             child: Text(
               'CSS',
-              style: TextStyle(fontSize: 26, color: Colors.white),
+              style: TextStyle(fontSize: 20, color: Colors.white),
               textAlign: TextAlign.center,
             ),
           );
@@ -339,9 +335,8 @@ class CustomBuilder {
                   css.title[i - 1],
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 26,
+                    fontSize: 20,
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 Text(
                   css.subheading[i - 1],
@@ -349,7 +344,6 @@ class CustomBuilder {
                     color: Colors.grey.shade400,
                     fontSize: 12,
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 10),
@@ -380,6 +374,79 @@ class CustomBuilder {
     );
   }
 
+  static AnimatedList buildPython() {
+    Python python = new Python();
+    return AnimatedList(
+      initialItemCount: python.title.length + 1,
+      itemBuilder: (context, i, anim) {
+        if (i > python.title.length) return Container();
+        if (i == 0)
+          return Card(
+            // color: Colors.accents.elementAt(Random().nextInt(16)),
+            color: myColor[colorgenerator()],
+            child: Text(
+              'Python',
+              style: TextStyle(fontSize: 20, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          );
+        else
+          return Card(
+            color: Color(0xff505050),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                    child: Text(
+                      python.title[i - 1],
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                    child: Text(
+                      python.subheading[i - 1],
+                      style:
+                          TextStyle(fontSize: 12, color: Colors.grey.shade400),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                    // margin: EdgeInsets.all(2),
+                    child: Text(
+                      python.body[i - 1],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                    margin: EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      border: Border.all(color: Colors.white, width: 2),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      ),
+                    ),
+                    child: Text(
+                      python.buttonText[i - 1],
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+      },
+    );
+  }
+
   static AnimatedList ListbuildHandler(String skill) {
     switch (skill) {
       case 'HTML':
@@ -390,11 +457,11 @@ class CustomBuilder {
         return buildJavaScript();
       case 'CSS':
         return buildCSS();
-      case 'HTML':
+      case 'Python':
+        return buildPython();
+      case 'Flutter':
         return buildHtml();
-      case 'HTML':
-        return buildHtml();
-      case 'HTML':
+      case 'Java':
         return buildHtml();
       default:
         return buildHtml();
@@ -456,8 +523,18 @@ class JavaScript {
 }
 
 class Python {
-  List<String> title = ['html', 'html', 'html', 'html', 'html'];
-  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+  List<String> title = [
+    'The Joy of Computing using Python',
+  ];
+  List<String> subheading = [
+    'By NPTEL',
+  ];
+  List<String> body = [
+    'Offered by IIT Ropar. A introductory course for learning python.',
+  ];
+  List<String> buttonText = [
+    'View Certificate',
+  ];
 }
 
 class Flutter {
