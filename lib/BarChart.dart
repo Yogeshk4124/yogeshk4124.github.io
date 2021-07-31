@@ -31,6 +31,8 @@ class BarChartSample1State extends State<BarChartSample1> {
   double height = 0;
   double width = 0;
   double margin = 0;
+  String currentSkill = '';
+  String skill = '';
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,7 @@ class BarChartSample1State extends State<BarChartSample1> {
       alignment: WrapAlignment.start,
       children: [
         Container(
+          margin: EdgeInsets.symmetric(vertical: 20),
           width: widget.chartWidth,
           height: widget.chartHeight,
           child: Card(
@@ -66,7 +69,7 @@ class BarChartSample1State extends State<BarChartSample1> {
                         height: 4,
                       ),
                       Text(
-                        '',
+                        'Click the bar to see details',
                         style: TextStyle(
                             color: const Color(0xff379982),
                             fontSize: 18,
@@ -115,16 +118,59 @@ class BarChartSample1State extends State<BarChartSample1> {
           ),
         ),
         AnimatedContainer(
-          margin: EdgeInsets.symmetric(horizontal: margin),
+          margin: EdgeInsets.symmetric(horizontal: margin, vertical: 20),
+          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           duration: Duration(seconds: 1),
           height: height,
           width: width,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.white, width: 2),
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ),
+          ),
           child: AnimatedList(
             initialItemCount: 4,
             itemBuilder: (context, i, anim) {
-              return Text(
-                'ds',
-                style: TextStyle(color: Colors.white),
+              if (i == 0)
+                return Text(
+                  currentSkill,
+                  style: TextStyle(color: Colors.white),
+                  textAlign: TextAlign.center,
+                );
+              return Card(
+                color: Color(0xff505050),
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Algorithmic Toolbox',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        'By Coursera',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                        margin: EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                          color: Color(0xffffffff),
+                          border: Border.all(color: Colors.white, width: 2),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                        ),
+                        child: Text(
+                          'View Certificate',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               );
             },
 
@@ -205,7 +251,6 @@ class BarChartSample1State extends State<BarChartSample1> {
         touchTooltipData: BarTouchTooltipData(
             tooltipBgColor: Color(0xff191919),
             getTooltipItem: (group, groupIndex, rod, rodIndex) {
-              String skill;
               switch (group.x.toInt()) {
                 case 0:
                   skill = 'Flutter';
@@ -254,11 +299,10 @@ class BarChartSample1State extends State<BarChartSample1> {
           setState(() {
             if (barTouchResponse.spot != null &&
                 barTouchResponse.touchInput is PointerDownEvent) {
-              setState(() {
-                height = 100;
-                margin = 100;
-                width = 100;
-              });
+              height = widget.chartHeight;
+              margin = 50;
+              width = 300;
+              currentSkill = skill;
             } else if (barTouchResponse.spot != null &&
                 barTouchResponse.touchInput is! PointerUpEvent &&
                 barTouchResponse.touchInput is! PointerExitEvent) {

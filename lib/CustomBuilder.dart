@@ -53,38 +53,6 @@ class CustomBuilder {
     );
   }
 
-  // static List<projects> getProjectList() {
-  //   List<projects> proj = [];
-  //   proj.add(projects(
-  //     imgsrc:
-  //         'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
-  //     summary:
-  //         'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-  //     title: 'Card-Space',
-  //   ));
-  //   proj.add(projects(
-  //     imgsrc:
-  //         'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
-  //     summary:
-  //         'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-  //     title: 'Card-Space',
-  //   ));
-  //   proj.add(projects(
-  //     imgsrc:
-  //         'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
-  //     summary:
-  //         'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-  //     title: 'Card-Space',
-  //   ));
-  //   proj.add(projects(
-  //     imgsrc:
-  //         'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
-  //     summary:
-  //         'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-  //     title: 'Card-Space',
-  //   ));
-  //   return proj;
-  // }
   static List<projects> getProjectList() {
     List<projects> proj = [];
     proj.add(projects(
@@ -119,4 +87,86 @@ class CustomBuilder {
     ));
     return proj;
   }
+
+  static AnimatedList buildHtml() {
+    return AnimatedList(
+      initialItemCount: 4,
+      itemBuilder: (context, i, anim) {
+        if (i == 0)
+          return Text(
+            'HTML',
+            style: TextStyle(color: Colors.white),
+            textAlign: TextAlign.center,
+          );
+        return Card(
+          color: Color(0xff505050),
+          child: Container(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              children: [
+                Text(
+                  'Algorithmic Toolbox',
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  'By Coursera',
+                  style: TextStyle(color: Colors.white),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  margin: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    border: Border.all(color: Colors.white, width: 2),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    'View Certificate',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class html {
+  List<String> title = ['html', 'html', 'html', 'html', 'html'];
+  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+}
+
+class cpp {
+  List<String> title = ['html', 'html', 'html', 'html', 'html'];
+  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+}
+
+class javaScript {
+  List<String> title = ['html', 'html', 'html', 'html', 'html'];
+  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+}
+
+class python {
+  List<String> title = ['html', 'html', 'html', 'html', 'html'];
+  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+}
+
+class flutter {
+  List<String> title = ['html', 'html', 'html', 'html', 'html'];
+  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+}
+
+class css {
+  List<String> title = ['html', 'html', 'html', 'html', 'html'];
+  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
+}
+
+class java {
+  List<String> title = ['html', 'html', 'html', 'html', 'html'];
+  List<String> subheading = ['html', 'html', 'html', 'html', 'html'];
 }
