@@ -513,6 +513,71 @@ class CustomBuilder {
     );
   }
 
+  static ListView buildAndroid() {
+    Android android = new Android();
+
+    return ListView.builder(
+      itemCount: android.title.length + 1,
+      itemBuilder: (context, i) {
+        if (i == 0)
+          return Card(
+            color: myColor[colorgenerator()],
+            child: Text(
+              'Android',
+              style: TextStyle(fontSize: 20, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          );
+        return Card(
+          color: Color(0xff505050),
+          child: Container(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  android.title[i - 1],
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+                Text(
+                  android.subheading[i - 1],
+                  style: TextStyle(
+                    color: Colors.grey.shade400,
+                    fontSize: 12,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    android.body[i - 1],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  margin: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    border: Border.all(color: Colors.white, width: 2),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    android.buttonText[i - 1],
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   static Widget ListbuildHandler(String skill) {
     switch (skill) {
       case 'HTML':
@@ -527,10 +592,10 @@ class CustomBuilder {
         return buildPython();
       case 'Flutter':
         return buildFlutter();
-      case 'Java':
-        return buildHtml();
+      case 'Android':
+        return buildAndroid();
       default:
-        return buildHtml();
+        return Container();
     }
   }
 }
@@ -653,7 +718,13 @@ class Css {
   ];
 }
 
-class Java {
-  List<String> title = ['html'];
-  List<String> subheading = ['html'];
+class Android {
+  List<String> title = ['ChatterBox Translator'];
+  List<String> subheading = ['Project'];
+  List<String> body = [
+    'Chatter Box is an android app that is capable of Voice, Text, Image Text Translation, and end-to-end chat translation.',
+  ];
+  List<String> buttonText = [
+    'View More',
+  ];
 }

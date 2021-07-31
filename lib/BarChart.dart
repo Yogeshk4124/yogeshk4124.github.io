@@ -172,7 +172,7 @@ class BarChartSample1State extends State<BarChartSample1> {
           case 2:
             return makeGroupData(2, 60, isTouched: i == touchedIndex);
           case 3:
-            return makeGroupData(3, 65, isTouched: i == touchedIndex);
+            return makeGroupData(3, 70, isTouched: i == touchedIndex);
           case 4:
             return makeGroupData(4, 75, isTouched: i == touchedIndex);
           case 5:
@@ -201,7 +201,7 @@ class BarChartSample1State extends State<BarChartSample1> {
                   skill = 'Python';
                   break;
                 case 3:
-                  skill = 'Java';
+                  skill = 'Android';
                   break;
                 case 4:
                   skill = 'HTML';
@@ -274,7 +274,7 @@ class BarChartSample1State extends State<BarChartSample1> {
               case 2:
                 return 'Python';
               case 3:
-                return 'Java';
+                return 'Android';
               case 4:
                 return 'HTML';
               case 5:
