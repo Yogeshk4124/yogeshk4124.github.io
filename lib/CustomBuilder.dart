@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfoliom/project.dart';
+import 'package:portfolio/project.dart';
 
 List<Color> myColor = [
   Colors.deepOrangeAccent,

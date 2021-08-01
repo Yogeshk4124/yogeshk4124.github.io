@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfoliom/CustomBuilder.dart';
-import 'package:portfoliom/NavBar.dart';
-import 'package:portfoliom/Pages/Skills.dart';
+import 'package:portfolio/CustomBuilder.dart';
+import 'package:portfolio/NavBar.dart';
+import 'package:portfolio/Pages/Skills.dart';
 
 import '../project.dart';
 

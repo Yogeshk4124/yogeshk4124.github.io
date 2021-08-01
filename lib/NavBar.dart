@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfoliom/Pages/Skills.dart';
+import 'package:portfolio/Pages/Skills.dart';
 
 class NavBar extends StatefulWidget {
   // BuildContext pageContext;

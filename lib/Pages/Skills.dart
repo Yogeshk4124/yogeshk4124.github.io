@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
-import 'package:portfoliom/CustomBuilder.dart';
-import 'package:portfoliom/NavBar.dart';
+import 'package:portfolio/CustomBuilder.dart';
+import 'package:portfolio/NavBar.dart';
 
 import '../BarChart.dart';
 
