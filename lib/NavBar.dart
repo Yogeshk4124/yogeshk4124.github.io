@@ -83,45 +83,9 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             height: 50,
             child: Row(
               children: [
-                Expanded(
-                  flex: 3,
+                Visibility(
+                  visible: !(MediaQuery.of(context).size.width > 800),
                   child: InkWell(
-                    onTap: () {
-                      Navigator.of(context).pushReplacementNamed('/');
-                    },
-                    onHover: (val) {},
-                    child: Container(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Text(
-                        'Yogesh',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                if (MediaQuery.of(context).size.width > 960)
-                  Expanded(
-                    flex: 2,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Expanded(
-                          child: buildInkWell('Skills', 0),
-                        ),
-                        Expanded(
-                          child: buildInkWell('Project', 1),
-                        ),
-                        Expanded(
-                          child: buildInkWell('Resume', 2),
-                        ),
-                      ],
-                    ),
-                  )
-                else
-                  InkWell(
                     onTap: () {
                       setState(() {
                         isVisible = !isVisible;
@@ -151,6 +115,46 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                       ),
                     ),
                   ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushReplacementNamed('/');
+                    },
+                    onHover: (val) {},
+                    child: Container(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Text(
+                        'Yogesh',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Visibility(
+                  visible: MediaQuery.of(context).size.width > 800,
+                  child: Expanded(
+                    flex: 2,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: buildInkWell('Skills', 0),
+                        ),
+                        Expanded(
+                          child: buildInkWell('Project', 1),
+                        ),
+                        Expanded(
+                          child: buildInkWell('Resume', 2),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

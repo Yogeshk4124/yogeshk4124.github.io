@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 import './Skills.dart';
@@ -17,9 +18,76 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late List<Widget> aim;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    bool LessWidthMQ(double x) {
+      return MediaQuery.of(context).size.width < x;
+    }
+
     List<projects> proj = [];
+    aim = [
+      Column(
+        children: [
+          Container(
+            width: LessWidthMQ(860) ? double.maxFinite : 400,
+            height: 120,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white, width: 1),
+            ),
+            child: Text(
+              'Currently Working On',
+              style: TextStyle(color: Colors.white, fontSize: 30),
+            ),
+          ),
+          Container(
+            width: LessWidthMQ(860) ? double.maxFinite : 400,
+            height: 120,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white, width: 1),
+            ),
+            child: Text(
+              'Learning',
+              style: TextStyle(color: Colors.white, fontSize: 30),
+            ),
+          ),
+          Container(
+            width: LessWidthMQ(860) ? double.maxFinite : 400,
+            height: 120,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white, width: 1),
+            ),
+            child: Text(
+              'I want to be',
+              style: TextStyle(color: Colors.white, fontSize: 30),
+            ),
+          ),
+        ],
+      ),
+      Container(
+        height: 360,
+        width: LessWidthMQ(860)
+            ? double.maxFinite
+            : MediaQuery.of(context).size.width - 480,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.white, width: 1),
+        ),
+        child: Image.asset(
+          'flutter.jpg',
+          // fit: BoxFit.fill,
+          fit: BoxFit.scaleDown,
+        ),
+      ),
+    ];
     List<Widget> icons = [
       Icon(
         Icons.android,
@@ -78,6 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
           'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
       title: 'Card-Space',
     ));
+
     return Scaffold(
       backgroundColor: black,
       body: SafeArea(
@@ -257,71 +326,15 @@ class _MyHomePageState extends State<MyHomePage> {
                             }),
                       ),
                       Container(
-                        height: 450,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Column(
-                              children: [
-                                Container(
-                                  width: 400,
-                                  height: 150,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: Colors.white, width: 1),
-                                  ),
-                                  child: Text(
-                                    'Currently Working On',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 36),
-                                  ),
-                                ),
-                                Container(
-                                  width: 400,
-                                  height: 150,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: Colors.white, width: 1),
-                                  ),
-                                  child: Text(
-                                    'Learning',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 36),
-                                  ),
-                                ),
-                                Container(
-                                  width: 400,
-                                  height: 150,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: Colors.white, width: 1),
-                                  ),
-                                  child: Text(
-                                    'I want to be',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 36),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Expanded(
-                              child: Container(
-                                // height: 450,
-                                decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: Colors.white, width: 1),
-                                ),
-                                child: Image.asset(
-                                  'flutter.jpg',
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        width: double.maxFinite,
+                        // height: 450,
+                        child: Wrap(
+                            direction: Axis.horizontal,
+                            runAlignment: WrapAlignment.end,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: MediaQuery.of(context).size.width < 960
+                                ? aim.reversed.toList()
+                                : aim),
                       ),
                       CustomBuilder.buildContactFooter(),
                     ],
