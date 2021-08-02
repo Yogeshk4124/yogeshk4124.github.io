@@ -86,8 +86,20 @@ class CustomBuilder {
 
       // 'A simple app for managing our day-to-day life cards like bank cards, business cards, organization cards, etc.',
       title: 'Card-Space',
+      tech: [
+        'Flutter',
+        'Dart',
+        'Android Studio',
+        'Android Studio',
+        'Android Studio',
+        'Android Studio',
+        'Android Studio',
+        'Android Studio',
+        'Android Studio'
+      ],
     ));
     proj.add(projects(
+      tech: ['Flutter'],
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/4.png',
       summary:
@@ -95,6 +107,7 @@ class CustomBuilder {
       title: 'Card-Space',
     ));
     proj.add(projects(
+      tech: ['Flutter'],
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
       summary:
@@ -102,6 +115,7 @@ class CustomBuilder {
       title: 'Card-Space',
     ));
     proj.add(projects(
+      tech: ['Flutter'],
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
       summary:

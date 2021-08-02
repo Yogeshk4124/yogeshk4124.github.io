@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:portfolio/Custom/CustomButton.dart';
 import 'package:portfolio/CustomBuilder.dart';
 import 'package:portfolio/NavBar.dart';
 import 'package:portfolio/Pages/Skills.dart';
@@ -136,21 +138,39 @@ class _ProjectsState extends State<Projects> {
                 ),
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Languages Used:',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    'Technology Used:',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
                     ),
-                    child: Text(
-                      'Flutter',
-                      style: TextStyle(color: Colors.white),
+                  ),
+                  Expanded(
+                    child: Wrap(
+                      runSpacing: 10,
+                      direction: Axis.horizontal,
+                      runAlignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      alignment: WrapAlignment.start,
+                      children: [
+                        for (int j = 0; j < proj.tech!.length; j++)
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 2),
+                            margin: EdgeInsets.only(left: 30),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                            ),
+                            child: Text(
+                              proj.tech![j],
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                      ],
                     ),
                   ),
                 ],
@@ -158,147 +178,9 @@ class _ProjectsState extends State<Projects> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 30),
-                    child: InkWell(
-                      onTap: () {},
-                      onHover: (val) {
-                        setState(() {
-                          if (val) {
-                            buttonBG[i] = Colors.white;
-                            buttonFG[i] = Colors.black87;
-                            buttonShadow[i] = Colors.black87;
-                          } else {
-                            buttonBG[i] = black;
-                            buttonFG[i] = Colors.white;
-                            buttonShadow[i] = Colors.white;
-                          }
-                        });
-                      },
-                      child: Container(
-                        width: 150,
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: buttonBG[i],
-                          border: Border.all(color: Colors.white),
-                          boxShadow: [
-                            BoxShadow(
-                              color: buttonShadow[i],
-                              offset: const Offset(
-                                5.0,
-                                4.0,
-                              ),
-                              spreadRadius: 2.0,
-                            ), //BoxShadow
-                            BoxShadow(
-                              color: buttonShadow[i],
-                              offset: const Offset(0.0, 0.0),
-                              spreadRadius: 0.0,
-                            ), //BoxShadow
-                          ],
-                        ),
-                        child: Text(
-                          'View More',
-                          style: TextStyle(color: buttonFG[i], fontSize: 16),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 30),
-                    child: InkWell(
-                      onTap: () {},
-                      onHover: (val) {
-                        setState(() {
-                          if (val) {
-                            buttonBG1[i] = Colors.white;
-                            buttonFG1[i] = Colors.black87;
-                            buttonShadow1[i] = Colors.black87;
-                          } else {
-                            buttonBG1[i] = black;
-                            buttonFG1[i] = Colors.white;
-                            buttonShadow1[i] = Colors.white;
-                          }
-                        });
-                      },
-                      child: Container(
-                        width: 150,
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: buttonBG1[i],
-                          border: Border.all(color: Colors.white),
-                          boxShadow: [
-                            BoxShadow(
-                              color: buttonShadow1[i],
-                              offset: const Offset(
-                                5.0,
-                                4.0,
-                              ),
-                              spreadRadius: 2.0,
-                            ), //BoxShadow
-                            BoxShadow(
-                              color: buttonShadow1[i],
-                              offset: const Offset(0.0, 0.0),
-                              spreadRadius: 0.0,
-                            ), //BoxShadow
-                          ],
-                        ),
-                        child: Text(
-                          'Download APK',
-                          style: TextStyle(color: buttonFG1[i], fontSize: 16),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 30),
-                    child: InkWell(
-                      onTap: () {},
-                      onHover: (val) {
-                        setState(() {
-                          if (val) {
-                            buttonBG2[i] = Colors.white;
-                            buttonFG2[i] = Colors.black87;
-                            buttonShadow2[i] = Colors.black87;
-                          } else {
-                            buttonBG2[i] = black;
-                            buttonFG2[i] = Colors.white;
-                            buttonShadow2[i] = Colors.white;
-                          }
-                        });
-                      },
-                      child: Container(
-                        width: 150,
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: buttonBG2[i],
-                          border: Border.all(color: Colors.white),
-                          boxShadow: [
-                            BoxShadow(
-                              color: buttonShadow2[i],
-                              offset: const Offset(
-                                5.0,
-                                4.0,
-                              ),
-                              spreadRadius: 2.0,
-                            ), //BoxShadow
-                            BoxShadow(
-                              color: buttonShadow2[i],
-                              offset: const Offset(0.0, 0.0),
-                              spreadRadius: 0.0,
-                            ), //BoxShadow
-                          ],
-                        ),
-                        child: Text(
-                          'Download Code',
-                          style: TextStyle(color: buttonFG2[i], fontSize: 16),
-                        ),
-                      ),
-                    ),
-                  ),
+                  CustomButton(pageRoute: '', text: 'View More'),
+                  CustomButton(pageRoute: '', text: 'Download APK'),
+                  CustomButton(pageRoute: '', text: 'Download Code'),
                 ],
               ),
             ],
@@ -360,174 +242,51 @@ class _ProjectsState extends State<Projects> {
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Languages Used:',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Technology Used:',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
                       ),
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        margin: EdgeInsets.symmetric(horizontal: 30),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        child: Text(
-                          'Flutter',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                    ),
+                    Expanded(
+                      child: Wrap(
+                        runSpacing: 10,
+                        direction: Axis.horizontal,
+                        runAlignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        alignment: WrapAlignment.start,
+                        children: [
+                          for (int j = 0; j < proj.tech!.length; j++)
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 2),
+                              margin: EdgeInsets.only(left: 30),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.white),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                              ),
+                              child: Text(
+                                proj.tech![j],
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Wrap(
                   spacing: 20,
                   alignment: WrapAlignment.center,
                   children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 30),
-                      child: InkWell(
-                        onTap: () {},
-                        onHover: (val) {
-                          setState(() {
-                            if (val) {
-                              buttonBG[i] = Colors.white;
-                              buttonFG[i] = Colors.black87;
-                              buttonShadow[i] = Colors.black87;
-                            } else {
-                              buttonBG[i] = black;
-                              buttonFG[i] = Colors.white;
-                              buttonShadow[i] = Colors.white;
-                            }
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: buttonBG[i],
-                            border: Border.all(color: Colors.white),
-                            boxShadow: [
-                              BoxShadow(
-                                color: buttonShadow[i],
-                                offset: const Offset(
-                                  5.0,
-                                  4.0,
-                                ),
-                                spreadRadius: 2.0,
-                              ), //BoxShadow
-                              BoxShadow(
-                                color: buttonShadow[i],
-                                offset: const Offset(0.0, 0.0),
-                                spreadRadius: 0.0,
-                              ), //BoxShadow
-                            ],
-                          ),
-                          child: Text(
-                            'View More',
-                            style: TextStyle(color: buttonFG[i], fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 30),
-                      child: InkWell(
-                        onTap: () {},
-                        onHover: (val) {
-                          setState(() {
-                            if (val) {
-                              buttonBG1[i] = Colors.white;
-                              buttonFG1[i] = Colors.black87;
-                              buttonShadow1[i] = Colors.black87;
-                            } else {
-                              buttonBG1[i] = black;
-                              buttonFG1[i] = Colors.white;
-                              buttonShadow1[i] = Colors.white;
-                            }
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: buttonBG1[i],
-                            border: Border.all(color: Colors.white),
-                            boxShadow: [
-                              BoxShadow(
-                                color: buttonShadow1[i],
-                                offset: const Offset(
-                                  5.0,
-                                  4.0,
-                                ),
-                                spreadRadius: 2.0,
-                              ), //BoxShadow
-                              BoxShadow(
-                                color: buttonShadow1[i],
-                                offset: const Offset(0.0, 0.0),
-                                spreadRadius: 0.0,
-                              ), //BoxShadow
-                            ],
-                          ),
-                          child: Text(
-                            'Download APK',
-                            style: TextStyle(color: buttonFG1[i], fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 30),
-                      child: InkWell(
-                        onTap: () {},
-                        onHover: (val) {
-                          setState(() {
-                            if (val) {
-                              buttonBG2[i] = Colors.white;
-                              buttonFG2[i] = Colors.black87;
-                              buttonShadow2[i] = Colors.black87;
-                            } else {
-                              buttonBG2[i] = black;
-                              buttonFG2[i] = Colors.white;
-                              buttonShadow2[i] = Colors.white;
-                            }
-                          });
-                        },
-                        child: Container(
-                          width: 150,
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: buttonBG2[i],
-                            border: Border.all(color: Colors.white),
-                            boxShadow: [
-                              BoxShadow(
-                                color: buttonShadow2[i],
-                                offset: const Offset(
-                                  5.0,
-                                  4.0,
-                                ),
-                                spreadRadius: 2.0,
-                              ), //BoxShadow
-                              BoxShadow(
-                                color: buttonShadow2[i],
-                                offset: const Offset(0.0, 0.0),
-                                spreadRadius: 0.0,
-                              ), //BoxShadow
-                            ],
-                          ),
-                          child: Text(
-                            'Download Code',
-                            style: TextStyle(color: buttonFG2[i], fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
+                    CustomButton(pageRoute: '', text: 'View More'),
+                    CustomButton(pageRoute: '', text: 'Download APK'),
+                    CustomButton(pageRoute: '', text: 'Download Code'),
                   ],
                 ),
               ],

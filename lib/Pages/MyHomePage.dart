@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/Custom/CustomButton.dart';
 
 import './Skills.dart';
 import '../CustomBuilder.dart';
@@ -31,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<String> subtitle = [
     'I am Popeye not with spinach but with Computer.',
-    'I am Popeye not with spinach but with Computer.',
+    'I can Code.',
     "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
   ];
   @override
@@ -176,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.white, width: 1),
                         ),
-                        height: 350,
+                        height: LessWidthMQ(500) ? 600 : 350,
                         alignment: Alignment.center,
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.8,
@@ -195,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.normal),
                               ),
                               Container(
-                                height: 80,
+                                height: LessWidthMQ(500) ? 150 : 100,
                                 alignment: Alignment.center,
                                 child: DefaultTextStyle(
                                   style: GoogleFonts.monoton(
@@ -208,17 +209,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                     animatedTexts: [
                                       RotateAnimatedText(
                                         'Flutter Developer',
+                                        textAlign: TextAlign.center,
                                       ),
                                       RotateAnimatedText(
                                         'Android Developer',
+                                        textAlign: TextAlign.center,
                                       ),
                                       RotateAnimatedText(
                                         'Techie',
+                                        textAlign: TextAlign.center,
                                       ),
                                       RotateAnimatedText(
                                         'Game Lover',
+                                        textAlign: TextAlign.center,
                                       ),
                                     ],
+                                    repeatForever: true,
                                   ),
                                 ),
                               ),
@@ -254,53 +260,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                       ),
-                      // Container(
-                      //   alignment: Alignment.center,
-                      //   decoration: BoxDecoration(
-                      //     border: Border(
-                      //       left: BorderSide(
-                      //         color: Colors.white,
-                      //         width: 2,
-                      //       ),
-                      //       right: BorderSide(
-                      //         color: Colors.white,
-                      //         width: 2,
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   padding: EdgeInsets.symmetric(vertical: 40),
-                      //   // height: 200,
-                      //   child: Wrap(
-                      //     alignment: WrapAlignment.center,
-                      //     spacing: 80,
-                      //     runSpacing: 30,
-                      //     crossAxisAlignment: WrapCrossAlignment.center,
-                      //     direction: Axis.horizontal,
-                      //     children: [
-                      //       for (int i = 0; i < 4; i++)
-                      //         Container(
-                      //           child: Column(
-                      //             mainAxisAlignment: MainAxisAlignment.center,
-                      //             children: [
-                      //               CircleAvatar(
-                      //                 radius: 50,
-                      //                 backgroundColor: Colors.redAccent,
-                      //                 child: icons[i],
-                      //               ),
-                      //               SizedBox(
-                      //                 height: 10,
-                      //               ),
-                      //               Text(
-                      //                 title[i],
-                      //                 style: TextStyle(
-                      //                     color: Colors.white, fontSize: 20),
-                      //               ),
-                      //             ],
-                      //           ),
-                      //         ),
-                      //     ],
-                      //   ),
-                      // ),
                       Container(
                         decoration: BoxDecoration(
                           border: Border(
@@ -378,7 +337,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ? 3
                                 : proj.length,
                             itemBuilder: (context, i) {
-                              return buildProjectCard(proj, i);
+                              return buildProjectCard(proj, i, '/Project');
                             }),
                       ),
                       Container(
@@ -404,14 +363,21 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Container buildProjectCard(List<projects> proj, int i) {
+  List<String> s = [
+    'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
+    'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
+    'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png'
+  ];
+  Container buildProjectCard(List<projects> proj, int i, String pageRoute) {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white, width: 1),
       ),
+      height: 600,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
+          Container(),
           Text(
             proj[i].title.toString(),
             style: TextStyle(
@@ -421,22 +387,12 @@ class _MyHomePageState extends State<MyHomePage> {
             textAlign: TextAlign.center,
           ),
           Image.network(
-            proj[i].imgsrc.toString(),
-            height: 200,
-            width: 200,
+            s[i],
+            height: 400,
           ),
-          Text(
-            proj[i].summary.toString(),
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          Container(
-            width: 200,
-            height: 50,
-            color: Colors.white,
+          CustomButton(
+            pageRoute: '/Projects',
+            text: 'View More',
           ),
           Container(),
         ],
