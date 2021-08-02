@@ -55,7 +55,9 @@ class _ProjectsState extends State<Projects> {
               : EdgeInsets.zero,
           child: Column(
             children: [
-              NavBar(),
+              NavBar(
+                page: 2,
+              ),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
@@ -63,7 +65,10 @@ class _ProjectsState extends State<Projects> {
                       Container(
                         height: 200,
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1),
+                          border: Border(
+                            left: BorderSide(color: Colors.white, width: 1),
+                            right: BorderSide(color: Colors.white, width: 1),
+                          ),
                         ),
                         alignment: Alignment.center,
                         child: Text(

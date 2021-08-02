@@ -32,7 +32,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<String> subtitle = [
     'I am Popeye not with spinach but with Computer.',
-    'I can Code.',
+    'I can code and build stuff for you.',
+    'I can tolerate everything except A bug.',
+    'I only visit one hub that is Github.',
+    'My favourite character is BugsLightYear.',
+    "I won't let the server crash until it is running on my pc.",
     "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
   ];
   @override
@@ -166,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
               : EdgeInsets.zero,
           child: Column(
             children: [
-              NavBar(),
+              NavBar(page: 0),
               Expanded(
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
@@ -175,7 +179,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1),
+                          border: Border(
+                            left: BorderSide(color: Colors.white, width: 1),
+                            right: BorderSide(color: Colors.white, width: 1),
+                          ),
                         ),
                         height: LessWidthMQ(500) ? 600 : 350,
                         alignment: Alignment.center,
@@ -203,7 +210,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       //fruktur,monoton,cutivemono
                                       color: Colors.white,
                                       wordSpacing: 20,
-                                      fontSize: 40,
+                                      fontSize: 32,
                                       fontWeight: FontWeight.normal),
                                   child: AnimatedTextKit(
                                     animatedTexts: [
@@ -230,11 +237,12 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               Text(
                                 subtitle[Random().nextInt(subtitle.length)],
+                                // subtitle[5],
                                 style: GoogleFonts.monoton(
                                     //fruktur,monoton,cutivemono
                                     color: Colors.white,
                                     wordSpacing: 20,
-                                    fontSize: 26,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.normal),
                                 textAlign: TextAlign.center,
                               ),

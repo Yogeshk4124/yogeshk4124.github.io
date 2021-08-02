@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:portfolio/CustomBuilder.dart';
 import 'package:portfolio/NavBar.dart';
 
@@ -26,11 +25,16 @@ class _SkillsState extends State<Skills> {
               ? EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 10)
               : EdgeInsets.zero,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.white, width: 1),
+            border: Border(
+              left: BorderSide(color: Colors.white, width: 1),
+              right: BorderSide(color: Colors.white, width: 1),
+            ),
           ),
           child: Column(
             children: [
-              NavBar(),
+              NavBar(
+                page: 1,
+              ),
               Expanded(
                 flex: 10,
                 child: SingleChildScrollView(
@@ -39,7 +43,10 @@ class _SkillsState extends State<Skills> {
                       Container(
                         height: 200,
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1),
+                          border: Border(
+                            top: BorderSide.none,
+                            bottom: BorderSide(color: Colors.white, width: 1),
+                          ),
                         ),
                         alignment: Alignment.center,
                         child: Text(
@@ -51,26 +58,6 @@ class _SkillsState extends State<Skills> {
                         ),
                       ),
                       BarChartSample1(chartWidth: 500, chartHeight: 400),
-
-                      // Container(
-                      //   decoration: BoxDecoration(
-                      //     border: Border.all(color: Colors.white, width: 1),
-                      //   ),
-                      //   padding:
-                      //       EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-                      //   child: Column(
-                      //     mainAxisSize: MainAxisSize.min,
-                      //     children: [
-                      //       buildSkillBar('Flutter', 80),
-                      //       buildSkillBar('C++', 80),
-                      //       buildSkillBar('Python', 70),
-                      //       buildSkillBar('Java', 70),
-                      //       buildSkillBar('Html', 80),
-                      //       buildSkillBar('CSS', 70),
-                      //       buildSkillBar('JavaScript', 60),
-                      //     ],
-                      //   ),
-                      // ),
                       CustomBuilder.buildContactFooter(),
                     ],
                   ),
@@ -79,42 +66,6 @@ class _SkillsState extends State<Skills> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Container buildSkillBar(String text, int percent) {
-    return Container(
-      margin: EdgeInsets.all(10),
-      padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.1),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            text,
-            style: TextStyle(color: Colors.white, fontSize: 18),
-            // textAlign: TextAlign.left,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          FAProgressBar(
-            currentValue: percent,
-            displayText: '%',
-            backgroundColor: black,
-            // progressColor: Color(0xffbb86fc),
-            progressColor: Colors.grey,
-            displayTextStyle: TextStyle(color: Colors.black),
-            border: Border(
-              right: BorderSide(color: Colors.white),
-              bottom: BorderSide(color: Colors.white),
-              top: BorderSide(color: Colors.white),
-              left: BorderSide(color: Colors.white),
-            ),
-            animatedDuration: Duration(seconds: 1),
-          ),
-        ],
       ),
     );
   }
