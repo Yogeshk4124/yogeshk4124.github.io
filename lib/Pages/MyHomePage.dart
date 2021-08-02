@@ -1,7 +1,11 @@
+import 'dart:math';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import './Skills.dart';
 import '../CustomBuilder.dart';
@@ -25,6 +29,11 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
+  List<String> subtitle = [
+    'I am Popeye not with spinach but with Computer.',
+    'I am Popeye not with spinach but with Computer.',
+    "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
+  ];
   @override
   Widget build(BuildContext context) {
     bool LessWidthMQ(double x) {
@@ -161,6 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
                         decoration: BoxDecoration(
@@ -169,14 +179,60 @@ class _MyHomePageState extends State<MyHomePage> {
                         height: 350,
                         alignment: Alignment.center,
                         child: Container(
-                          width: MediaQuery.of(context).size.width * 0.6,
-                          child: Text(
-                            'Bonjour, I am Yogesh.',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 40,
-                            ),
-                            textAlign: TextAlign.center,
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "I'M Yogesh Kumar",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.monoton(
+                                    //fruktur,monoton,cutivemono
+                                    color: Colors.white,
+                                    wordSpacing: 20,
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                              Container(
+                                height: 80,
+                                alignment: Alignment.center,
+                                child: DefaultTextStyle(
+                                  style: GoogleFonts.monoton(
+                                      //fruktur,monoton,cutivemono
+                                      color: Colors.white,
+                                      wordSpacing: 20,
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.normal),
+                                  child: AnimatedTextKit(
+                                    animatedTexts: [
+                                      RotateAnimatedText(
+                                        'Flutter Developer',
+                                      ),
+                                      RotateAnimatedText(
+                                        'Android Developer',
+                                      ),
+                                      RotateAnimatedText(
+                                        'Techie',
+                                      ),
+                                      RotateAnimatedText(
+                                        'Game Lover',
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                subtitle[Random().nextInt(subtitle.length)],
+                                style: GoogleFonts.monoton(
+                                    //fruktur,monoton,cutivemono
+                                    color: Colors.white,
+                                    wordSpacing: 20,
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.normal),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -187,13 +243,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         height: 350,
                         alignment: Alignment.center,
                         child: Container(
-                          width: MediaQuery.of(context).size.width * 0.75,
+                          width: MediaQuery.of(context).size.width * 0.8,
                           child: Text(
-                            'Bonjour, I am Yogesh.',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 40,
-                            ),
+                            'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
+                            style: GoogleFonts.amaticaSc(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w300),
                             textAlign: TextAlign.center,
                           ),
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Pages/Skills.dart';
 
 class NavBar extends StatefulWidget {
@@ -127,7 +128,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                       padding: EdgeInsets.only(left: 20),
                       child: Text(
                         'Yogesh',
-                        style: TextStyle(
+                        style: GoogleFonts.permanentMarker(
                           color: Colors.white,
                           fontSize: 20,
                         ),

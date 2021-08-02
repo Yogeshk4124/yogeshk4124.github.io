@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
                   Animation<double> secondaryAnimation) {
                 switch (routeSettings.name) {
                   case '/':
-                    return MyHomePage(title: 'dsds');
+                    return MyHomePage(title: 'Home');
                   case '/Skills':
                     return Skills();
                   case '/Projects':

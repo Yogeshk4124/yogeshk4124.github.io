@@ -34,6 +34,7 @@ dependencies:
   flutter_page_transition: ^0.1.6
   fl_chart: ^0.36.3
   google_fonts: ^2.1.0
+  animated_text_kit: ^4.2.1
 
 
 dev_dependencies:
