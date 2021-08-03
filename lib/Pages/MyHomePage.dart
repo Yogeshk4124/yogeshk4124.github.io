@@ -391,7 +391,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
-    print('success:' + MediaQuery.of(context).size.width.toString());
     return c;
   }
 }

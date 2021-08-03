@@ -13,8 +13,8 @@ class _CustomPillState extends State<CustomPill> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-      margin: EdgeInsets.only(left: 30),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+      margin: EdgeInsets.only(left: 10),
       decoration: BoxDecoration(
         color: widget.hover ? Colors.transparent : getPillColor(widget.text),
         border: Border.all(color: Colors.white),
