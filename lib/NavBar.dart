@@ -106,6 +106,8 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                       border: Border(
                         left: BorderSide(width: 1.0, color: Colors.white),
                         right: BorderSide(width: 1.0, color: Colors.white),
+                        top: BorderSide(width: 1.0, color: Colors.white),
+                        bottom: BorderSide(width: 1.0, color: Colors.white),
                       ),
                     ),
                     alignment: Alignment.center,
@@ -146,7 +148,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 ),
               ),
               Visibility(
-                visible: MediaQuery.of(context).size.width > 800,
+                visible: MediaQuery.of(context).size.width >= 800,
                 child: Expanded(
                   flex: 2,
                   child: Row(
@@ -168,75 +170,78 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             ],
           ),
         ),
-        Visibility(
-          visible: height != 0,
-          child: InkWell(
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/Skills');
-            },
-            child: AnimatedContainer(
-              duration: Duration(seconds: 1),
-              height: height,
-              curve: Curves.easeIn,
-              alignment: Alignment.center,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.white,
-                ),
+        InkWell(
+          onTap: () {
+            Navigator.of(context).pushReplacementNamed('/Skills');
+          },
+          child: AnimatedContainer(
+            duration: Duration(seconds: 1),
+            height: height,
+            curve: Curves.easeIn,
+            alignment: Alignment.center,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: MediaQuery.of(context).size.width >= 800
+                    ? BorderSide.none
+                    : BorderSide(color: Colors.white, width: 1),
+                left: BorderSide(color: Colors.white, width: 1),
+                right: BorderSide(color: Colors.white, width: 1),
               ),
-              child: Text(
-                'Skills',
-                style: TextStyle(color: Colors.white),
-              ),
+            ),
+            child: Text(
+              'Skills',
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ),
-        Visibility(
-          visible: height1 != 0,
-          child: InkWell(
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/Projects');
-            },
-            child: AnimatedContainer(
-              duration: Duration(seconds: 1),
-              height: height,
-              curve: Curves.easeIn,
-              alignment: Alignment.center,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.white,
-                ),
+        InkWell(
+          onTap: () {
+            Navigator.of(context).pushReplacementNamed('/Projects');
+          },
+          child: AnimatedContainer(
+            duration: Duration(seconds: 1),
+            height: height,
+            curve: Curves.easeIn,
+            alignment: Alignment.center,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: MediaQuery.of(context).size.width >= 800
+                    ? BorderSide.none
+                    : BorderSide(color: Colors.white, width: 1),
+                left: BorderSide(color: Colors.white, width: 1),
+                right: BorderSide(color: Colors.white, width: 1),
               ),
-              child: Text(
-                'Projects',
-                style: TextStyle(color: Colors.white),
-              ),
+            ),
+            child: Text(
+              'Projects',
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ),
-        Visibility(
-          visible: height2 != 0,
-          child: InkWell(
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/Projects');
-            },
-            child: AnimatedContainer(
-              duration: Duration(seconds: 1),
-              height: height,
-              curve: Curves.easeIn,
-              alignment: Alignment.center,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.white,
-                ),
+        InkWell(
+          onTap: () {
+            Navigator.of(context).pushReplacementNamed('/Projects');
+          },
+          child: AnimatedContainer(
+            duration: Duration(seconds: 1),
+            height: height,
+            curve: Curves.easeIn,
+            alignment: Alignment.center,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: MediaQuery.of(context).size.width >= 800
+                    ? BorderSide.none
+                    : BorderSide(color: Colors.white, width: 1),
+                left: BorderSide(color: Colors.white, width: 1),
+                right: BorderSide(color: Colors.white, width: 1),
               ),
-              child: Text(
-                'Resume',
-                style: TextStyle(color: Colors.white),
-              ),
+            ),
+            child: Text(
+              'Resume',
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ),

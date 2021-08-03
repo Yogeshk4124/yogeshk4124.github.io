@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Custom/CustomButton.dart';
+import 'package:portfolio/Custom/CustomPills.dart';
 import 'package:portfolio/CustomBuilder.dart';
 import 'package:portfolio/NavBar.dart';
 import 'package:portfolio/Pages/Skills.dart';
@@ -17,31 +19,11 @@ class Projects extends StatefulWidget {
 
 class _ProjectsState extends State<Projects> {
   List<projects> proj = [];
-  List<Color> buttonBG = [];
-  List<Color> buttonFG = [];
-  List<Color> buttonShadow = [];
-  List<Color> buttonBG1 = [];
-  List<Color> buttonFG1 = [];
-  List<Color> buttonShadow1 = [];
-  List<Color> buttonBG2 = [];
-  List<Color> buttonFG2 = [];
-  List<Color> buttonShadow2 = [];
 
   @override
   void initState() {
     super.initState();
     proj = CustomBuilder.getProjectList();
-    for (int i = 0; i < proj.length; i++) {
-      buttonBG.add(black);
-      buttonFG.add(Colors.white);
-      buttonShadow.add(Colors.white);
-      buttonBG1.add(black);
-      buttonFG1.add(Colors.white);
-      buttonShadow1.add(Colors.white);
-      buttonBG2.add(black);
-      buttonFG2.add(Colors.white);
-      buttonShadow2.add(Colors.white);
-    }
   }
 
   @override
@@ -74,19 +56,21 @@ class _ProjectsState extends State<Projects> {
                         child: Text(
                           'Here are some of my good work.',
                           // 'Skills comes from consistent and Deliberate Practice',
-                          style: TextStyle(
+                          style: GoogleFonts.monoton(
                             fontSize: 34,
                             color: Colors.white,
+                            wordSpacing: 15,
                           ),
                         ),
                       ),
                       for (int i = 0; i < proj.length; i++)
                         Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white),
-                            ),
-                            padding: EdgeInsets.only(left: 20),
-                            child: buildProjectRow(proj[i], i)),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white),
+                          ),
+                          padding: EdgeInsets.only(left: 20),
+                          child: buildProjectRow(proj[i], i),
+                        ),
                       CustomBuilder.buildContactFooter(),
                     ],
                   ),
@@ -142,43 +126,35 @@ class _ProjectsState extends State<Projects> {
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Technology Used:',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+              Container(
+                padding: EdgeInsets.symmetric(
+                  vertical: 20,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Technology Used:',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: Wrap(
-                      runSpacing: 10,
-                      direction: Axis.horizontal,
-                      runAlignment: WrapAlignment.center,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      alignment: WrapAlignment.start,
-                      children: [
-                        for (int j = 0; j < proj.tech!.length; j++)
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 2),
-                            margin: EdgeInsets.only(left: 30),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                            ),
-                            child: Text(
-                              proj.tech![j],
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                      ],
+                    Expanded(
+                      child: Wrap(
+                        runSpacing: 10,
+                        direction: Axis.horizontal,
+                        runAlignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        alignment: WrapAlignment.start,
+                        children: [
+                          for (int j = 0; j < proj.tech!.length; j++)
+                            CustomPill(text: proj.tech![j], hover: false),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -247,43 +223,48 @@ class _ProjectsState extends State<Projects> {
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Technology Used:',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 20,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Technology Used:',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Wrap(
-                        runSpacing: 10,
-                        direction: Axis.horizontal,
-                        runAlignment: WrapAlignment.center,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        alignment: WrapAlignment.start,
-                        children: [
-                          for (int j = 0; j < proj.tech!.length; j++)
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 2),
-                              margin: EdgeInsets.only(left: 30),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.white),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20)),
+                      Expanded(
+                        child: Wrap(
+                          runSpacing: 10,
+                          direction: Axis.horizontal,
+                          runAlignment: WrapAlignment.center,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          alignment: WrapAlignment.start,
+                          children: [
+                            for (int j = 0; j < proj.tech!.length; j++)
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 2),
+                                margin: EdgeInsets.only(left: 30),
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                ),
+                                child: Text(
+                                  proj.tech![j],
+                                  style: TextStyle(color: Colors.white),
+                                ),
                               ),
-                              child: Text(
-                                proj.tech![j],
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Wrap(
                   spacing: 20,

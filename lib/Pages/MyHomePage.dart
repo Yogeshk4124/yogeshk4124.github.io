@@ -24,11 +24,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   late List<Widget> aim;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   List<String> subtitle = [
     'I am Popeye not with spinach but with Computer.',
@@ -39,13 +34,28 @@ class _MyHomePageState extends State<MyHomePage> {
     "I won't let the server crash until it is running on my pc.",
     "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
   ];
+  late List<projects> proj;
+  @override
+  void initState() {
+    super.initState();
+    proj = CustomBuilder.getProjectList();
+    // for (int i = 0; i < 4; i++)
+    //   proj.add(projects(
+    //     imgsrc:
+    //     'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
+    //     summary:
+    //     'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
+    //     title: 'Card-Space',
+    //     tech: ['Flutter'],
+    //   ));
+  }
+
   @override
   Widget build(BuildContext context) {
     bool LessWidthMQ(double x) {
       return MediaQuery.of(context).size.width < x;
     }
 
-    List<projects> proj = [];
     aim = [
       Column(
         children: [
@@ -132,34 +142,6 @@ class _MyHomePageState extends State<MyHomePage> {
       )
     ];
     List<String> title = ['Android', 'Web', '', 'UI/UX'];
-    proj.add(projects(
-      imgsrc:
-          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
-      summary:
-          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-      title: 'Card-Space',
-    ));
-    proj.add(projects(
-      imgsrc:
-          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
-      summary:
-          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-      title: 'Card-Space',
-    ));
-    proj.add(projects(
-      imgsrc:
-          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
-      summary:
-          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-      title: 'Card-Space',
-    ));
-    proj.add(projects(
-      imgsrc:
-          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
-      summary:
-          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-      title: 'Card-Space',
-    ));
 
     return Scaffold(
       backgroundColor: black,
@@ -343,7 +325,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             itemCount: (MediaQuery.of(context).size.width > 960)
                                 ? 3
-                                : proj.length,
+                                : (MediaQuery.of(context).size.width > 700)
+                                    ? 4
+                                    : 3,
                             itemBuilder: (context, i) {
                               return buildProjectCard(proj, i, '/Project');
                             }),
@@ -374,10 +358,11 @@ class _MyHomePageState extends State<MyHomePage> {
   List<String> s = [
     'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
     'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
+    'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
     'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png'
   ];
   Container buildProjectCard(List<projects> proj, int i, String pageRoute) {
-    return Container(
+    Container c = Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white, width: 1),
       ),
@@ -406,5 +391,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+    print('success:' + MediaQuery.of(context).size.width.toString());
+    return c;
   }
 }

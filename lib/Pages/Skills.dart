@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/CustomBuilder.dart';
 import 'package:portfolio/NavBar.dart';
 
@@ -51,10 +52,12 @@ class _SkillsState extends State<Skills> {
                         alignment: Alignment.center,
                         child: Text(
                           'On a long journey, Need to learn a lot of new things.',
-                          style: TextStyle(
+                          style: GoogleFonts.monoton(
                             fontSize: 34,
                             color: Colors.white,
+                            wordSpacing: 15,
                           ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                       BarChartSample1(chartWidth: 500, chartHeight: 400),
