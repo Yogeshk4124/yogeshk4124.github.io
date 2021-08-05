@@ -32,50 +32,6 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    InkWell buildInkWell(String text, int index) {
-      return InkWell(
-        onTap: () {
-          Navigator.pushReplacementNamed(
-            context,
-            navLinks[index],
-          );
-        },
-        onHover: (isInside) {
-          setState(() {
-            if (isInside) {
-              navItemBgColor[index] = Colors.white;
-              navItemTextColor[index] = black;
-            } else {
-              navItemBgColor[index] = black;
-              navItemTextColor[index] = Colors.white;
-            }
-          });
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: navItemBgColor[index],
-            border: Border(
-              left: BorderSide(width: 1.0, color: Colors.white),
-              right: BorderSide(width: 1.0, color: Colors.white),
-              top: BorderSide(width: 1.0, color: Colors.white),
-              bottom: BorderSide(
-                  width: 1.0,
-                  color: index + 1 == widget.page ? black : Colors.white),
-            ),
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            text,
-            style: GoogleFonts.bungee(
-              color: navItemTextColor[index],
-              fontSize: 18,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      );
-    }
-
     return Column(
       children: [
         Container(
@@ -155,13 +111,26 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
-                        child: buildInkWell('Skills', 0),
+                        child: NavItem(
+                          skills: 'Skills',
+                          pageNo: 1,
+                          cur: widget.page,
+                        ),
+                        // buildInkWell('Skills', 0),
                       ),
                       Expanded(
-                        child: buildInkWell('Project', 1),
+                        child: NavItem(
+                          skills: 'Projects',
+                          pageNo: 2,
+                          cur: widget.page,
+                        ),
                       ),
                       Expanded(
-                        child: buildInkWell('Resume', 2),
+                        child: NavItem(
+                          skills: 'Resume',
+                          pageNo: 3,
+                          cur: widget.page,
+                        ),
                       ),
                     ],
                   ),
@@ -246,6 +215,65 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
           ),
         ),
       ],
+    );
+  }
+}
+
+class NavItem extends StatefulWidget {
+  final String skills;
+  final int pageNo;
+  final int cur;
+  NavItem({required this.skills, required this.pageNo, required this.cur});
+  @override
+  _NavItemState createState() => _NavItemState();
+}
+
+class _NavItemState extends State<NavItem> {
+  Color kBg = black;
+  Color kFg = Colors.white;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        if (widget.pageNo != widget.cur)
+          Navigator.pushReplacementNamed(
+            context,
+            '/' + widget.skills,
+          );
+      },
+      onHover: (isInside) {
+        setState(() {
+          if (widget.pageNo != widget.cur) if (isInside) {
+            kBg = Colors.white;
+            kFg = black;
+          } else {
+            kBg = black;
+            kFg = Colors.white;
+          }
+        });
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: kBg,
+          border: Border(
+            left: BorderSide(width: 1.0, color: Colors.white),
+            right: BorderSide(width: 1.0, color: Colors.white),
+            top: BorderSide(width: 1.0, color: Colors.white),
+            bottom: BorderSide(
+                width: 1.0,
+                color: widget.pageNo == widget.cur ? black : Colors.white),
+          ),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          widget.skills,
+          style: GoogleFonts.bungee(
+            color: kFg,
+            fontSize: 18,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   }
 }

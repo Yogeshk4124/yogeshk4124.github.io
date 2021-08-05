@@ -102,7 +102,7 @@ class _ProjectsState extends State<Projects> {
                                     Container(
                                       padding: EdgeInsets.only(right: 10),
                                       child: Icon(
-                                        Icons.search,
+                                        Icons.arrow_downward,
                                         color: Colors.white,
                                       ),
                                     ),

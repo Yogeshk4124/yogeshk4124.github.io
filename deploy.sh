@@ -3,7 +3,7 @@
 # abort on errors
 set -e
 
-flutter clean build
+#flutter clean build
 # build
 flutter build web --no-sound-null-safety --release
 
