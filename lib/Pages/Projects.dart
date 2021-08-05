@@ -21,7 +21,8 @@ class Projects extends StatefulWidget {
 
 class _ProjectsState extends State<Projects> {
   List<projects> proj = [];
-
+  double h = 0;
+  bool vis = false;
   @override
   void initState() {
     super.initState();
@@ -43,41 +44,121 @@ class _ProjectsState extends State<Projects> {
                 page: 2,
               ),
               Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 200,
-                        decoration: BoxDecoration(
-                          border: Border(
-                            left: BorderSide(color: Colors.white, width: 1),
-                            right: BorderSide(color: Colors.white, width: 1),
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      left: BorderSide(color: Colors.white, width: 1),
+                      right: BorderSide(color: Colors.white, width: 1),
+                    ),
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 200,
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Here are some of my good work.',
+                            // 'Skills comes from consistent and Deliberate Practice',
+                            style: GoogleFonts.monoton(
+                              fontSize: 34,
+                              color: Colors.white,
+                              wordSpacing: 15,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Here are some of my good work.',
-                          // 'Skills comes from consistent and Deliberate Practice',
-                          style: GoogleFonts.monoton(
-                            fontSize: 34,
-                            color: Colors.white,
-                            wordSpacing: 15,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      for (int i = 0; i < proj.length; i++)
                         Container(
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
+                            border: Border(
+                              top: BorderSide(color: Colors.white, width: 1),
+                            ),
                           ),
-                          // height: 450,
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.only(left: 20),
-                          child: buildProjectRow(proj[i], i),
+                          child: Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    if (h == 0)
+                                      h = 100;
+                                    else {
+                                      h = 0;
+                                      vis = false;
+                                    }
+                                  });
+                                },
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        'Filter',
+                                        style: GoogleFonts.titilliumWeb(
+                                            fontSize: 22, color: Colors.white),
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(right: 10),
+                                      child: Icon(
+                                        Icons.search,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              AnimatedContainer(
+                                height: h,
+                                alignment: Alignment.center,
+                                width: double.maxFinite,
+                                duration: Duration(seconds: 1),
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    top: BorderSide(
+                                        color: Colors.white, width: 1),
+                                  ),
+                                ),
+                                onEnd: () {
+                                  setState(() {
+                                    if (h == 100) vis = true;
+                                  });
+                                },
+                                child: Visibility(
+                                  visible: vis,
+                                  child: Wrap(
+                                    children: [
+                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: false),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      CustomBuilder.buildContactFooter(),
-                    ],
+                        for (int i = 0; i < proj.length; i++)
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white),
+                            ),
+                            // height: 450,
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.only(left: 20, right: 20),
+                            child: buildProjectRow(proj[i], i),
+                          ),
+                        CustomBuilder.buildContactFooter(),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -96,7 +177,7 @@ class _ProjectsState extends State<Projects> {
           padding: EdgeInsets.only(top: 30),
           child: Text(
             proj.title.toString(),
-            style: GoogleFonts.risque(color: Colors.white, fontSize: 40),
+            style: GoogleFonts.titilliumWeb(color: Colors.white, fontSize: 40),
           ),
         ),
       ),
@@ -128,7 +209,8 @@ class _ProjectsState extends State<Projects> {
             Container(
               child: Text(
                 proj.title.toString(),
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style:
+                    GoogleFonts.titilliumWeb(color: Colors.white, fontSize: 16),
               ),
             ),
             Container(

@@ -37,35 +37,52 @@ class _SkillsState extends State<Skills> {
                 page: 1,
               ),
               Expanded(
-                flex: 10,
                 child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 200,
-                        decoration: BoxDecoration(
-                          border: Border(
-                            top: BorderSide.none,
-                            bottom: BorderSide(color: Colors.white, width: 1),
-                          ),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          'On a long journey, Need to learn a lot of new things.',
-                          style: GoogleFonts.monoton(
-                            fontSize: 34,
-                            color: Colors.white,
-                            wordSpacing: 15,
-                          ),
-                          textAlign: TextAlign.center,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                        minWidth: MediaQuery.of(context).size.width,
+                        minHeight: MediaQuery.of(context).size.height - 80),
+                    child: IntrinsicHeight(
+                      child: Container(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              height: 200,
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  top: BorderSide.none,
+                                  bottom:
+                                      BorderSide(color: Colors.white, width: 1),
+                                ),
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                'On a long journey, Need to learn a lot of new things.',
+                                style: GoogleFonts.monoton(
+                                  fontSize: 34,
+                                  color: Colors.white,
+                                  wordSpacing: 15,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Expanded(
+                                child: Container(
+                                    child: BarChartSample1(
+                                        chartWidth: 500, chartHeight: 400))),
+                            CustomBuilder.buildContactFooter(),
+                          ],
                         ),
                       ),
-                      BarChartSample1(chartWidth: 500, chartHeight: 400),
-                      CustomBuilder.buildContactFooter(),
-                    ],
+                    ),
                   ),
                 ),
               ),
+              // Text(
+              //   'check',
+              //   style: TextStyle(color: Colors.white),
+              // )
             ],
           ),
         ),

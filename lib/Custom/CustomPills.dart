@@ -18,11 +18,11 @@ class _CustomPillState extends State<CustomPill> {
       decoration: BoxDecoration(
         color: widget.hover ? Colors.transparent : getPillColor(widget.text),
         border: Border.all(color: Colors.white),
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(Radius.circular(4)),
       ),
       child: Text(
         widget.text,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.black),
       ),
     );
   }
@@ -30,13 +30,13 @@ class _CustomPillState extends State<CustomPill> {
   getPillColor(String text) {
     switch (text) {
       case 'Dart':
-        return Colors.blue;
+        return Colors.lightBlueAccent;
       case 'Flutter':
-        return Color(0xff3FBEF7);
+        return Colors.blue;
       case 'C++':
         return Colors.redAccent;
       case 'Android Studio':
-        return Colors.greenAccent;
+        return Colors.lightGreenAccent;
       case 'HTML':
         return Colors.deepOrangeAccent;
       case 'CSS':
