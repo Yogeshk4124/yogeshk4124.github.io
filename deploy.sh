@@ -3,6 +3,7 @@
 # abort on errors
 set -e
 
+flutter clean build
 # build
 flutter build web --no-sound-null-safety --release
 
@@ -14,7 +15,7 @@ cd web
 # echo 'www.example.com' > CNAME
 
 git init
-git add -A
+git add .
 # git commit -m 'test-run'
 git commit -m '🚀 deploy'
 
@@ -22,6 +23,6 @@ git commit -m '🚀 deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/Yogeshk4124/portfolio.git main:gh-pages
+git push -f https://github.com/Yogeshk4124/portfolio.git master:gh-pages
 
 cd - 

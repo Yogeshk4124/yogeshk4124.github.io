@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
                 color: Color(0xFFF5F5F5),
               ),
             ),
-        initialRoute: '/Projects',
+        initialRoute: '/',
         onGenerateRoute: (RouteSettings routeSettings) {
           return new PageRouteBuilder<dynamic>(
               settings: routeSettings,
