@@ -242,7 +242,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           width: MediaQuery.of(context).size.width * 0.8,
                           child: Text(
                             'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
-                            style: GoogleFonts.amaticaSc(
+                            style: GoogleFonts.titilliumWeb(
+                                //amaticaSc
                                 color: Colors.white,
                                 fontSize: 25,
                                 fontWeight: FontWeight.w300),
