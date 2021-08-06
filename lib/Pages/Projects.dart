@@ -88,8 +88,6 @@ class _ProjectsState extends State<Projects> {
                                   });
                                 },
                                 child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
                                       padding: EdgeInsets.only(left: 10),
@@ -97,6 +95,13 @@ class _ProjectsState extends State<Projects> {
                                         'Filter',
                                         style: GoogleFonts.titilliumWeb(
                                             fontSize: 22, color: Colors.white),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        height: 20,
+                                        width: 20,
+                                        color: Colors.transparent,
                                       ),
                                     ),
                                     Container(
@@ -113,7 +118,7 @@ class _ProjectsState extends State<Projects> {
                                 height: h,
                                 alignment: Alignment.center,
                                 width: double.maxFinite,
-                                duration: Duration(seconds: 1),
+                                duration: Duration(milliseconds: 85),
                                 decoration: BoxDecoration(
                                   border: Border(
                                     top: BorderSide(
@@ -129,16 +134,15 @@ class _ProjectsState extends State<Projects> {
                                   visible: vis,
                                   child: Wrap(
                                     children: [
-                                      CustomPill(text: 'Flutter', hover: false),
-                                      CustomPill(text: 'Flutter', hover: false),
-                                      CustomPill(text: 'Flutter', hover: false),
-                                      CustomPill(text: 'Flutter', hover: false),
-                                      CustomPill(text: 'Flutter', hover: false),
-                                      CustomPill(text: 'Flutter', hover: false),
-                                      CustomPill(text: 'Flutter', hover: false),
-                                      CustomPill(text: 'Flutter', hover: false),
-                                      CustomPill(text: 'Flutter', hover: false),
-                                      CustomPill(text: 'Flutter', hover: false),
+                                      CustomPill(text: 'Flutter', hover: true),
+                                      CustomPill(text: 'Android', hover: true),
+                                      CustomPill(text: 'Dart', hover: true),
+                                      CustomPill(text: 'C++', hover: true),
+                                      CustomPill(text: 'Java', hover: true),
+                                      CustomPill(text: 'HTML', hover: true),
+                                      CustomPill(text: 'CSS', hover: true),
+                                      CustomPill(
+                                          text: 'JavaScript', hover: true),
                                     ],
                                   ),
                                 ),
