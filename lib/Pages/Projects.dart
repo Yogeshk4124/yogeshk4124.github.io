@@ -143,6 +143,8 @@ class _ProjectsState extends State<Projects> {
                                       CustomPill(text: 'CSS', hover: true),
                                       CustomPill(
                                           text: 'JavaScript', hover: true),
+                                      CustomPill(text: 'Flask', hover: true),
+                                      CustomPill(text: 'Firebase', hover: true),
                                     ],
                                   ),
                                 ),
@@ -212,7 +214,7 @@ class _ProjectsState extends State<Projects> {
             ),
             Container(
               child: Text(
-                proj.title.toString(),
+                proj.subtitle.toString(),
                 style:
                     GoogleFonts.titilliumWeb(color: Colors.white, fontSize: 16),
               ),

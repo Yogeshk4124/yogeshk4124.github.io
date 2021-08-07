@@ -92,12 +92,20 @@ class CustomBuilder {
       subtitle: 'A Card Managing App',
     ));
     proj.add(projects(
+      subtitle: 'A multimedia app',
+      tech: ['Flutter', 'Flask', 'Dart'],
+      imgsrc:
+          'https://raw.githubusercontent.com/Yogeshk4124/SyncPlayer/main/ScreenShots/video.png',
+      summary:
+          'Sync Player is a multimedia app which allow user to create and join private room where members can play their media at sync with each other. User can also chat with other while playing videos. This project contains some extra functionality as normal multimedia app does not provide.',
+      title: 'Sync Player',
+    ));
+    proj.add(projects(
       subtitle: 'Gmail UI Clone App',
       imgsrc:
-          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/4.png',
-      summary:
-          'A secured cross-platform application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-      title: 'Card-Space',
+          'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
+      summary: 'Gmail Application UI Clone in Flutter',
+      title: 'Gmail App',
       tech: [
         'Flutter',
         'Dart',
@@ -105,31 +113,50 @@ class CustomBuilder {
       ],
     ));
     proj.add(projects(
-      subtitle: 'A Card Managing App',
-      tech: ['Flutter'],
+      subtitle: 'A Clock Website',
+      tech: ['HTML', 'CSS', 'JavaScript'],
       imgsrc:
-          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/4.png',
+          'https://raw.githubusercontent.com/Yogeshk4124/Programmer-Clock/main/clock.png',
       summary:
-          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-      title: 'Card-Space',
+          'Programmer Clock is a clock with weather forecast. The most unused clock.A Clock That No One Asked For.',
+      title: 'Programmer Clock',
     ));
     proj.add(projects(
-      subtitle: 'A Card Managing App',
-      tech: ['Flutter'],
+      subtitle: 'An Event Post App',
+      tech: ['Android', 'Java', 'Firebase'],
       imgsrc:
-          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
+          'https://raw.githubusercontent.com/Yogeshk4124/Simple-Posts-App/master/Screenshots/publishpost.png',
       summary:
-          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-      title: 'Card-Space',
+          'It is a simple event posting application. It has two types of accounts that is User and Admin.\nAdmin will have the access to create post where he/she can add details of events like Name, category, date, and location.\nUser can see all the posts that admin adds.',
+      title: 'Simple Post App',
     ));
     proj.add(projects(
-      subtitle: 'A Card Managing App',
-      tech: ['Flutter'],
+      subtitle: 'All in One Translator ',
+      tech: ['Android', 'Java', 'Firebase'],
       imgsrc:
-          'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
+          'https://raw.githubusercontent.com/Yogeshk4124/Chatter-Box-Translator/master/Screenshots/1VerifyCrop.png',
       summary:
-          'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-      title: 'Card-Space',
+          'Chatter Box is an android app that is capable of Voice, Text, Image Text Translation along with a Chatting feature with the in-Built translator that converts the message to another person default language which is set up during the sign-in process. It supports 9 languages.',
+      title: 'ChatterBox Translator',
+    ));
+
+    proj.add(projects(
+      subtitle: 'A simple Weather forecast App',
+      tech: ['Flutter', 'Dart'],
+      imgsrc:
+          'https://raw.githubusercontent.com/Yogeshk4124/weather-app/main/Screenshots/first.png',
+      summary:
+          'A simple weather application that gives the details of the weather of the current location and user can also search weather by location.',
+      title: 'Weather App',
+    ));
+    proj.add(projects(
+      subtitle: 'A calorie tracking app.',
+      tech: ['Flutter', 'Dart'],
+      imgsrc:
+          'https://raw.githubusercontent.com/Yogeshk4124/CalorieMeter/main/Screenshots/Main.png',
+      summary:
+          'Calorie Meter is an android app that helps user to measure their daily BMI(Body Mass Index) and BMR (Basal Metabolic Rate) and let them achieve their goal.',
+      title: 'Calorie Meter',
     ));
     return proj;
   }

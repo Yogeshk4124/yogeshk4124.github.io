@@ -15,6 +15,8 @@ class _CustomPillState extends State<CustomPill> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {},
+      highlightColor: Colors.transparent,
+      splashColor: Colors.transparent,
       onHover: (inside) {
         setState(() {
           if (inside) {
@@ -65,6 +67,10 @@ class _CustomPillState extends State<CustomPill> {
         return Colors.pinkAccent;
       case 'Python':
         return Colors.lightBlueAccent;
+      case 'Firebase':
+        return Colors.limeAccent;
+      case 'Flask':
+        return Colors.deepPurpleAccent;
     }
   }
 }
