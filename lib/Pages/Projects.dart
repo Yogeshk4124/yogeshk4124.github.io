@@ -89,7 +89,9 @@ class _ProjectsState extends State<Projects> {
                                 onTap: () {
                                   setState(() {
                                     if (h == 0)
-                                      h = 100;
+                                      MediaQuery.of(context).size.width < 500
+                                          ? h = 200
+                                          : h = 100;
                                     else {
                                       h = 0;
                                       vis = false;
@@ -127,7 +129,7 @@ class _ProjectsState extends State<Projects> {
                                 height: h,
                                 alignment: Alignment.center,
                                 width: double.maxFinite,
-                                duration: Duration(milliseconds: 85),
+                                duration: Duration(seconds: 1),
                                 decoration: BoxDecoration(
                                   border: Border(
                                     top: BorderSide(
@@ -136,12 +138,14 @@ class _ProjectsState extends State<Projects> {
                                 ),
                                 onEnd: () {
                                   setState(() {
-                                    if (h == 100) vis = true;
+                                    if (h != 0) vis = true;
                                   });
                                 },
                                 child: Visibility(
                                   visible: vis,
                                   child: Wrap(
+                                    alignment: WrapAlignment.center,
+                                    runSpacing: 20,
                                     children: [
                                       CustomPill(text: 'Flutter', hover: true),
                                       CustomPill(text: 'Android', hover: true),

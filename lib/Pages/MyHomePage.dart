@@ -39,15 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     proj = CustomBuilder.getProjectList();
-    // for (int i = 0; i < 4; i++)
-    //   proj.add(projects(
-    //     imgsrc:
-    //     'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/CardSpaceLogo.png',
-    //     summary:
-    //     'A secured cross-platfom application that allows the user to save their cards like (Bank cards, Personal Identification Cards, etc) in a highly secured format. These card can be viewed by user anytime. The main problem it solves is that the user does not need to carry all the card while he can carry a single mobile phone with our installed.Take control of your cards with this offline card manager (no need to create account or login online).It makes card management smart, simple and secure.',
-    //     title: 'Card-Space',
-    //     tech: ['Flutter'],
-    //   ));
   }
 
   @override

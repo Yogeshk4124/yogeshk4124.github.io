@@ -25,12 +25,6 @@ class _SkillsState extends State<Skills> {
           margin: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 10)
               : EdgeInsets.zero,
-          decoration: BoxDecoration(
-            border: Border(
-              left: BorderSide(color: Colors.white, width: 1),
-              right: BorderSide(color: Colors.white, width: 1),
-            ),
-          ),
           child: Column(
             children: [
               NavBar(
@@ -40,15 +34,23 @@ class _SkillsState extends State<Skills> {
                 child: SingleChildScrollView(
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                        minWidth: MediaQuery.of(context).size.width,
                         minHeight: MediaQuery.of(context).size.height - 80),
                     child: IntrinsicHeight(
                       child: Container(
+                        decoration: BoxDecoration(
+                          border: Border(
+                            left: BorderSide(color: Colors.white, width: 1),
+                            right: BorderSide(color: Colors.white, width: 1),
+                          ),
+                        ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              height: 200,
+                              height: MediaQuery.of(context).size.width < 480
+                                  ? 400
+                                  : 250,
                               decoration: BoxDecoration(
                                 border: Border(
                                   top: BorderSide.none,
@@ -57,14 +59,21 @@ class _SkillsState extends State<Skills> {
                                 ),
                               ),
                               alignment: Alignment.center,
-                              child: Text(
-                                'On a long journey, Need to learn a lot of new things.',
-                                style: GoogleFonts.monoton(
-                                  fontSize: 34,
-                                  color: Colors.white,
-                                  wordSpacing: 15,
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'On a long journey, Need to learn a lot of new things.',
+                                  style: GoogleFonts.monoton(
+                                    fontSize: 34,
+                                    color: Colors.white,
+                                    wordSpacing:
+                                        MediaQuery.of(context).size.width < 480
+                                            ? 200
+                                            : 15,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
-                                textAlign: TextAlign.center,
                               ),
                             ),
                             Expanded(

@@ -16,14 +16,21 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   List<Color> navItemBgColor = [black, black, black],
       navItemTextColor = [Colors.white, Colors.white, Colors.white];
   List navLinks = ['/Skills', '/Projects', '/Projects'];
-  late bool isVisible = false;
+  late bool isVisible;
   double height = 0;
-  double height1 = 0;
-  double height2 = 0;
-  late final AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 2),
-    vsync: this,
-  )..repeat();
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: Duration(seconds: 1),
+      vsync: this,
+    )..repeat();
+    isVisible = false;
+    height = 0;
+  }
+
   @override
   void dispose() {
     _controller.dispose();
@@ -40,19 +47,15 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Visibility(
-                visible: !(MediaQuery.of(context).size.width > 800),
+                visible: !(MediaQuery.of(context).size.width >= 800),
                 child: InkWell(
                   onTap: () {
                     setState(() {
                       isVisible = !isVisible;
                       if (isVisible) {
                         height = 30;
-                        height1 = 30;
-                        height2 = 30;
                       } else {
                         height = 0;
-                        height1 = 0;
-                        height2 = 0;
                       }
                     });
                   },
@@ -75,7 +78,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 ),
               ),
               Expanded(
-                flex: 3,
+                flex: 6,
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context).pushReplacementNamed('/');
@@ -106,7 +109,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               Visibility(
                 visible: MediaQuery.of(context).size.width >= 800,
                 child: Expanded(
-                  flex: 2,
+                  flex: 5,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -139,77 +142,94 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             ],
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            Navigator.of(context).pushReplacementNamed('/Skills');
-          },
-          child: AnimatedContainer(
-            duration: Duration(seconds: 1),
-            height: height,
-            alignment: Alignment.center,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: MediaQuery.of(context).size.width >= 800
-                    ? BorderSide.none
-                    : BorderSide(color: Colors.white, width: 1),
-                left: BorderSide(color: Colors.white, width: 1),
-                right: BorderSide(color: Colors.white, width: 1),
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            GestureDetector(
+              onTap: () {
+                height = 0;
+                isVisible = false;
+                Navigator.of(context).pushReplacementNamed('/Skills');
+              },
+              child: AnimatedContainer(
+                duration: Duration(seconds: 1),
+                height: height,
+                alignment: Alignment.center,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: MediaQuery.of(context).size.width >= 800
+                        ? BorderSide.none
+                        : BorderSide(color: Colors.white, width: 1),
+                    left: BorderSide(color: Colors.white, width: 1),
+                    right: BorderSide(color: Colors.white, width: 1),
+                  ),
+                ),
+                child: height > 25
+                    ? Text(
+                        'Skills',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    : Text(''),
               ),
             ),
-            child: Text(
-              'Skills',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.of(context).pushReplacementNamed('/Projects');
-          },
-          child: AnimatedContainer(
-            duration: Duration(seconds: 1),
-            height: height,
-            alignment: Alignment.center,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: MediaQuery.of(context).size.width >= 800
-                    ? BorderSide.none
-                    : BorderSide(color: Colors.white, width: 1),
-                left: BorderSide(color: Colors.white, width: 1),
-                right: BorderSide(color: Colors.white, width: 1),
+            GestureDetector(
+              onTap: () {
+                height = 0;
+                isVisible = false;
+                Navigator.of(context).pushReplacementNamed('/Projects');
+              },
+              child: AnimatedContainer(
+                duration: Duration(seconds: 1),
+                height: height,
+                alignment: Alignment.center,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: MediaQuery.of(context).size.width >= 800
+                        ? BorderSide.none
+                        : BorderSide(color: Colors.white, width: 1),
+                    left: BorderSide(color: Colors.white, width: 1),
+                    right: BorderSide(color: Colors.white, width: 1),
+                  ),
+                ),
+                child: height > 25
+                    ? Text(
+                        'Project',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    : Text(''),
               ),
             ),
-            child: Text(
-              'Projects',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            Navigator.of(context).pushReplacementNamed('/Projects');
-          },
-          child: AnimatedContainer(
-            duration: Duration(seconds: 1),
-            height: height,
-            alignment: Alignment.center,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: MediaQuery.of(context).size.width >= 800
-                    ? BorderSide.none
-                    : BorderSide(color: Colors.white, width: 1),
-                left: BorderSide(color: Colors.white, width: 1),
-                right: BorderSide(color: Colors.white, width: 1),
+            GestureDetector(
+              onTap: () {
+                height = 0;
+                isVisible = false;
+                Navigator.of(context).pushReplacementNamed('/Projects');
+              },
+              child: AnimatedContainer(
+                duration: Duration(seconds: 1),
+                height: height,
+                alignment: Alignment.center,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: MediaQuery.of(context).size.width >= 800
+                        ? BorderSide.none
+                        : BorderSide(color: Colors.white, width: 1),
+                    left: BorderSide(color: Colors.white, width: 1),
+                    right: BorderSide(color: Colors.white, width: 1),
+                  ),
+                ),
+                child: height > 25
+                    ? Text(
+                        'Resume',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    : Text(''),
               ),
             ),
-            child: Text(
-              'Resume',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
+          ],
         ),
       ],
     );
