@@ -104,7 +104,8 @@ class CustomBuilder {
       subtitle: 'Gmail UI Clone App',
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
-      summary: 'Gmail Application UI Clone in Flutter',
+      summary:
+          '''This project is a UI Clone of the Gmail Application made entirely with Flutter. It is my first take to make a UI clone. This project is tested on Asus Zenfone Max Pro M2 ( Android version ) and Real me 5s (Android version 10 / 4GB Ram)''',
       title: 'Gmail App',
       tech: [
         'Flutter',
@@ -118,7 +119,7 @@ class CustomBuilder {
       imgsrc:
           'https://raw.githubusercontent.com/Yogeshk4124/Programmer-Clock/main/clock.png',
       summary:
-          'Programmer Clock is a clock with weather forecast. The most unused clock.A Clock That No One Asked For.',
+          'Programmer Clock is a clock with weather forecast. The most unused clock. A Clock That No One Asked For. It shows time in the most loved number system by programmers that is binary.',
       title: 'Programmer Clock',
     ));
     proj.add(projects(

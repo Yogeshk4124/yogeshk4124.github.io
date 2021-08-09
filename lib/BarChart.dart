@@ -235,9 +235,7 @@ class BarChartSample1State extends State<BarChartSample1> {
               );
             }),
         touchCallback: (barTouchResponse) {
-          if (barTouchResponse.spot != null &&
-              // barTouchResponse.touchInput is PointerDownEvent) {
-              barTouchResponse.clickHappened) {
+          if (barTouchResponse.clickHappened) {
             setState(() {
               height = widget.chartHeight;
               margin = 50;

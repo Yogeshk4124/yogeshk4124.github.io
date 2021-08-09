@@ -35,27 +35,28 @@ class _CustomButtonState extends State<CustomButton> {
           alignment: Alignment.center,
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: bg,
-            border: Border.all(color: shadow),
-            boxShadow: [
-              BoxShadow(
-                color: shadow,
-                offset: const Offset(
-                  5.0,
-                  4.0,
-                ),
-                spreadRadius: 2.0,
-              ), //BoxShadow
-              BoxShadow(
-                color: shadow,
-                offset: const Offset(0.0, 0.0),
-                spreadRadius: 0.0,
-              ), //BoxShadow
-            ],
+            color: shadow,
+            border: shadow == black ? Border.all(color: bg) : Border(),
+            borderRadius: BorderRadius.circular(10),
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: shadow,
+            //     offset: const Offset(
+            //       5.0,
+            //       4.0,
+            //     ),
+            //     spreadRadius: 2.0,
+            //   ), //BoxShadow
+            //   BoxShadow(
+            //     color: shadow,
+            //     offset: const Offset(0.0, 0.0),
+            //     spreadRadius: 0.0,
+            //   ), //BoxShadow
+            // ],
           ),
           child: Text(
             widget.text,
-            style: TextStyle(color: shadow, fontSize: 16),
+            style: TextStyle(color: bg, fontSize: 16),
           ),
         ),
       ),

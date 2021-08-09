@@ -52,11 +52,19 @@ class _ProjectsState extends State<Projects> {
                     ),
                   ),
                   child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
                           height: 200,
                           alignment: Alignment.center,
+                          // decoration: BoxDecoration(
+                          //   border: Border(
+                          //     top: BorderSide(color: Colors.white, width: 1),
+                          //     bottom: BorderSide(color: Colors.white, width: 1),
+                          //   ),
+                          // ),
                           child: Text(
                             'Here are some of my good work.',
                             // 'Skills comes from consistent and Deliberate Practice',
@@ -72,6 +80,7 @@ class _ProjectsState extends State<Projects> {
                           decoration: BoxDecoration(
                             border: Border(
                               top: BorderSide(color: Colors.white, width: 1),
+                              bottom: BorderSide(color: Colors.white, width: 1),
                             ),
                           ),
                           child: Column(
@@ -291,109 +300,5 @@ class _ProjectsState extends State<Projects> {
         children: r,
       );
     }
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          height: 350,
-          padding: EdgeInsets.symmetric(vertical: 10),
-          decoration: BoxDecoration(
-            border: Border(
-              right: MediaQuery.of(context).size.width > 900
-                  ? BorderSide(color: Colors.white)
-                  : BorderSide.none,
-            ),
-          ),
-          alignment: Alignment.center,
-          child: Image.network(
-            proj.imgsrc.toString(),
-            width: 200,
-          ),
-        ),
-        Container(
-          // height: 450,
-          padding: EdgeInsets.only(left: 40, right: 40, bottom: 30),
-          alignment: Alignment.center,
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceAround,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 30),
-                child: Text(
-                  proj.title.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 40),
-                ),
-              ),
-              Container(
-                child: Text(
-                  proj.title.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 30),
-                child: Text(
-                  proj.summary.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: 20,
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Technology Used:',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Expanded(
-                      child: Wrap(
-                        runSpacing: 10,
-                        direction: Axis.horizontal,
-                        runAlignment: WrapAlignment.center,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        alignment: WrapAlignment.start,
-                        children: [
-                          for (int j = 0; j < proj.tech!.length; j++)
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 2),
-                              margin: EdgeInsets.only(left: 30),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.white),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20)),
-                              ),
-                              child: Text(
-                                proj.tech![j],
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Wrap(
-                spacing: 20,
-                alignment: WrapAlignment.center,
-                children: [
-                  CustomButton(pageRoute: '', text: 'View More'),
-                  CustomButton(pageRoute: '', text: 'Download APK'),
-                  CustomButton(pageRoute: '', text: 'Download Code'),
-                ],
-              ),
-            ],
-          ),
-        )
-      ],
-    );
   }
 }

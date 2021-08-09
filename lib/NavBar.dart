@@ -21,7 +21,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   double height1 = 0;
   double height2 = 0;
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 10),
+    duration: const Duration(seconds: 2),
     vsync: this,
   )..repeat();
   @override
@@ -139,14 +139,13 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             ],
           ),
         ),
-        InkWell(
+        GestureDetector(
           onTap: () {
             Navigator.of(context).pushReplacementNamed('/Skills');
           },
           child: AnimatedContainer(
             duration: Duration(seconds: 1),
             height: height,
-            curve: Curves.easeIn,
             alignment: Alignment.center,
             width: double.infinity,
             decoration: BoxDecoration(
@@ -164,14 +163,13 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             ),
           ),
         ),
-        InkWell(
+        GestureDetector(
           onTap: () {
             Navigator.of(context).pushReplacementNamed('/Projects');
           },
           child: AnimatedContainer(
             duration: Duration(seconds: 1),
             height: height,
-            curve: Curves.easeIn,
             alignment: Alignment.center,
             width: double.infinity,
             decoration: BoxDecoration(
@@ -189,14 +187,13 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             ),
           ),
         ),
-        InkWell(
+        GestureDetector(
           onTap: () {
             Navigator.of(context).pushReplacementNamed('/Projects');
           },
           child: AnimatedContainer(
             duration: Duration(seconds: 1),
             height: height,
-            curve: Curves.easeIn,
             alignment: Alignment.center,
             width: double.infinity,
             decoration: BoxDecoration(

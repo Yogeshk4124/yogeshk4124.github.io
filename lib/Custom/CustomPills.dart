@@ -34,7 +34,7 @@ class _CustomPillState extends State<CustomPill> {
         margin: EdgeInsets.only(left: 15),
         decoration: BoxDecoration(
           color: widget.hover ? bgColor : getPillColor(widget.text),
-          border: Border.all(color: Colors.white),
+          border: widget.hover ? Border.all(color: Colors.white) : Border(),
           borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
         child: Text(
