@@ -44,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     bool LessWidthMQ(double x) {
-      print('calling');
       return MediaQuery.of(context).size.width < x;
     }
 
@@ -116,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
         size: 50,
       ),
       Icon(
-        Icons.android,
+        Icons.phone_iphone,
         color: Colors.white,
         size: 50,
       ),
@@ -125,15 +124,8 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.white,
         size: 50,
       ),
-      Text(
-        'UI/UX',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 32,
-        ),
-      )
     ];
-    List<String> title = ['Android', 'Web', '', 'UI/UX'];
+    List<String> title = ['Android', 'Web', 'IOS', 'UI/UX'];
 
     return Scaffold(
       backgroundColor: black,
@@ -228,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   style: GoogleFonts.monoton(
                                     //fruktur,monoton,cutivemono
                                     color: Colors.white,
-                                    wordSpacing: 90,
+                                    // wordSpacing: 90,
                                     fontSize: 18,
                                   ),
                                   textAlign: TextAlign.center,
@@ -304,7 +296,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                       Text(
                                         title[i],
-                                        style: TextStyle(
+                                        style: GoogleFonts.titilliumWeb(
                                             color: Colors.white, fontSize: 20),
                                       ),
                                     ],
@@ -366,20 +358,15 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  List<String> s = [
-    'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
-    'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
-    'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
-    'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png'
-  ];
   Container buildProjectCard(List<projects> proj, int i, String pageRoute) {
     Container c = Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white, width: 1),
       ),
       height: 600,
+      alignment: Alignment.center,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(),
           Text(
@@ -390,8 +377,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             textAlign: TextAlign.center,
           ),
+          Text(
+            proj[i].subtitle.toString(),
+            style: GoogleFonts.titilliumWeb(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+            textAlign: TextAlign.center,
+          ),
           Image.network(
-            s[i],
+            proj[i].imgsrc.toString(),
             height: 400,
           ),
           CustomButton(
