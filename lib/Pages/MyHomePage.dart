@@ -166,12 +166,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "I'M Yogesh Kumar",
+                                "I'M      Yogesh       Kumar",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.monoton(
                                     //fruktur,monoton,cutivemono
                                     color: Colors.white,
-                                    wordSpacing: 20,
+                                    // wordSpacing: 20,
                                     fontSize: 40,
                                     fontWeight: FontWeight.normal),
                               ),
@@ -182,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   style: GoogleFonts.monoton(
                                       //fruktur,monoton,cutivemono
                                       color: Colors.white,
-                                      wordSpacing: 20,
+                                      // wordSpacing: 20,
                                       fontSize: 32,
                                       fontWeight: FontWeight.normal),
                                   child: AnimatedTextKit(
