@@ -38,6 +38,12 @@ class _ProjectsState extends State<Projects> {
           padding: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, bottom: 10, right: 40)
               : EdgeInsets.zero,
+          decoration: BoxDecoration(
+            border: Border(
+              left: BorderSide(color: Colors.white, width: 1),
+              right: BorderSide(color: Colors.white, width: 1),
+            ),
+          ),
           child: Column(
             children: [
               NavBar(
@@ -53,21 +59,16 @@ class _ProjectsState extends State<Projects> {
                   ),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
+                    physics: ClampingScrollPhysics(),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
                           height: 200,
+                          width: MediaQuery.of(context).size.width * 0.8,
                           alignment: Alignment.center,
-                          // decoration: BoxDecoration(
-                          //   border: Border(
-                          //     top: BorderSide(color: Colors.white, width: 1),
-                          //     bottom: BorderSide(color: Colors.white, width: 1),
-                          //   ),
-                          // ),
                           child: Text(
-                            'Here are some of my good work.',
-                            // 'Skills comes from consistent and Deliberate Practice',
+                            'Here    are    some    of    my    good    work.',
                             style: GoogleFonts.monoton(
                               fontSize: 34,
                               color: Colors.white,
@@ -80,7 +81,6 @@ class _ProjectsState extends State<Projects> {
                           decoration: BoxDecoration(
                             border: Border(
                               top: BorderSide(color: Colors.white, width: 1),
-                              bottom: BorderSide(color: Colors.white, width: 1),
                             ),
                           ),
                           child: Column(
@@ -134,6 +134,8 @@ class _ProjectsState extends State<Projects> {
                                   border: Border(
                                     top: BorderSide(
                                         color: Colors.white, width: 1),
+                                    bottom: BorderSide(
+                                        color: Colors.white, width: 1),
                                   ),
                                 ),
                                 onEnd: () {
@@ -168,7 +170,10 @@ class _ProjectsState extends State<Projects> {
                         for (int i = 0; i < proj.length; i++)
                           Container(
                             decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white),
+                              border: Border(
+                                bottom:
+                                    BorderSide(color: Colors.white, width: 1),
+                              ),
                             ),
                             // height: 450,
                             alignment: Alignment.center,
@@ -192,12 +197,24 @@ class _ProjectsState extends State<Projects> {
     List<Widget> r = [
       Visibility(
         visible: MediaQuery.of(context).size.width < 900,
-        child: Container(
-          padding: EdgeInsets.only(top: 30),
-          child: Text(
-            proj.title.toString(),
-            style: GoogleFonts.titilliumWeb(color: Colors.white, fontSize: 40),
-          ),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              child: Text(
+                proj.title.toString(),
+                style:
+                    GoogleFonts.titilliumWeb(color: Colors.white, fontSize: 40),
+              ),
+            ),
+            Container(
+              child: Text(
+                proj.subtitle.toString(),
+                style:
+                    GoogleFonts.titilliumWeb(color: Colors.white, fontSize: 16),
+              ),
+            ),
+          ],
         ),
       ),
       Container(
@@ -217,22 +234,28 @@ class _ProjectsState extends State<Projects> {
           children: [
             Visibility(
               visible: MediaQuery.of(context).size.width > 900,
-              child: Container(
-                padding: EdgeInsets.only(top: 30),
-                child: Text(
-                  proj.title.toString(),
-                  style: GoogleFonts.bungee(color: Colors.white, fontSize: 40),
-                ),
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(top: 30),
+                    child: Text(
+                      proj.title.toString(),
+                      style:
+                          GoogleFonts.bungee(color: Colors.white, fontSize: 40),
+                    ),
+                  ),
+                  Container(
+                    child: Text(
+                      proj.subtitle.toString(),
+                      style: GoogleFonts.titilliumWeb(
+                          color: Colors.white, fontSize: 16),
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
-              child: Text(
-                proj.subtitle.toString(),
-                style:
-                    GoogleFonts.titilliumWeb(color: Colors.white, fontSize: 16),
-              ),
-            ),
-            Container(
+              width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(top: 30),
               child: Text(
                 proj.summary.toString(),

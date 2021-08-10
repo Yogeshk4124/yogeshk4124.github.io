@@ -44,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     bool LessWidthMQ(double x) {
+      print('calling');
       return MediaQuery.of(context).size.width < x;
     }
 
@@ -92,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
         height: 360,
         width: LessWidthMQ(860)
             ? double.maxFinite
-            : MediaQuery.of(context).size.width - 480,
+            : MediaQuery.of(context).size.width - 484,
         decoration: BoxDecoration(
           border: Border.all(color: Colors.white, width: 1),
         ),
@@ -138,6 +139,12 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: black,
       body: SafeArea(
         child: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              left: BorderSide(color: Colors.white, width: 1),
+              right: BorderSide(color: Colors.white, width: 1),
+            ),
+          ),
           padding: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, bottom: 10, right: 40)
               : EdgeInsets.zero,
@@ -145,198 +152,210 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               NavBar(page: 0),
               Expanded(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            left: BorderSide(color: Colors.white, width: 1),
-                            right: BorderSide(color: Colors.white, width: 1),
-                          ),
-                        ),
-                        height: LessWidthMQ(500) ? 600 : 350,
-                        alignment: Alignment.center,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "I'M      Yogesh       Kumar",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.monoton(
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      left: BorderSide(color: Colors.white, width: 1),
+                      right: BorderSide(color: Colors.white, width: 1),
+                    ),
+                  ),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    physics: ClampingScrollPhysics(),
+                    child: Column(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: double.maxFinite,
+                          height: LessWidthMQ(500) ? 600 : 350,
+                          alignment: Alignment.center,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "I'M Yogesh Kumar",
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.monoton(
                                     //fruktur,monoton,cutivemono
                                     color: Colors.white,
-                                    // wordSpacing: 20,
+                                    wordSpacing: 10,
                                     fontSize: 40,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                              Container(
-                                height: LessWidthMQ(500) ? 150 : 100,
-                                alignment: Alignment.center,
-                                child: DefaultTextStyle(
-                                  style: GoogleFonts.monoton(
-                                      //fruktur,monoton,cutivemono
-                                      color: Colors.white,
-                                      // wordSpacing: 20,
-                                      fontSize: 32,
-                                      fontWeight: FontWeight.normal),
-                                  child: AnimatedTextKit(
-                                    animatedTexts: [
-                                      RotateAnimatedText(
-                                        'Flutter Developer',
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      RotateAnimatedText(
-                                        'Android Developer',
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      RotateAnimatedText(
-                                        'Techie',
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      RotateAnimatedText(
-                                        'Game Lover',
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ],
-                                    repeatForever: true,
                                   ),
                                 ),
-                              ),
-                              Text(
-                                subtitle[Random().nextInt(subtitle.length)],
-                                // subtitle[5],
-                                style: GoogleFonts.monoton(
+                                Container(
+                                  height: LessWidthMQ(500) ? 150 : 100,
+                                  alignment: Alignment.center,
+                                  child: DefaultTextStyle(
+                                    style: GoogleFonts.monoton(
+                                      //fruktur,monoton,cutivemono
+                                      color: Colors.white,
+                                      fontSize: 30,
+                                    ),
+                                    child: AnimatedTextKit(
+                                      animatedTexts: [
+                                        RotateAnimatedText(
+                                          CustomBuilder.stringMod(
+                                              'Flutter Developer', 4),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        RotateAnimatedText(
+                                          CustomBuilder.stringMod(
+                                              'Android Developer', 4),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        RotateAnimatedText(
+                                          CustomBuilder.stringMod('Techie', 4),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        RotateAnimatedText(
+                                          CustomBuilder.stringMod(
+                                              'Game Lover', 4),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
+                                      repeatForever: true,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  CustomBuilder.stringMod(
+                                      subtitle[
+                                          Random().nextInt(subtitle.length)],
+                                      4), // subtitle[5],
+                                  style: GoogleFonts.monoton(
                                     //fruktur,monoton,cutivemono
                                     color: Colors.white,
-                                    wordSpacing: 20,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.normal),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1),
-                        ),
-                        height: 350,
-                        alignment: Alignment.center,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          child: Text(
-                            'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
-                            style: GoogleFonts.titilliumWeb(
-                                //amaticaSc
-                                color: Colors.white,
-                                fontSize: 25,
-                                fontWeight: FontWeight.w300),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            left: BorderSide(
-                              color: Colors.white,
-                              width: 2,
-                            ),
-                            right: BorderSide(
-                              color: Colors.white,
-                              width: 2,
-                            ),
-                          ),
-                        ),
-                        child: GridView.builder(
-                            primary: false,
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount:
-                                  (MediaQuery.of(context).size.width > 560)
-                                      ? 4
-                                      : 2,
-                              // childAspectRatio: 4,
-                              mainAxisExtent:
-                                  200, // <== change the height to fit your needs
-                            ),
-                            itemCount: 4,
-                            itemBuilder: (context, i) {
-                              return Container(
-                                width: 100,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 40,
-                                      backgroundColor: Colors.redAccent,
-                                      child: icons[i],
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      title[i],
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
-                                    ),
-                                  ],
+                                    wordSpacing: 90,
+                                    fontSize: 18,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
-                              );
-                            }),
-                      ),
-                      Container(
-                        child: GridView.builder(
-                            primary: false,
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: (MediaQuery.of(context)
-                                          .size
-                                          .width >
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.symmetric(
+                              horizontal:
+                                  BorderSide(color: Colors.white, width: 1),
+                              // vertical:
+                              //     BorderSide(color: Colors.white, width: 1),
+                            ),
+                          ),
+                          height: 350,
+                          alignment: Alignment.center,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.78,
+                            child: Text(
+                              CustomBuilder.stringMod(
+                                  'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
+                                  1),
+                              style: GoogleFonts.titilliumWeb(
+                                  //amaticaSc
+                                  color: Colors.white,
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w300),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.symmetric(
+                              horizontal:
+                                  BorderSide(color: Colors.white, width: 1),
+                              vertical:
+                                  BorderSide(color: Colors.white, width: 1),
+                            ),
+                          ),
+                          child: GridView.builder(
+                              primary: false,
+                              scrollDirection: Axis.vertical,
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount:
+                                    (MediaQuery.of(context).size.width > 560)
+                                        ? 4
+                                        : 2,
+                                // childAspectRatio: 4,
+                                mainAxisExtent:
+                                    200, // <== change the height to fit your needs
+                              ),
+                              itemCount: 4,
+                              itemBuilder: (context, i) {
+                                return Container(
+                                  width: 100,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 40,
+                                        backgroundColor: Colors.redAccent,
+                                        child: icons[i],
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        title[i],
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }),
+                        ),
+                        Container(
+                          child: GridView.builder(
+                              primary: false,
+                              scrollDirection: Axis.vertical,
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: (MediaQuery.of(context)
+                                            .size
+                                            .width >
+                                        960)
+                                    ? 3
+                                    : (MediaQuery.of(context).size.width > 700)
+                                        ? 2
+                                        : 1,
+                                // childAspectRatio: 4,
+                                mainAxisExtent:
+                                    600, // <== change the height to fit your needs
+                              ),
+                              itemCount: (MediaQuery.of(context).size.width >
                                       960)
                                   ? 3
                                   : (MediaQuery.of(context).size.width > 700)
-                                      ? 2
-                                      : 1,
-                              // childAspectRatio: 4,
-                              mainAxisExtent:
-                                  600, // <== change the height to fit your needs
-                            ),
-                            itemCount: (MediaQuery.of(context).size.width > 960)
-                                ? 3
-                                : (MediaQuery.of(context).size.width > 700)
-                                    ? 4
-                                    : 3,
-                            itemBuilder: (context, i) {
-                              return buildProjectCard(proj, i, '/Project');
-                            }),
-                      ),
-                      Container(
-                        width: double.maxFinite,
-                        // height: 450,
-                        child: Wrap(
-                            direction: Axis.horizontal,
-                            runAlignment: WrapAlignment.end,
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            children: MediaQuery.of(context).size.width < 960
-                                ? aim.reversed.toList()
-                                : aim),
-                      ),
-                      CustomBuilder.buildContactFooter(),
-                    ],
+                                      ? 4
+                                      : 3,
+                              itemBuilder: (context, i) {
+                                return buildProjectCard(proj, i, '/Project');
+                              }),
+                        ),
+                        Container(
+                          width: double.maxFinite,
+                          // height: 450,
+                          child: Wrap(
+                              direction: Axis.horizontal,
+                              runAlignment: WrapAlignment.end,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: MediaQuery.of(context).size.width < 960
+                                  ? aim.reversed.toList()
+                                  : aim),
+                        ),
+                        CustomBuilder.buildContactFooter(),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -365,7 +384,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(),
           Text(
             proj[i].title.toString(),
-            style: TextStyle(
+            style: GoogleFonts.bungee(
               color: Colors.white,
               fontSize: 26,
             ),

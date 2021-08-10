@@ -22,6 +22,12 @@ class _SkillsState extends State<Skills> {
       backgroundColor: black,
       body: SafeArea(
         child: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              left: BorderSide(color: Colors.white, width: 1),
+              right: BorderSide(color: Colors.white, width: 1),
+            ),
+          ),
           margin: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 10)
               : EdgeInsets.zero,
@@ -32,6 +38,7 @@ class _SkillsState extends State<Skills> {
               ),
               Expanded(
                 child: SingleChildScrollView(
+                  physics: ClampingScrollPhysics(),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
                         minHeight: MediaQuery.of(context).size.height - 80),
@@ -63,14 +70,11 @@ class _SkillsState extends State<Skills> {
                                 width: MediaQuery.of(context).size.width * 0.8,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'On a long journey, Need to learn a lot of new things.',
+                                  'On    a    long    journey,    Need    to    learn    a    lot    of    new    things.',
                                   style: GoogleFonts.monoton(
                                     fontSize: 34,
                                     color: Colors.white,
-                                    wordSpacing:
-                                        MediaQuery.of(context).size.width < 480
-                                            ? 200
-                                            : 15,
+                                    wordSpacing: 15,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),

@@ -42,6 +42,13 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
     return Column(
       children: [
         Container(
+          decoration: BoxDecoration(
+            border: Border(
+              left: BorderSide(color: Colors.white, width: 1),
+              top: BorderSide(color: Colors.white, width: 1),
+              right: BorderSide(color: Colors.white, width: 1),
+            ),
+          ),
           height: 50,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -61,14 +68,6 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                   },
                   child: Container(
                     width: 40,
-                    decoration: BoxDecoration(
-                      border: Border(
-                        left: BorderSide(width: 1.0, color: Colors.white),
-                        right: BorderSide(width: 1.0, color: Colors.white),
-                        top: BorderSide(width: 1.0, color: Colors.white),
-                        bottom: BorderSide(width: 1.0, color: Colors.white),
-                      ),
-                    ),
                     alignment: Alignment.center,
                     child: Icon(
                       Icons.menu,
@@ -87,21 +86,20 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border(
-                        top: BorderSide(color: Colors.white, width: 1),
                         left: BorderSide(color: Colors.white, width: 1),
                         bottom: BorderSide(color: Colors.white, width: 1),
-                        right: BorderSide(color: Colors.white, width: 1),
                       ),
                     ),
                     alignment: Alignment.centerLeft,
                     padding: EdgeInsets.only(left: 20),
                     child: Text(
                       'Yogesh',
-                      style: GoogleFonts.bungee(
+                      style: GoogleFonts.bungeeShade(
                         //rocksalt,arbutus,
                         color: Colors.white,
                         fontSize: 20,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -274,8 +272,6 @@ class _NavItemState extends State<NavItem> {
           color: kBg,
           border: Border(
             left: BorderSide(width: 1.0, color: Colors.white),
-            right: BorderSide(width: 1.0, color: Colors.white),
-            top: BorderSide(width: 1.0, color: Colors.white),
             bottom: BorderSide(
                 width: 1.0,
                 color: widget.pageNo == widget.cur ? black : Colors.white),

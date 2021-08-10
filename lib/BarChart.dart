@@ -235,9 +235,18 @@ class BarChartSample1State extends State<BarChartSample1> {
               );
             }),
         touchCallback: (barTouchResponse) {
-          if (barTouchResponse.clickHappened ||
-              (barTouchResponse.spot != null &&
-                  barTouchResponse.touchInput is! PointerDownEvent)) {
+          if (barTouchResponse.clickHappened &&
+              MediaQuery.of(context).size.width > 800) {
+            setState(() {
+              height = widget.chartHeight;
+              margin = 50;
+              width = 300;
+              currentSkill = skill;
+              touchedIndex = barTouchResponse.spot!.touchedBarGroupIndex;
+            });
+          } else if (barTouchResponse.spot != null &&
+              barTouchResponse.touchInput is! PointerDownEvent &&
+              MediaQuery.of(context).size.width < 800) {
             setState(() {
               height = widget.chartHeight;
               margin = 50;

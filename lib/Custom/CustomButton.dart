@@ -36,7 +36,9 @@ class _CustomButtonState extends State<CustomButton> {
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: shadow,
-            border: shadow == black ? Border.all(color: bg) : Border(),
+            border: shadow == black
+                ? Border.all(color: bg)
+                : Border.all(color: shadow),
             borderRadius: BorderRadius.circular(10),
             // boxShadow: [
             //   BoxShadow(
