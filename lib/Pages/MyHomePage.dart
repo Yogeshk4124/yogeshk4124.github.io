@@ -50,56 +50,22 @@ class _MyHomePageState extends State<MyHomePage> {
     aim = [
       Column(
         children: [
-          Container(
-            width: LessWidthMQ(860) ? double.maxFinite : 400,
-            height: 120,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 1),
-            ),
-            child: Text(
-              'Currently Working On',
-              style: TextStyle(color: Colors.white, fontSize: 30),
-            ),
-          ),
-          Container(
-            width: LessWidthMQ(860) ? double.maxFinite : 400,
-            height: 120,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 1),
-            ),
-            child: Text(
-              'Learning',
-              style: TextStyle(color: Colors.white, fontSize: 30),
-            ),
-          ),
-          Container(
-            width: LessWidthMQ(860) ? double.maxFinite : 400,
-            height: 120,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 1),
-            ),
-            child: Text(
-              'I want to be',
-              style: TextStyle(color: Colors.white, fontSize: 30),
-            ),
-          ),
+          InfoTabItem(text: 'Education'),
+          InfoTabItem(text: 'Work Experience'),
+          InfoTabItem(text: 'Fun Fact'),
         ],
       ),
       Container(
         height: 360,
         width: LessWidthMQ(860)
             ? double.maxFinite
-            : MediaQuery.of(context).size.width - 484,
+            : MediaQuery.of(context).size.width - 482,
         decoration: BoxDecoration(
           border: Border.all(color: Colors.white, width: 1),
         ),
         child: Image.asset(
           'flutter.jpg',
-          // fit: BoxFit.fill,
-          fit: BoxFit.scaleDown,
+          fit: BoxFit.fitWidth,
         ),
       ),
     ];
@@ -132,10 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            border: Border(
-              left: BorderSide(color: Colors.white, width: 1),
-              right: BorderSide(color: Colors.white, width: 1),
-            ),
+            border: (MediaQuery.of(context).size.width < 700)
+                ? Border(
+                    left: BorderSide(color: Colors.white, width: 1),
+                    right: BorderSide(color: Colors.white, width: 1),
+                  )
+                : Border.all(width: 0),
           ),
           padding: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, bottom: 10, right: 40)
@@ -398,5 +366,53 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
     return c;
+  }
+}
+
+class InfoTabItem extends StatefulWidget {
+  final text;
+  const InfoTabItem({
+    required this.text,
+  });
+
+  @override
+  _InfoTabItemState createState() => _InfoTabItemState();
+}
+
+class _InfoTabItemState extends State<InfoTabItem> {
+  Color bg = black, fg = Colors.white;
+  @override
+  Widget build(BuildContext context) {
+    bool LessWidthMQ(double x) {
+      return MediaQuery.of(context).size.width < x;
+    }
+
+    return InkWell(
+      onTap: () {},
+      onHover: (inside) {
+        setState(() {
+          if (inside) {
+            bg = Colors.white;
+            fg = Colors.black;
+          } else {
+            bg = black;
+            fg = Colors.white;
+          }
+        });
+      },
+      child: Container(
+        width: LessWidthMQ(860) ? double.maxFinite : 400,
+        height: 120,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: bg,
+          border: Border.all(color: Colors.white, width: 1),
+        ),
+        child: Text(
+          widget.text,
+          style: TextStyle(color: fg, fontSize: 30),
+        ),
+      ),
+    );
   }
 }
