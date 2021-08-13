@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Custom/CustomButton.dart';
+import 'package:portfolio/InfoPanel.dart';
 
 import './Skills.dart';
 import '../CustomBuilder.dart';
@@ -21,6 +22,8 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
+int option = -1;
 
 class _MyHomePageState extends State<MyHomePage> {
   late List<Widget> aim;
@@ -50,23 +53,22 @@ class _MyHomePageState extends State<MyHomePage> {
     aim = [
       Column(
         children: [
-          InfoTabItem(text: 'Education'),
-          InfoTabItem(text: 'Work Experience'),
-          InfoTabItem(text: 'Fun Fact'),
+          InfoTabItem(
+            text: 'Education',
+            idx: 1,
+          ),
+          InfoTabItem(
+            text: 'Work Experience',
+            idx: 2,
+          ),
+          InfoTabItem(
+            text: 'Fun Fact',
+            idx: 3,
+          ),
         ],
       ),
-      Container(
-        height: 360,
-        width: LessWidthMQ(860)
-            ? double.maxFinite
-            : MediaQuery.of(context).size.width - 482,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 1),
-        ),
-        child: Image.asset(
-          'flutter.jpg',
-          fit: BoxFit.fitWidth,
-        ),
+      InfoPanel(
+        option: option,
       ),
     ];
     List<Widget> icons = [
@@ -371,8 +373,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class InfoTabItem extends StatefulWidget {
   final text;
+  final int idx;
   const InfoTabItem({
     required this.text,
+    required this.idx,
   });
 
   @override
@@ -388,7 +392,11 @@ class _InfoTabItemState extends State<InfoTabItem> {
     }
 
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        setState(() {
+          option = widget.idx;
+        });
+      },
       onHover: (inside) {
         setState(() {
           if (inside) {

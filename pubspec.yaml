@@ -36,6 +36,7 @@ dependencies:
   google_fonts: ^2.1.0
   animated_text_kit: ^4.2.1
   ionicons: ^0.1.2
+  carousel_slider: ^4.0.0
 
 
 dev_dependencies:
