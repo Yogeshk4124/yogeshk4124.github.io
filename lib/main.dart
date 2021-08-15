@@ -12,6 +12,8 @@ void main() {
   runApp(MyApp());
 }
 
+final homeKey = GlobalKey<MyHomePageState>();
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -47,7 +49,9 @@ class MyApp extends StatelessWidget {
                   Animation<double> secondaryAnimation) {
                 switch (routeSettings.name) {
                   case '/':
-                    return MyHomePage(title: 'Home');
+                    return MyHomePage(
+                      title: 'Home',
+                    );
                   case '/Skills':
                     return Skills();
                   case '/Projects':

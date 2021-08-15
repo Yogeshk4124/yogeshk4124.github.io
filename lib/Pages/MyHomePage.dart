@@ -12,22 +12,18 @@ import 'package:portfolio/InfoPanel.dart';
 import './Skills.dart';
 import '../CustomBuilder.dart';
 import '../NavBar.dart';
+import '../keys.dart';
 import '../project.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
-
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-int option = -1;
-
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   late List<Widget> aim;
-
   List<String> subtitle = [
     'I am Popeye not with spinach but with Computer.',
     'I can code and build stuff for you.',
@@ -68,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       InfoPanel(
-        option: option,
+        key: infoPanelKey,
       ),
     ];
     List<Widget> icons = [
@@ -372,8 +368,9 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class InfoTabItem extends StatefulWidget {
-  final text;
+  final String text;
   final int idx;
+
   const InfoTabItem({
     required this.text,
     required this.idx,
@@ -385,6 +382,7 @@ class InfoTabItem extends StatefulWidget {
 
 class _InfoTabItemState extends State<InfoTabItem> {
   Color bg = black, fg = Colors.white;
+
   @override
   Widget build(BuildContext context) {
     bool LessWidthMQ(double x) {
@@ -394,31 +392,37 @@ class _InfoTabItemState extends State<InfoTabItem> {
     return InkWell(
       onTap: () {
         setState(() {
-          option = widget.idx;
+          infoPanelKey.currentState!.changeOption(widget.idx);
         });
       },
       onHover: (inside) {
-        setState(() {
-          if (inside) {
-            bg = Colors.white;
-            fg = Colors.black;
-          } else {
-            bg = black;
-            fg = Colors.white;
-          }
-        });
+        if (infoPanelKey.currentState!.opt != widget.idx)
+          setState(() {
+            if (inside) {
+              bg = Colors.white;
+              fg = Colors.black;
+            } else {
+              bg = black;
+              fg = Colors.white;
+            }
+          });
       },
       child: Container(
         width: LessWidthMQ(860) ? double.maxFinite : 400,
         height: 120,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: bg,
+          color:
+              infoPanelKey.currentState!.opt == widget.idx ? Colors.white : bg,
           border: Border.all(color: Colors.white, width: 1),
         ),
         child: Text(
           widget.text,
-          style: TextStyle(color: fg, fontSize: 30),
+          style: TextStyle(
+              color: infoPanelKey.currentState!.opt == widget.idx
+                  ? Colors.black
+                  : fg,
+              fontSize: 30),
         ),
       ),
     );
