@@ -1,10 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/Pages/CustomWebView.dart';
 import 'package:portfolio/Pages/Skills.dart';
+import 'package:universal_html/js.dart' as js;
 
 class CustomButton extends StatefulWidget {
   String pageRoute, text;
-  CustomButton({required this.pageRoute, required this.text});
+  int type;
+  CustomButton(
+      {required this.pageRoute, required this.type, required this.text});
   @override
   _CustomButtonState createState() => _CustomButtonState();
 }
@@ -17,8 +23,18 @@ class _CustomButtonState extends State<CustomButton> {
     return Container(
       // padding: EdgeInsets.only(top: 30),
       child: InkWell(
-        onTap: () =>
-            Navigator.of(context).pushReplacementNamed(widget.pageRoute),
+        onTap: () {
+          if (widget.type == 1 &&
+              (Platform.isWindows || Platform.isMacOS || Platform.isLinux)) {
+            js.context.callMethod('open', [widget.pageRoute]);
+            // Navigator.of(context).push(MaterialPageRoute(
+            //     builder: (context) => CustomWebView(link: widget.pageRoute)));
+          }
+          if (widget.type == 1) {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => CustomWebView(link: widget.pageRoute)));
+          }
+        },
         onHover: (val) {
           setState(() {
             if (val) {

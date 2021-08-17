@@ -63,6 +63,15 @@ class MyHomePageState extends State<MyHomePage> {
     aim = [
       Column(
         children: [
+          Container(
+            height: 30,
+            width: LessWidthMQ(860) ? double.maxFinite : 400,
+            alignment: Alignment.center,
+            child: Text(
+              'Click any tab to show details.',
+              style: GoogleFonts.titilliumWeb(color: Colors.white),
+            ),
+          ),
           InfoTabItem(
             text: 'Education',
             idx: 1,
@@ -374,6 +383,7 @@ class MyHomePageState extends State<MyHomePage> {
             height: 400,
           ),
           CustomButton(
+            type: 1,
             pageRoute: '/Projects',
             text: 'View More',
           ),
@@ -458,7 +468,7 @@ class InfoTabItemState extends State<InfoTabItem> {
       },
       child: Container(
         width: LessWidthMQ(860) ? double.maxFinite : 400,
-        height: 120,
+        height: 110,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: bg,

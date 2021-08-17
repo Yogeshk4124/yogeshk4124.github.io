@@ -306,9 +306,21 @@ class _ProjectsState extends State<Projects> {
               crossAxisAlignment: WrapCrossAlignment.center,
               alignment: WrapAlignment.center,
               children: [
-                CustomButton(pageRoute: '', text: 'View More'),
-                CustomButton(pageRoute: '', text: 'Download APK'),
-                CustomButton(pageRoute: '', text: 'Download Code'),
+                CustomButton(
+                  pageRoute: proj.viewMore.toString(),
+                  text: 'View More',
+                  type: 1,
+                ),
+                CustomButton(
+                  pageRoute: proj.apk.toString(),
+                  text: 'Download APK',
+                  type: 2,
+                ),
+                CustomButton(
+                  pageRoute: proj.code.toString(),
+                  text: 'Download Code',
+                  type: 3,
+                ),
               ],
             ),
           ],

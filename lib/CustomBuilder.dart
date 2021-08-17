@@ -101,6 +101,11 @@ class CustomBuilder {
         'Android Studio',
       ],
       subtitle: 'A Card Managing App',
+      viewMore: 'https://github.com/Yogeshk4124/Card-Space',
+      apk:
+          'https://github.com/Yogeshk4124/Card-Space/blob/main/apk/app.apk?raw=true',
+      code:
+          'https://github.com/Yogeshk4124/Card-Space/archive/refs/heads/main.zip',
     ));
     proj.add(projects(
       subtitle: 'A multimedia app',
@@ -110,6 +115,11 @@ class CustomBuilder {
       summary:
           'Sync Player is a multimedia app which allow user to create and join private room where members can play their media at sync with each other. User can also chat with other while playing videos. This project contains some extra functionality as normal multimedia app does not provide.',
       title: 'Sync Player',
+      viewMore: 'https://github.com/Yogeshk4124/SyncPlayer',
+      apk:
+          'https://github.com/Yogeshk4124/SyncPlayer/blob/main/APK/SyncPlayer.apk?raw=true',
+      code:
+          'https://github.com/Yogeshk4124/SyncPlayer/archive/refs/heads/main.zip',
     ));
     proj.add(projects(
       subtitle: 'Gmail UI Clone App',
@@ -123,6 +133,11 @@ class CustomBuilder {
         'Dart',
         'Android Studio',
       ],
+      viewMore: 'https://github.com/Yogeshk4124/Gmail-UI-Clone',
+      apk:
+          'https://github.com/Yogeshk4124/Gmail-ui-clone/blob/main/apk/app.apk?raw=true',
+      code:
+          'https://github.com/Yogeshk4124/Gmail-UI-Clone/archive/refs/heads/main.zip',
     ));
     proj.add(projects(
       subtitle: 'A Clock Website',
@@ -132,6 +147,11 @@ class CustomBuilder {
       summary:
           'Programmer Clock is a clock with weather forecast. The most unused clock. A Clock That No One Asked For. It shows time in the most loved number system by programmers that is binary.',
       title: 'Programmer Clock',
+      viewMore: 'https://github.com/Yogeshk4124/SyncPlayer',
+      apk:
+          'https://github.com/Yogeshk4124/SyncPlayer/blob/main/APK/SyncPlayer.apk?raw=true',
+      code:
+          'https://github.com/Yogeshk4124/SyncPlayer/archive/refs/heads/main.zip',
     ));
     proj.add(projects(
       subtitle: 'An Event Post App',
@@ -141,6 +161,10 @@ class CustomBuilder {
       summary:
           'It is a simple event posting application. It has two types of accounts that is User and Admin.\nAdmin will have the access to create post where he/she can add details of events like Name, category, date, and location.\nUser can see all the posts that admin adds.',
       title: 'Simple Post App',
+      viewMore: 'https://github.com/Yogeshk4124/Programmer-Clock',
+      apk: 'https://yogeshk4124.github.io/Programmer-Clock/',
+      code:
+          'https://github.com/Yogeshk4124/Programmer-Clock/archive/refs/heads/main.zip',
     ));
     proj.add(projects(
       subtitle: 'All in One Translator ',
@@ -150,6 +174,9 @@ class CustomBuilder {
       summary:
           'Chatter Box is an android app that is capable of Voice, Text, Image Text Translation along with a Chatting feature with the in-Built translator that converts the message to another person default language which is set up during the sign-in process. It supports 9 languages.',
       title: 'ChatterBox Translator',
+      viewMore: 'https://github.com/Yogeshk4124/Chatter-Box-Translator',
+      code:
+          'https://github.com/Yogeshk4124/Chatter-Box-Translator/archive/refs/heads/master.zip',
     ));
 
     proj.add(projects(
@@ -160,6 +187,10 @@ class CustomBuilder {
       summary:
           'A simple weather application that gives the details of the weather of the current location and user can also search weather by location.',
       title: 'Weather App',
+      viewMore: 'https://github.com/Yogeshk4124/weather-app',
+      apk:
+          'https://github.com/Yogeshk4124/weather-app/raw/main/apk/app-release.apk',
+      code: 'https://github.com/Yogeshk4124/weather-app',
     ));
     proj.add(projects(
       subtitle: 'A calorie tracking app.',
@@ -169,6 +200,11 @@ class CustomBuilder {
       summary:
           'Calorie Meter is an android app that helps user to measure their daily BMI(Body Mass Index) and BMR (Basal Metabolic Rate) and let them achieve their goal.',
       title: 'Calorie Meter',
+      viewMore: 'https://github.com/Yogeshk4124/CalorieMeter',
+      apk:
+          'https://github.com/Yogeshk4124/CalorieMeter/blob/main/apk/caloriemeter.apk',
+      code:
+          'https://github.com/Yogeshk4124/CalorieMeter/archive/refs/heads/main.zip',
     ));
     return proj;
   }

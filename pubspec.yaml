@@ -38,6 +38,9 @@ dependencies:
   ionicons: ^0.1.2
   carousel_slider: ^4.0.0
   event_hub: ^0.1.1
+  url_launcher: ^6.0.9
+  webview_flutter: ^2.0.12
+  universal_html: ^1.2.1
 
 
 dev_dependencies:

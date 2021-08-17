@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_page_transition/flutter_page_transition.dart';
+import 'package:portfolio/Pages/CustomWebView.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 
@@ -55,6 +56,10 @@ class MyApp extends StatelessWidget {
                     );
                   case '/Skills':
                     return Skills();
+                  case '/CustomWebView':
+                    return CustomWebView(
+                      link: '',
+                    );
                   case '/Projects':
                     return Projects();
                   default:
