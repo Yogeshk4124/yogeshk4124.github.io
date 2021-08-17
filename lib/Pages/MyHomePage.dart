@@ -14,6 +14,7 @@ import '../CustomBuilder.dart';
 import '../NavBar.dart';
 import '../keys.dart';
 import '../project.dart';
+import '../utility.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -34,11 +35,24 @@ class MyHomePageState extends State<MyHomePage> {
     "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
   ];
   late List<projects> proj;
+  int option = -1;
   @override
   void initState() {
     super.initState();
     proj = CustomBuilder.getProjectList();
+    eventHub.on('reset', (idx) {
+      setState(() {
+        option = idx;
+      });
+    });
   }
+
+  // int opt = 1;
+  // changeOption(int x) {
+  //   setState(() {
+  //     opt = x;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -52,20 +66,24 @@ class MyHomePageState extends State<MyHomePage> {
           InfoTabItem(
             text: 'Education',
             idx: 1,
+            selected: option == 1,
+            key: k1,
           ),
           InfoTabItem(
             text: 'Work Experience',
             idx: 2,
+            selected: option == 2,
+            key: k2,
           ),
           InfoTabItem(
             text: 'Fun Fact',
             idx: 3,
+            selected: option == 3,
+            key: k3,
           ),
         ],
       ),
-      InfoPanel(
-        key: infoPanelKey,
-      ),
+      InfoPanel(key: infoPanelKey, opt: option),
     ];
     List<Widget> icons = [
       Icon(
@@ -370,18 +388,39 @@ class MyHomePageState extends State<MyHomePage> {
 class InfoTabItem extends StatefulWidget {
   final String text;
   final int idx;
-
+  final bool selected;
   const InfoTabItem({
+    Key? key,
     required this.text,
     required this.idx,
-  });
+    required this.selected,
+  }) : super(key: key);
 
   @override
-  _InfoTabItemState createState() => _InfoTabItemState();
+  InfoTabItemState createState() => InfoTabItemState();
 }
 
-class _InfoTabItemState extends State<InfoTabItem> {
+class InfoTabItemState extends State<InfoTabItem> {
   Color bg = black, fg = Colors.white;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  setSelected(bool c) {
+    setState(() {
+      print('for:' + widget.idx.toString() + " i:" + c.toString());
+      if (c) {
+        bg = Colors.white;
+        fg = black;
+      } else {
+        fg = Colors.white;
+        bg = black;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -391,38 +430,44 @@ class _InfoTabItemState extends State<InfoTabItem> {
 
     return InkWell(
       onTap: () {
-        setState(() {
-          infoPanelKey.currentState!.changeOption(widget.idx);
-        });
+        eventHub.fire('reset', widget.idx);
+        infoPanelKey.currentState!.changeOption(widget.idx);
+        if (widget.idx == 1)
+          k1.currentState!.setSelected(true);
+        else
+          k1.currentState!.setSelected(false);
+        if (widget.idx == 2)
+          k2.currentState!.setSelected(true);
+        else
+          k2.currentState!.setSelected(false);
+        if (widget.idx == 3)
+          k3.currentState!.setSelected(true);
+        else
+          k3.currentState!.setSelected(false);
+        // homeKey.currentState!.setState(() {
+        // homeKey.currentState!.changeOption(widget.idx);
+        // });
       },
       onHover: (inside) {
-        if (infoPanelKey.currentState!.opt != widget.idx)
-          setState(() {
-            if (inside) {
-              bg = Colors.white;
-              fg = Colors.black;
-            } else {
-              bg = black;
-              fg = Colors.white;
-            }
-          });
+        if (inside && bg == black) {
+          setSelected(true);
+        } else if (!widget.selected) {
+          print('run');
+          setSelected(false);
+        }
       },
       child: Container(
         width: LessWidthMQ(860) ? double.maxFinite : 400,
         height: 120,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color:
-              infoPanelKey.currentState!.opt == widget.idx ? Colors.white : bg,
-          border: Border.all(color: Colors.white, width: 1),
+          color: bg,
+          border: Border.all(
+              color: (widget.selected) ? black : Colors.white, width: 1),
         ),
         child: Text(
           widget.text,
-          style: TextStyle(
-              color: infoPanelKey.currentState!.opt == widget.idx
-                  ? Colors.black
-                  : fg,
-              fontSize: 30),
+          style: TextStyle(color: fg, fontSize: 30),
         ),
       ),
     );

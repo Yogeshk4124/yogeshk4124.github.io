@@ -37,6 +37,7 @@ dependencies:
   animated_text_kit: ^4.2.1
   ionicons: ^0.1.2
   carousel_slider: ^4.0.0
+  event_hub: ^0.1.1
 
 
 dev_dependencies:

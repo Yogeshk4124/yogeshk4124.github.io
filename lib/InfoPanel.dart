@@ -6,7 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'Pages/Skills.dart';
 
 class InfoPanel extends StatefulWidget {
-  InfoPanel({Key? key}) : super(key: key);
+  final opt;
+  InfoPanel({required this.opt, Key? key}) : super(key: key);
   @override
   InfoPanelState createState() => InfoPanelState();
 }
@@ -19,6 +20,9 @@ class InfoPanelState extends State<InfoPanel> {
   void initState() {
     // opt = optionKey.currentState!.option;
     print(opt);
+    setState(() {
+      opt = widget.opt;
+    });
   }
 
   changeOption(int x) {

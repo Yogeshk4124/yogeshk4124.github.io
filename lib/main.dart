@@ -51,6 +51,7 @@ class MyApp extends StatelessWidget {
                   case '/':
                     return MyHomePage(
                       title: 'Home',
+                      key: homeKey,
                     );
                   case '/Skills':
                     return Skills();
