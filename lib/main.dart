@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_page_transition/flutter_page_transition.dart';
 import 'package:portfolio/Pages/CustomWebView.dart';
@@ -10,9 +9,7 @@ import 'Pages/MyHomePage.dart';
 import 'Pages/Projects.dart';
 import 'Pages/Skills.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await FlutterDownloader.initialize(debug: false);
+void main() {
   runApp(MyApp());
 }
 
