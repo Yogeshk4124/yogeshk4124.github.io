@@ -316,11 +316,6 @@ class _ProjectsState extends State<Projects> {
                   text: 'Download APK',
                   type: 2,
                 ),
-                CustomButton(
-                  pageRoute: proj.code.toString(),
-                  text: 'Download Code',
-                  type: 3,
-                ),
               ],
             ),
           ],

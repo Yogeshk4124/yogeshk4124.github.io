@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:portfolio/Pages/CustomWebView.dart';
 import 'package:portfolio/Pages/Skills.dart';
@@ -18,21 +17,31 @@ class CustomButton extends StatefulWidget {
 class _CustomButtonState extends State<CustomButton> {
   Color shadow = Colors.white;
   Color bg = black;
+  // var fileDownloaderProvider;
   @override
   Widget build(BuildContext context) {
+    // fileDownloaderProvider =
+    //     Provider.of<FileDownloaderProvider>(context, listen: false);
     return Container(
       // padding: EdgeInsets.only(top: 30),
       child: InkWell(
-        onTap: () {
-          if (widget.type == 1 &&
-              (Platform.isWindows || Platform.isMacOS || Platform.isLinux)) {
+        onTap: () async {
+          print('enter');
+          if (widget.type == 1 && kIsWeb) {
+            print('p check');
             js.context.callMethod('open', [widget.pageRoute]);
             // Navigator.of(context).push(MaterialPageRoute(
             //     builder: (context) => CustomWebView(link: widget.pageRoute)));
-          }
-          if (widget.type == 1) {
+          } else if (widget.type == 1) {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => CustomWebView(link: widget.pageRoute)));
+          }
+          if (widget.type == 2 && kIsWeb) {
+            js.context.callMethod('open', [widget.pageRoute]);
+          } else if (widget.type == 2) {
+            // fileDownloaderProvider
+            //     .downloadFile(widget.pageRoute, "apk.apk")
+            //     .then((onValue) {});
           }
         },
         onHover: (val) {
