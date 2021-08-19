@@ -4,13 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Custom/CustomButton.dart';
-import 'package:portfolio/Custom/CustomPills.dart';
-import 'package:portfolio/CustomBuilder.dart';
-import 'package:portfolio/NavBar.dart';
+import 'package:portfolio/Components/CustomButton.dart';
+import 'package:portfolio/Components/CustomPills.dart';
+import 'package:portfolio/Components/Footer.dart';
+import 'package:portfolio/Components/NavBar.dart';
+import 'package:portfolio/Models/project.dart';
 import 'package:portfolio/Pages/Skills.dart';
-
-import '../project.dart';
+import 'package:portfolio/Utility/Constants.dart';
 
 class Projects extends StatefulWidget {
   // const Projects({Key key}) : super(key: key);
@@ -20,13 +20,11 @@ class Projects extends StatefulWidget {
 }
 
 class _ProjectsState extends State<Projects> {
-  List<projects> proj = [];
   double h = 0;
   bool vis = false;
   @override
   void initState() {
     super.initState();
-    proj = CustomBuilder.getProjectList();
   }
 
   @override
@@ -167,7 +165,7 @@ class _ProjectsState extends State<Projects> {
                             ],
                           ),
                         ),
-                        for (int i = 0; i < proj.length; i++)
+                        for (int i = 0; i < projectsList.length; i++)
                           Container(
                             decoration: BoxDecoration(
                               border: Border(
@@ -178,9 +176,9 @@ class _ProjectsState extends State<Projects> {
                             // height: 450,
                             alignment: Alignment.center,
                             padding: EdgeInsets.only(left: 20, right: 20),
-                            child: buildProjectRow(proj[i], i),
+                            child: buildProjectRow(projectsList[i], i),
                           ),
-                        CustomBuilder.buildContactFooter(),
+                        Footer(),
                       ],
                     ),
                   ),

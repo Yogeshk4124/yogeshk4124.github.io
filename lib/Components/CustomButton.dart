@@ -26,12 +26,8 @@ class _CustomButtonState extends State<CustomButton> {
       // padding: EdgeInsets.only(top: 30),
       child: InkWell(
         onTap: () async {
-          print('enter');
           if (widget.type == 1 && kIsWeb) {
-            print('p check');
             js.context.callMethod('open', [widget.pageRoute]);
-            // Navigator.of(context).push(MaterialPageRoute(
-            //     builder: (context) => CustomWebView(link: widget.pageRoute)));
           } else if (widget.type == 1) {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => CustomWebView(link: widget.pageRoute)));
@@ -65,21 +61,6 @@ class _CustomButtonState extends State<CustomButton> {
                 ? Border.all(color: bg)
                 : Border.all(color: shadow),
             borderRadius: BorderRadius.circular(10),
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: shadow,
-            //     offset: const Offset(
-            //       5.0,
-            //       4.0,
-            //     ),
-            //     spreadRadius: 2.0,
-            //   ), //BoxShadow
-            //   BoxShadow(
-            //     color: shadow,
-            //     offset: const Offset(0.0, 0.0),
-            //     spreadRadius: 0.0,
-            //   ), //BoxShadow
-            // ],
           ),
           child: Text(
             widget.text,

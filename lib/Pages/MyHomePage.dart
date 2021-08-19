@@ -6,15 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Custom/CustomButton.dart';
-import 'package:portfolio/InfoPanel.dart';
+import 'package:portfolio/Components/CustomButton.dart';
+import 'package:portfolio/Components/Footer.dart';
+import 'package:portfolio/Components/InfoSection/InfoPanel.dart';
+import 'package:portfolio/Components/InfoSection/InfoTabItem.dart';
+import 'package:portfolio/Models/project.dart';
+import 'package:portfolio/Utility/Utility.dart';
 
 import './Skills.dart';
-import '../CustomBuilder.dart';
-import '../NavBar.dart';
-import '../keys.dart';
-import '../project.dart';
-import '../utility.dart';
+import '../Components/NavBar.dart';
+import '../Utility/Constants.dart';
+import '../Utility/keys.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -34,12 +36,10 @@ class MyHomePageState extends State<MyHomePage> {
     "I won't let the server crash until it is running on my pc.",
     "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
   ];
-  late List<projects> proj;
   int option = -1;
   @override
   void initState() {
     super.initState();
-    proj = CustomBuilder.getProjectList();
     eventHub.on('reset', (idx) {
       setState(() {
         option = idx;
@@ -182,22 +182,19 @@ class MyHomePageState extends State<MyHomePage> {
                                     child: AnimatedTextKit(
                                       animatedTexts: [
                                         RotateAnimatedText(
-                                          CustomBuilder.stringMod(
-                                              'Flutter Developer', 4),
+                                          stringMod('Flutter Developer', 4),
                                           textAlign: TextAlign.center,
                                         ),
                                         RotateAnimatedText(
-                                          CustomBuilder.stringMod(
-                                              'Android Developer', 4),
+                                          stringMod('Android Developer', 4),
                                           textAlign: TextAlign.center,
                                         ),
                                         RotateAnimatedText(
-                                          CustomBuilder.stringMod('Techie', 4),
+                                          stringMod('Techie', 4),
                                           textAlign: TextAlign.center,
                                         ),
                                         RotateAnimatedText(
-                                          CustomBuilder.stringMod(
-                                              'Game Lover', 4),
+                                          stringMod('Game Lover', 4),
                                           textAlign: TextAlign.center,
                                         ),
                                       ],
@@ -206,7 +203,7 @@ class MyHomePageState extends State<MyHomePage> {
                                   ),
                                 ),
                                 Text(
-                                  CustomBuilder.stringMod(
+                                  stringMod(
                                       subtitle[
                                           Random().nextInt(subtitle.length)],
                                       4), // subtitle[5],
@@ -236,7 +233,7 @@ class MyHomePageState extends State<MyHomePage> {
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.78,
                             child: Text(
-                              CustomBuilder.stringMod(
+                              stringMod(
                                   'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
                                   1),
                               style: GoogleFonts.titilliumWeb(
@@ -324,7 +321,8 @@ class MyHomePageState extends State<MyHomePage> {
                                       ? 4
                                       : 3,
                               itemBuilder: (context, i) {
-                                return buildProjectCard(proj, i, '/Project');
+                                return buildProjectCard(
+                                    projectsList, i, '/Project');
                               }),
                         ),
                         Container(
@@ -338,7 +336,7 @@ class MyHomePageState extends State<MyHomePage> {
                                   ? aim.reversed.toList()
                                   : aim),
                         ),
-                        CustomBuilder.buildContactFooter(),
+                        Footer(),
                       ],
                     ),
                   ),
@@ -392,94 +390,5 @@ class MyHomePageState extends State<MyHomePage> {
       ),
     );
     return c;
-  }
-}
-
-class InfoTabItem extends StatefulWidget {
-  final String text;
-  final int idx;
-  final bool selected;
-  const InfoTabItem({
-    Key? key,
-    required this.text,
-    required this.idx,
-    required this.selected,
-  }) : super(key: key);
-
-  @override
-  InfoTabItemState createState() => InfoTabItemState();
-}
-
-class InfoTabItemState extends State<InfoTabItem> {
-  Color bg = black, fg = Colors.white;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  setSelected(bool c) {
-    setState(() {
-      print('for:' + widget.idx.toString() + " i:" + c.toString());
-      if (c) {
-        bg = Colors.white;
-        fg = black;
-      } else {
-        fg = Colors.white;
-        bg = black;
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    bool LessWidthMQ(double x) {
-      return MediaQuery.of(context).size.width < x;
-    }
-
-    return InkWell(
-      onTap: () {
-        eventHub.fire('reset', widget.idx);
-        infoPanelKey.currentState!.changeOption(widget.idx);
-        if (widget.idx == 1)
-          k1.currentState!.setSelected(true);
-        else
-          k1.currentState!.setSelected(false);
-        if (widget.idx == 2)
-          k2.currentState!.setSelected(true);
-        else
-          k2.currentState!.setSelected(false);
-        if (widget.idx == 3)
-          k3.currentState!.setSelected(true);
-        else
-          k3.currentState!.setSelected(false);
-        // homeKey.currentState!.setState(() {
-        // homeKey.currentState!.changeOption(widget.idx);
-        // });
-      },
-      onHover: (inside) {
-        if (inside && bg == black) {
-          setSelected(true);
-        } else if (!widget.selected) {
-          print('run');
-          setSelected(false);
-        }
-      },
-      child: Container(
-        width: LessWidthMQ(860) ? double.maxFinite : 400,
-        height: 110,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: bg,
-          border: Border.all(
-              color: (widget.selected) ? black : Colors.white, width: 1),
-        ),
-        child: Text(
-          widget.text,
-          style: TextStyle(color: fg, fontSize: 30),
-        ),
-      ),
-    );
   }
 }

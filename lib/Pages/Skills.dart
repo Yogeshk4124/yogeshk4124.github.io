@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/CustomBuilder.dart';
-import 'package:portfolio/NavBar.dart';
-
-import '../BarChart.dart';
+import 'package:portfolio/Components/Footer.dart';
+import 'package:portfolio/Components/NavBar.dart';
+import 'package:portfolio/Plugin/BarChart.dart';
 
 Color black = Color(0xff121212);
 
@@ -84,7 +83,7 @@ class _SkillsState extends State<Skills> {
                                 child: Container(
                                     child: BarChartSample1(
                                         chartWidth: 500, chartHeight: 400))),
-                            CustomBuilder.buildContactFooter(),
+                            Footer(),
                           ],
                         ),
                       ),

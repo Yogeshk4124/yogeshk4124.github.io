@@ -3,8 +3,7 @@ import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-
-import 'CustomBuilder.dart';
+import 'package:portfolio/Components/SkillDetailsContainer.dart';
 
 class BarChartSample1 extends StatefulWidget {
   final List<Color> availableColors = [
@@ -95,26 +94,6 @@ class BarChartSample1State extends State<BarChartSample1> {
                     ],
                   ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.all(8.0),
-                //   child: Align(
-                //     alignment: Alignment.topRight,
-                //     child: IconButton(
-                //       icon: Icon(
-                //         isPlaying ? Icons.pause : Icons.play_arrow,
-                //         color: const Color(0xff0f4a3c),
-                //       ),
-                //       onPressed: () {
-                //         setState(() {
-                //           isPlaying = !isPlaying;
-                //           if (isPlaying) {
-                //             refreshState();
-                //           }
-                //         });
-                //       },
-                //     ),
-                //   ),
-                // )
               ],
             ),
           ),
@@ -125,13 +104,16 @@ class BarChartSample1State extends State<BarChartSample1> {
           duration: Duration(seconds: 1),
           height: height,
           width: width,
+          curve: Curves.linear,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.white, width: 2),
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ),
           ),
-          child: CustomBuilder.ListbuildHandler(skill),
+          // child: CustomBuilder.ListbuildHandler(skill),
+          child:
+              skill != '' ? SkillDetailsContainer(skill: skill) : Container(),
         ),
       ],
     );
