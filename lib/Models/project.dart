@@ -1,10 +1,10 @@
 // ignore: camel_case_types
-class projects {
+class Project {
   String? title, summary, subtitle;
   String? imgsrc;
   List<String>? tech;
   String? viewMore, apk, code;
-  projects(
+  Project(
       {required this.title,
       required this.summary,
       required this.subtitle,

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Pages/Skills.dart';
+import 'package:portfolio/Models/project.dart';
+import 'package:portfolio/Pages/ProjectsPage.dart';
+import 'package:portfolio/Pages/SkillsPage.dart';
 
 class NavBar extends StatefulWidget {
   // BuildContext pageContext;
@@ -175,7 +177,8 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               onTap: () {
                 height = 0;
                 isVisible = false;
-                Navigator.of(context).pushReplacementNamed('/Projects');
+                Navigator.of(context).pushReplacementNamed('/Projects',
+                    arguments: {'key': Project});
               },
               child: AnimatedContainer(
                 duration: Duration(seconds: 1),
@@ -203,7 +206,8 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               onTap: () {
                 height = 0;
                 isVisible = false;
-                Navigator.of(context).pushReplacementNamed('/Projects');
+                Navigator.of(context).pushReplacementNamed('/Projects',
+                    arguments: GlobalKey<ProjectsState>());
               },
               child: AnimatedContainer(
                 duration: Duration(seconds: 1),

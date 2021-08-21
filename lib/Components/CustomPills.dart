@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/Utility/keys.dart';
 
 class CustomPill extends StatefulWidget {
   String text;
-  bool hover;
-  CustomPill({required this.text, required this.hover});
+  int type;
+  CustomPill({required this.text, required this.type});
   @override
   _CustomPillState createState() => _CustomPillState();
 }
@@ -14,7 +15,11 @@ class _CustomPillState extends State<CustomPill> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        projectKey.currentState!.setState(() {
+          projectKey.currentState!.filterBy = widget.text;
+        });
+      },
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       onHover: (inside) {
@@ -30,16 +35,17 @@ class _CustomPillState extends State<CustomPill> {
       },
       child: Container(
         padding: EdgeInsets.symmetric(
-            horizontal: widget.hover ? 20 : 10, vertical: widget.hover ? 8 : 3),
+            horizontal: widget.type != 0 ? 20 : 10,
+            vertical: widget.type != 0 ? 8 : 3),
         margin: EdgeInsets.only(left: 15),
         decoration: BoxDecoration(
-          color: widget.hover ? bgColor : getPillColor(widget.text),
-          border: widget.hover ? Border.all(color: Colors.white) : Border(),
+          color: widget.type == 1 ? bgColor : getPillColor(widget.text),
+          border: widget.type == 1 ? Border.all(color: Colors.white) : Border(),
           borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
         child: Text(
           widget.text,
-          style: TextStyle(color: widget.hover ? textColor : Colors.black),
+          style: TextStyle(color: widget.type == 1 ? textColor : Colors.black),
         ),
       ),
     );

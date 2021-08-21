@@ -6,8 +6,9 @@ import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 
 import 'Pages/MyHomePage.dart';
-import 'Pages/Projects.dart';
-import 'Pages/Skills.dart';
+import 'Pages/ProjectsPage.dart';
+import 'Pages/SkillsPage.dart';
+import 'Utility/keys.dart';
 
 void main() {
   runApp(MyApp());
@@ -61,7 +62,9 @@ class MyApp extends StatelessWidget {
                       link: '',
                     );
                   case '/Projects':
-                    return Projects();
+                    return Projects(
+                      key: projectKey,
+                    );
                   default:
                     return Skills();
                 }

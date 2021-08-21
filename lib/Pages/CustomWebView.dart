@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'Skills.dart';
+import 'SkillsPage.dart';
 
 class CustomWebView extends StatefulWidget {
   final String link;

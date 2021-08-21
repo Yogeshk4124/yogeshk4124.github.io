@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Pages/Skills.dart';
+import 'package:portfolio/Pages/SkillsPage.dart';
 import 'package:portfolio/Utility/Constants.dart';
 
 class InfoPanel extends StatefulWidget {
@@ -74,7 +74,8 @@ class InfoPanelState extends State<InfoPanel> {
                       borderOnForeground: true,
                       margin: EdgeInsets.all(10),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 14),
                         child: Container(
                           // height: 150,
                           child: Column(
@@ -138,7 +139,7 @@ class InfoPanelState extends State<InfoPanel> {
                   disableCenter: true,
                   pageSnapping: true,
                   height: 275,
-                  initialPage: 1,
+                  initialPage: 0,
                   viewportFraction:
                       MediaQuery.of(context).size.width < 750 ? 0.45 : 0.35,
                   // viewportFraction: 0.4,
@@ -154,7 +155,8 @@ class InfoPanelState extends State<InfoPanel> {
                       borderOnForeground: true,
                       margin: EdgeInsets.all(10),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 14),
                         child: Container(
                           // height: 150,
                           child: Column(

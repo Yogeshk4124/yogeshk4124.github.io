@@ -144,8 +144,8 @@ List<Color> myColor = [
   Colors.lightBlueAccent,
   Colors.purpleAccent,
 ];
-List<projects> projectsList = [
-  projects(
+List<Project> projectsList = [
+  Project(
     imgsrc:
         'https://raw.githubusercontent.com/Yogeshk4124/Card-Space/main/screenshots/4.png',
     summary:
@@ -163,7 +163,7 @@ List<projects> projectsList = [
     code:
         'https://github.com/Yogeshk4124/Card-Space/archive/refs/heads/main.zip',
   ),
-  projects(
+  Project(
     subtitle: 'A multimedia app',
     tech: ['Flutter', 'Flask', 'Dart'],
     imgsrc:
@@ -177,7 +177,7 @@ List<projects> projectsList = [
     code:
         'https://github.com/Yogeshk4124/SyncPlayer/archive/refs/heads/main.zip',
   ),
-  projects(
+  Project(
     subtitle: 'Gmail UI Clone App',
     imgsrc:
         'https://raw.githubusercontent.com/Yogeshk4124/Gmail-UI-Clone/main/screenshots/Screenshot4.png',
@@ -195,7 +195,7 @@ List<projects> projectsList = [
     code:
         'https://github.com/Yogeshk4124/Gmail-UI-Clone/archive/refs/heads/main.zip',
   ),
-  projects(
+  Project(
     subtitle: 'A Clock Website',
     tech: ['HTML', 'CSS', 'JavaScript'],
     imgsrc:
@@ -209,7 +209,7 @@ List<projects> projectsList = [
     code:
         'https://github.com/Yogeshk4124/SyncPlayer/archive/refs/heads/main.zip',
   ),
-  projects(
+  Project(
     subtitle: 'An Event Post App',
     tech: ['Android', 'Java', 'Firebase'],
     imgsrc:
@@ -222,7 +222,7 @@ List<projects> projectsList = [
     code:
         'https://github.com/Yogeshk4124/Programmer-Clock/archive/refs/heads/main.zip',
   ),
-  projects(
+  Project(
     subtitle: 'All in One Translator ',
     tech: ['Android', 'Java', 'Firebase'],
     imgsrc:
@@ -234,7 +234,7 @@ List<projects> projectsList = [
     code:
         'https://github.com/Yogeshk4124/Chatter-Box-Translator/archive/refs/heads/master.zip',
   ),
-  projects(
+  Project(
     subtitle: 'A simple Weather forecast App',
     tech: ['Flutter', 'Dart'],
     imgsrc:
@@ -247,7 +247,7 @@ List<projects> projectsList = [
         'https://github.com/Yogeshk4124/weather-app/raw/main/apk/app-release.apk',
     code: 'https://github.com/Yogeshk4124/weather-app',
   ),
-  projects(
+  Project(
     subtitle: 'A calorie tracking app.',
     tech: ['Flutter', 'Dart'],
     imgsrc:

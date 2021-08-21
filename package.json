@@ -7,19 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
-  "repository": "git+https://github.com/Shreyans13/The-template-of-the-web.git",
-  "author": "Shreyans Jain",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Shreyans13/The-template-of-the-web/issues"
-  },
-  "homepage": "https://github.com/Shreyans13/The-template-of-the-web#readme",
-  "devDependencies": {
-    "husky": "^7.0.1",
-    "lint-staged": "^11.0.0",
-    "prettier": "2.3.2"
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
-  }
+  "author": "Yogesh Kumar",
+  "license": "MIT"
 }

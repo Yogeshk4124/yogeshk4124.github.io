@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:portfolio/Pages/CustomWebView.dart';
-import 'package:portfolio/Pages/Skills.dart';
+import 'package:portfolio/Pages/SkillsPage.dart';
 import 'package:universal_html/js.dart' as js;
 
 class CustomButton extends StatefulWidget {

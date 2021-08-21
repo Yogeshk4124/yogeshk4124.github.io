@@ -13,7 +13,7 @@ import 'package:portfolio/Components/InfoSection/InfoTabItem.dart';
 import 'package:portfolio/Models/project.dart';
 import 'package:portfolio/Utility/Utility.dart';
 
-import './Skills.dart';
+import './SkillsPage.dart';
 import '../Components/NavBar.dart';
 import '../Utility/Constants.dart';
 import '../Utility/keys.dart';
@@ -342,7 +342,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Container buildProjectCard(List<projects> proj, int i, String pageRoute) {
+  Container buildProjectCard(List<Project> proj, int i, String pageRoute) {
     Container c = Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white, width: 1),

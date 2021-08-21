@@ -9,19 +9,20 @@ import 'package:portfolio/Components/CustomPills.dart';
 import 'package:portfolio/Components/Footer.dart';
 import 'package:portfolio/Components/NavBar.dart';
 import 'package:portfolio/Models/project.dart';
-import 'package:portfolio/Pages/Skills.dart';
+import 'package:portfolio/Pages/SkillsPage.dart';
 import 'package:portfolio/Utility/Constants.dart';
 
 class Projects extends StatefulWidget {
-  // const Projects({Key key}) : super(key: key);
+  const Projects({required Key key}) : super(key: key);
 
   @override
-  _ProjectsState createState() => _ProjectsState();
+  ProjectsState createState() => ProjectsState();
 }
 
-class _ProjectsState extends State<Projects> {
+class ProjectsState extends State<Projects> {
   double h = 0;
   bool vis = false;
+  String filterBy = '';
   @override
   void initState() {
     super.initState();
@@ -147,17 +148,34 @@ class _ProjectsState extends State<Projects> {
                                     alignment: WrapAlignment.center,
                                     runSpacing: 20,
                                     children: [
-                                      CustomPill(text: 'Flutter', hover: true),
-                                      CustomPill(text: 'Android', hover: true),
-                                      CustomPill(text: 'Dart', hover: true),
-                                      CustomPill(text: 'C++', hover: true),
-                                      CustomPill(text: 'Java', hover: true),
-                                      CustomPill(text: 'HTML', hover: true),
-                                      CustomPill(text: 'CSS', hover: true),
                                       CustomPill(
-                                          text: 'JavaScript', hover: true),
-                                      CustomPill(text: 'Flask', hover: true),
-                                      CustomPill(text: 'Firebase', hover: true),
+                                          text: 'Flutter',
+                                          type: filterBy == 'Flutter' ? 2 : 1),
+                                      CustomPill(
+                                          text: 'Android',
+                                          type: filterBy == 'Android' ? 2 : 1),
+                                      CustomPill(
+                                          text: 'Dart',
+                                          type: filterBy == 'Dart' ? 2 : 1),
+                                      CustomPill(
+                                          text: 'Java',
+                                          type: filterBy == 'Java' ? 2 : 1),
+                                      CustomPill(
+                                          text: 'HTML',
+                                          type: filterBy == 'HTML' ? 2 : 1),
+                                      CustomPill(
+                                          text: 'CSS',
+                                          type: filterBy == 'CSS' ? 2 : 1),
+                                      CustomPill(
+                                          text: 'JavaScript',
+                                          type:
+                                              filterBy == 'JavaScript' ? 2 : 1),
+                                      CustomPill(
+                                          text: 'Flask',
+                                          type: filterBy == 'Flask' ? 2 : 1),
+                                      CustomPill(
+                                          text: 'Firebase',
+                                          type: filterBy == 'Firebase' ? 2 : 1),
                                     ],
                                   ),
                                 ),
@@ -165,19 +183,23 @@ class _ProjectsState extends State<Projects> {
                             ],
                           ),
                         ),
-                        for (int i = 0; i < projectsList.length; i++)
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border(
-                                bottom:
-                                    BorderSide(color: Colors.white, width: 1),
+                        for (int i = 0, c = 0; i < projectsList.length; i++)
+                          if (filterBy == '' ||
+                              projectsList[i]
+                                  .tech!
+                                  .contains(filterBy.toString()))
+                            Container(
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom:
+                                      BorderSide(color: Colors.white, width: 1),
+                                ),
                               ),
+                              // height: 450,
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.only(left: 20, right: 20),
+                              child: buildProjectRow(projectsList[i], c++),
                             ),
-                            // height: 450,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.only(left: 20, right: 20),
-                            child: buildProjectRow(projectsList[i], i),
-                          ),
                         Footer(),
                       ],
                     ),
@@ -191,7 +213,7 @@ class _ProjectsState extends State<Projects> {
     );
   }
 
-  Widget buildProjectRow(projects proj, int i) {
+  Widget buildProjectRow(Project proj, int i) {
     List<Widget> r = [
       Visibility(
         visible: MediaQuery.of(context).size.width < 900,
@@ -289,7 +311,7 @@ class _ProjectsState extends State<Projects> {
                       alignment: WrapAlignment.start,
                       children: [
                         for (int j = 0; j < proj.tech!.length; j++)
-                          CustomPill(text: proj.tech![j], hover: false),
+                          CustomPill(text: proj.tech![j], type: 0),
                       ],
                     ),
                   ),
