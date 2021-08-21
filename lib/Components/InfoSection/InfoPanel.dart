@@ -1,9 +1,7 @@
-import 'package:bulleted_list/bulleted_list.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Models/project.dart';
 import 'package:portfolio/Pages/Skills.dart';
 import 'package:portfolio/Utility/Constants.dart';
 
