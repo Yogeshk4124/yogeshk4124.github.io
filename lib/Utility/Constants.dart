@@ -1,5 +1,6 @@
 import 'package:event_hub/event_hub.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/Models/CardData.dart';
 import 'package:portfolio/Models/Skill.dart';
 
 import '../Models/project.dart';
@@ -259,5 +260,40 @@ List<projects> projectsList = [
         'https://github.com/Yogeshk4124/CalorieMeter/blob/main/apk/caloriemeter.apk',
     code:
         'https://github.com/Yogeshk4124/CalorieMeter/archive/refs/heads/main.zip',
+  ),
+];
+List<CardData> education = [
+  CardData(
+      subheading: "Bachelors of Engineering",
+      heading: "Chandigarh University",
+      duration: "2018-2022"),
+  CardData(
+      subheading: "Intermediate (CBSE)",
+      heading: "Army Public School, Yol Cantt",
+      duration: "2017-2018"),
+  CardData(
+      subheading: "Matriculation (CBSE)",
+      heading: "Army Public School, Pathankot",
+      duration: "2015-2016"),
+];
+List<CardData> experience = [
+  CardData(
+    subheading: "Internship | Software Engineer",
+    heading: "Odessa Technologies, Bangalore",
+    duration: "April 2021 - Present",
+    content: [
+      'Responsible for Accessibility Testing.',
+      'Performed an analysis on SQL Queries',
+    ],
+  ),
+  CardData(
+    subheading: "Internship | Android Developer",
+    heading: "Digital Optimized and Tenacious Solutions Pvt. Ltd",
+    duration: "June 2020 - August 2020",
+    content: [
+      "Designed the 'DOTS ' app from scratch.",
+      "Performed an analysis on a Health app, 'HealthCrum'.",
+      'Designed an eBook app ‘The Melange of Success.'
+    ],
   ),
 ];

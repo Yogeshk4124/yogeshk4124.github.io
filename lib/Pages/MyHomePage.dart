@@ -47,13 +47,6 @@ class MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  // int opt = 1;
-  // changeOption(int x) {
-  //   setState(() {
-  //     opt = x;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     bool LessWidthMQ(double x) {
@@ -382,7 +375,7 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           CustomButton(
             type: 1,
-            pageRoute: '/Projects',
+            pageRoute: proj[i].viewMore.toString(),
             text: 'View More',
           ),
           Container(),

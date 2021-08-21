@@ -1,9 +1,11 @@
+import 'package:bulleted_list/bulleted_list.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/Models/project.dart';
 import 'package:portfolio/Pages/Skills.dart';
-
+import 'package:portfolio/Utility/Constants.dart';
 
 class InfoPanel extends StatefulWidget {
   final opt;
@@ -18,8 +20,6 @@ class InfoPanelState extends State<InfoPanel> {
   List<String> duration = [];
   @override
   void initState() {
-    // opt = optionKey.currentState!.option;
-    print(opt);
     setState(() {
       opt = widget.opt;
     });
@@ -60,17 +60,13 @@ class InfoPanelState extends State<InfoPanel> {
                   disableCenter: true,
                   pageSnapping: true,
                   height: 200.0,
-                  initialPage: 1,
+                  initialPage: 0,
                   viewportFraction:
                       MediaQuery.of(context).size.width < 750 ? 0.45 : 0.35,
                   // viewportFraction: 0.4,
                   enlargeCenterPage: true,
                   scrollDirection: Axis.horizontal),
-              items: [
-                1,
-                2,
-                3,
-              ].map((i) {
+              items: education.map((i) {
                 return Builder(
                   builder: (BuildContext context) {
                     return Card(
@@ -82,25 +78,26 @@ class InfoPanelState extends State<InfoPanel> {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          height: 150,
+                          // height: 150,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                'Intermediate (CBSE)',
+                                i.subheading,
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 14, color: Colors.white),
                               ),
                               Text(
-                                'Army Public School,\nYol Cantt',
+                                i.heading,
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 24,
                                     color: Colors.white,
                                     height: 1),
                               ),
                               Text(
-                                '2017-2018',
+                                i.duration,
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 12, color: Colors.white),
                               ),
@@ -142,18 +139,14 @@ class InfoPanelState extends State<InfoPanel> {
                   enableInfiniteScroll: false,
                   disableCenter: true,
                   pageSnapping: true,
-                  height: 200.0,
+                  height: 275,
                   initialPage: 1,
                   viewportFraction:
                       MediaQuery.of(context).size.width < 750 ? 0.45 : 0.35,
                   // viewportFraction: 0.4,
                   enlargeCenterPage: true,
                   scrollDirection: Axis.horizontal),
-              items: [
-                1,
-                2,
-                3,
-              ].map((i) {
+              items: experience.map((i) {
                 return Builder(
                   builder: (BuildContext context) {
                     return Card(
@@ -165,28 +158,44 @@ class InfoPanelState extends State<InfoPanel> {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          height: 150,
+                          // height: 150,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Intermediate (CBSE)',
-                                style: GoogleFonts.titilliumWeb(
-                                    fontSize: 14, color: Colors.white),
-                              ),
-                              Text(
-                                'Army Public School,\nYol Cantt',
+                                i.heading,
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 24,
                                     color: Colors.white,
                                     height: 1),
                               ),
                               Text(
-                                '2017-2018',
+                                i.subheading,
+                                style: GoogleFonts.titilliumWeb(
+                                    fontSize: 14, color: Colors.white),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                i.duration,
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 12, color: Colors.white),
                               ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              for (int j = 0; j < i.content!.length; j++)
+                                Container(
+                                  child: Flexible(
+                                    child: Text(
+                                      "֍  " + i.content![j],
+                                      style: GoogleFonts.titilliumWeb(
+                                          fontSize: 12, color: Colors.white),
+                                    ),
+                                  ),
+                                )
                             ],
                           ),
                         ),

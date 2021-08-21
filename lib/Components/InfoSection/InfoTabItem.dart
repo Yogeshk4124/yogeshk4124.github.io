@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Pages/Skills.dart';
 
 import '../../Utility/Constants.dart';
@@ -86,7 +87,7 @@ class InfoTabItemState extends State<InfoTabItem> {
         ),
         child: Text(
           widget.text,
-          style: TextStyle(color: fg, fontSize: 30),
+          style: GoogleFonts.bungee(color: fg, fontSize: 30),
         ),
       ),
     );
