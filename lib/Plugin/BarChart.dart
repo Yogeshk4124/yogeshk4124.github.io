@@ -72,7 +72,8 @@ class BarChartSample1State extends State<BarChartSample1> {
                       Text(
                         'Click the bar to see details',
                         style: TextStyle(
-                            color: const Color(0xff379982),
+                            // color: const Color(0xff379982),
+                            color: Colors.blueAccent,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),

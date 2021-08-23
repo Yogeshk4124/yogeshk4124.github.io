@@ -80,25 +80,47 @@ class InfoPanelState extends State<InfoPanel> {
                           // height: 150,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             // mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                i.subheading,
+                                i.level,
+                                style: GoogleFonts.titilliumWeb(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                i.board,
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 14, color: Colors.white),
                               ),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Text(
-                                i.heading,
+                                i.institute + ',',
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 24,
                                     color: Colors.white,
                                     height: 1),
                               ),
                               Text(
+                                i.location,
+                                style: GoogleFonts.titilliumWeb(
+                                    fontSize: 24,
+                                    color: Colors.white,
+                                    height: 1),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
                                 i.duration,
                                 style: GoogleFonts.titilliumWeb(
-                                    fontSize: 12, color: Colors.white),
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                ),
                               ),
                             ],
                           ),
@@ -127,7 +149,7 @@ class InfoPanelState extends State<InfoPanel> {
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(6.0),
               child: Text(
                 'Experience',
                 style: GoogleFonts.bungee(fontSize: 30, color: Colors.white),
@@ -138,7 +160,7 @@ class InfoPanelState extends State<InfoPanel> {
                   enableInfiniteScroll: false,
                   disableCenter: true,
                   pageSnapping: true,
-                  height: 275,
+                  height: 280,
                   initialPage: 0,
                   viewportFraction:
                       MediaQuery.of(context).size.width < 750 ? 0.45 : 0.35,
@@ -153,10 +175,10 @@ class InfoPanelState extends State<InfoPanel> {
                       shadowColor: Colors.white,
                       elevation: 5,
                       borderOnForeground: true,
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(8),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 14),
+                            vertical: 5.0, horizontal: 14),
                         child: Container(
                           // height: 150,
                           child: Column(
@@ -164,19 +186,29 @@ class InfoPanelState extends State<InfoPanel> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                i.heading,
+                                i.companyName + ',',
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 24,
                                     color: Colors.white,
                                     height: 1),
                               ),
                               Text(
-                                i.subheading,
+                                i.location,
+                                style: GoogleFonts.titilliumWeb(
+                                    fontSize: 24,
+                                    color: Colors.white,
+                                    height: 1),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                i.position,
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 14, color: Colors.white),
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 8,
                               ),
                               Text(
                                 i.duration,
@@ -184,13 +216,13 @@ class InfoPanelState extends State<InfoPanel> {
                                     fontSize: 12, color: Colors.white),
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 8,
                               ),
-                              for (int j = 0; j < i.content!.length; j++)
+                              for (int j = 0; j < i.content.length; j++)
                                 Container(
                                   child: Flexible(
                                     child: Text(
-                                      "֍  " + i.content![j],
+                                      "֍  " + i.content[j],
                                       style: GoogleFonts.titilliumWeb(
                                           fontSize: 12, color: Colors.white),
                                     ),

@@ -1,6 +1,6 @@
 import 'package:event_hub/event_hub.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/Models/CardData.dart';
+import 'package:portfolio/Models/InfoPanelModels.dart';
 import 'package:portfolio/Models/Skill.dart';
 
 import '../Models/project.dart';
@@ -262,33 +262,41 @@ List<Project> projectsList = [
         'https://github.com/Yogeshk4124/CalorieMeter/archive/refs/heads/main.zip',
   ),
 ];
-List<CardData> education = [
-  CardData(
-      subheading: "Bachelors of Engineering",
-      heading: "Chandigarh University",
+List<Education> education = [
+  Education(
+      level: "Bachelors of Engineering",
+      board: 'CSE',
+      institute: "Chandigarh University",
+      location: 'Mohali',
       duration: "2018-2022"),
-  CardData(
-      subheading: "Intermediate (CBSE)",
-      heading: "Army Public School, Yol Cantt",
+  Education(
+      level: "Intermediate",
+      board: 'CBSE',
+      institute: "Army Public School",
+      location: 'Yol Cantt',
       duration: "2017-2018"),
-  CardData(
-      subheading: "Matriculation (CBSE)",
-      heading: "Army Public School, Pathankot",
+  Education(
+      location: 'Pathankot',
+      board: 'CBSE',
+      level: "Matriculation",
+      institute: "Army Public School",
       duration: "2015-2016"),
 ];
-List<CardData> experience = [
-  CardData(
-    subheading: "Internship | Software Engineer",
-    heading: "Odessa Technologies, Bangalore",
+List<Experience> experience = [
+  Experience(
+    position: "Internship | Software Engineer",
+    companyName: "Odessa Technologies",
     duration: "April 2021 - Present",
+    location: 'Bangalore',
     content: [
       'Responsible for Accessibility Testing.',
       'Performed an analysis on SQL Queries',
     ],
   ),
-  CardData(
-    subheading: "Internship | Android Developer",
-    heading: "Digital Optimized and Tenacious Solutions Pvt. Ltd",
+  Experience(
+    position: "Internship | Android Developer",
+    companyName: "Digital Optimized and Tenacious Solutions Pvt. Ltd",
+    location: 'Chandigarh',
     duration: "June 2020 - August 2020",
     content: [
       "Designed the 'DOTS ' app from scratch.",
