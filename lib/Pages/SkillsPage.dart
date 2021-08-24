@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Components/Footer.dart';
 import 'package:portfolio/Components/NavBar.dart';
 import 'package:portfolio/Plugin/BarChart.dart';
+import 'package:portfolio/Utility/Constants.dart';
 
 Color black = Color(0xff121212);
 
@@ -18,15 +19,9 @@ class _SkillsState extends State<Skills> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: black,
+      backgroundColor: kBackground,
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-            border: Border(
-              left: BorderSide(color: Colors.white, width: 1),
-              right: BorderSide(color: Colors.white, width: 1),
-            ),
-          ),
           margin: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 10)
               : EdgeInsets.zero,
@@ -43,37 +38,34 @@ class _SkillsState extends State<Skills> {
                         minHeight: MediaQuery.of(context).size.height - 80),
                     child: IntrinsicHeight(
                       child: Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            left: BorderSide(color: Colors.white, width: 1),
-                            right: BorderSide(color: Colors.white, width: 1),
-                          ),
-                        ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              height: MediaQuery.of(context).size.width < 480
-                                  ? 400
-                                  : 250,
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  top: BorderSide.none,
-                                  bottom:
-                                      BorderSide(color: Colors.white, width: 1),
+                              padding: EdgeInsets.only(top: 40),
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Skills',
+                                style: GoogleFonts.bungee(
+                                  fontSize: 34,
+                                  color: kWhite,
+                                  wordSpacing: 15,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
+                            ),
+                            Container(
                               alignment: Alignment.center,
                               child: Container(
                                 width: MediaQuery.of(context).size.width * 0.8,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'On    a    long    journey,    Need    to    learn    a    lot    of    new    things.',
-                                  style: GoogleFonts.monoton(
-                                    fontSize: 34,
-                                    color: Colors.white,
-                                    wordSpacing: 15,
+                                  'On a long journey, Need to learn a lot of new things.',
+                                  style: GoogleFonts.titilliumWeb(
+                                    fontSize: 18,
+                                    color: kDarkWhite,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),

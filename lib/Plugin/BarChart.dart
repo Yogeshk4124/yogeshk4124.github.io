@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Components/SkillDetailsContainer.dart';
+import 'package:portfolio/Utility/Constants.dart';
 
 class BarChartSample1 extends StatefulWidget {
   final List<Color> availableColors = [
@@ -22,7 +23,7 @@ class BarChartSample1 extends StatefulWidget {
 
 class BarChartSample1State extends State<BarChartSample1> {
   // final Color barBackgroundColor = const Color(0xff72d8bf);
-  final Color barBackgroundColor = const Color(0xffAAAAAA);
+  final Color barBackgroundColor = const Color(0xff787a7b);
   final Duration animDuration = const Duration(milliseconds: 250);
 
   int touchedIndex = -1;
@@ -48,7 +49,7 @@ class BarChartSample1State extends State<BarChartSample1> {
           child: Card(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-            color: Color(0xff121212),
+            color: kCardBackground,
             shadowColor: Colors.white,
             child: Stack(
               children: <Widget>[
@@ -124,7 +125,7 @@ class BarChartSample1State extends State<BarChartSample1> {
     int x,
     double y, {
     bool isTouched = false,
-    Color barColor = Colors.white,
+    Color barColor = const Color(0xffd3d4d4),
     double width = 22,
     List<int> showTooltips = const [],
   }) {
@@ -171,7 +172,7 @@ class BarChartSample1State extends State<BarChartSample1> {
     return BarChartData(
       barTouchData: BarTouchData(
         touchTooltipData: BarTouchTooltipData(
-            tooltipBgColor: Color(0xff191919),
+            tooltipBgColor: kBackground,
             getTooltipItem: (group, groupIndex, rod, rodIndex) {
               switch (group.x.toInt()) {
                 case 0:

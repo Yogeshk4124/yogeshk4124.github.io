@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Utility/Constants.dart';
 import 'package:portfolio/Utility/Utility.dart';
 
@@ -23,7 +24,7 @@ class SkillDetailsContainer extends StatelessWidget {
             ),
           );
         return Card(
-          color: Color(0xff505050),
+          color: kCardBackground,
           child: Container(
             padding: EdgeInsets.all(10),
             child: Column(
@@ -31,15 +32,17 @@ class SkillDetailsContainer extends StatelessWidget {
               children: [
                 Text(
                   data.title[i - 1],
-                  style: TextStyle(
-                    color: Colors.white,
+                  style: GoogleFonts.titilliumWeb(
+                    color: Colors.pink,
+                    fontWeight: FontWeight.bold,
                     fontSize: 20,
+                    height: 1,
                   ),
                 ),
                 Text(
                   data.subheading[i - 1],
                   style: TextStyle(
-                    color: Colors.grey.shade400,
+                    color: kWhite,
                     fontSize: 12,
                   ),
                 ),
@@ -47,10 +50,14 @@ class SkillDetailsContainer extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 10),
                   child: Text(
                     data.body[i - 1],
+                    style: GoogleFonts.titilliumWeb(
+                      color: kDarkWhite,
+                      height: 1,
+                    ),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
                   margin: EdgeInsets.all(2),
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
