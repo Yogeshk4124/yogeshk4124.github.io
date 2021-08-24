@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Models/project.dart';
 import 'package:portfolio/Pages/ProjectsPage.dart';
 import 'package:portfolio/Pages/SkillsPage.dart';
+import 'package:portfolio/Utility/Constants.dart';
 
 class NavBar extends StatefulWidget {
   // BuildContext pageContext;
@@ -44,19 +45,56 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
     return Column(
       children: [
         Container(
-          decoration: BoxDecoration(
-            border: Border(
-              left: BorderSide(color: Colors.white, width: 1),
-              top: BorderSide(color: Colors.white, width: 1),
-              right: BorderSide(color: Colors.white, width: 1),
-            ),
-          ),
           height: 50,
+          padding: MediaQuery.of(context).size.width < 800
+              ? EdgeInsets.symmetric(horizontal: 10)
+              : null,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushReplacementNamed('/');
+                },
+                onHover: (val) {},
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Yogesh',
+                    style: GoogleFonts.bungeeInline(
+                      color: Colors.pink,
+                      fontSize: 20,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              Spacer(),
               Visibility(
-                visible: !(MediaQuery.of(context).size.width >= 800),
+                visible: MediaQuery.of(context).size.width >= 800,
+                child: Row(
+                  children: [
+                    NavItem(
+                      skills: 'Skills',
+                      pageNo: 1,
+                      cur: widget.page,
+                    ),
+                    // buildInkWell('Skills', 0),
+                    NavItem(
+                      skills: 'Projects',
+                      pageNo: 2,
+                      cur: widget.page,
+                    ),
+                    NavItem(
+                      skills: 'Resume',
+                      pageNo: 3,
+                      cur: widget.page,
+                    ),
+                  ],
+                ),
+              ),
+              Visibility(
+                visible: updateNav(),
                 child: InkWell(
                   onTap: () {
                     setState(() {
@@ -78,67 +116,6 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                   ),
                 ),
               ),
-              Expanded(
-                flex: 6,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).pushReplacementNamed('/');
-                  },
-                  onHover: (val) {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        left: BorderSide(color: Colors.white, width: 1),
-                        bottom: BorderSide(color: Colors.white, width: 1),
-                      ),
-                    ),
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(left: 20),
-                    child: Text(
-                      'Yogesh',
-                      style: GoogleFonts.bungeeShade(
-                        //rocksalt,arbutus,
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
-              Visibility(
-                visible: MediaQuery.of(context).size.width >= 800,
-                child: Expanded(
-                  flex: 5,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                        child: NavItem(
-                          skills: 'Skills',
-                          pageNo: 1,
-                          cur: widget.page,
-                        ),
-                        // buildInkWell('Skills', 0),
-                      ),
-                      Expanded(
-                        child: NavItem(
-                          skills: 'Projects',
-                          pageNo: 2,
-                          cur: widget.page,
-                        ),
-                      ),
-                      Expanded(
-                        child: NavItem(
-                          skills: 'Resume',
-                          pageNo: 3,
-                          cur: widget.page,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
             ],
           ),
         ),
@@ -156,21 +133,10 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 height: height,
                 alignment: Alignment.center,
                 width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: MediaQuery.of(context).size.width >= 800
-                        ? BorderSide.none
-                        : BorderSide(color: Colors.white, width: 1),
-                    left: BorderSide(color: Colors.white, width: 1),
-                    right: BorderSide(color: Colors.white, width: 1),
-                  ),
+                child: Text(
+                  'Skills',
+                  style: TextStyle(color: Colors.white),
                 ),
-                child: height > 25
-                    ? Text(
-                        'Skills',
-                        style: TextStyle(color: Colors.white),
-                      )
-                    : Text(''),
               ),
             ),
             GestureDetector(
@@ -185,21 +151,10 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 height: height,
                 alignment: Alignment.center,
                 width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: MediaQuery.of(context).size.width >= 800
-                        ? BorderSide.none
-                        : BorderSide(color: Colors.white, width: 1),
-                    left: BorderSide(color: Colors.white, width: 1),
-                    right: BorderSide(color: Colors.white, width: 1),
-                  ),
+                child: Text(
+                  'Project',
+                  style: TextStyle(color: Colors.white),
                 ),
-                child: height > 25
-                    ? Text(
-                        'Project',
-                        style: TextStyle(color: Colors.white),
-                      )
-                    : Text(''),
               ),
             ),
             GestureDetector(
@@ -214,27 +169,27 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 height: height,
                 alignment: Alignment.center,
                 width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: MediaQuery.of(context).size.width >= 800
-                        ? BorderSide.none
-                        : BorderSide(color: Colors.white, width: 1),
-                    left: BorderSide(color: Colors.white, width: 1),
-                    right: BorderSide(color: Colors.white, width: 1),
-                  ),
+                child: Text(
+                  'Resume',
+                  style: TextStyle(color: Colors.white),
                 ),
-                child: height > 25
-                    ? Text(
-                        'Resume',
-                        style: TextStyle(color: Colors.white),
-                      )
-                    : Text(''),
               ),
             ),
           ],
         ),
       ],
     );
+  }
+
+  updateNav() {
+    if (!(MediaQuery.of(context).size.width >= 800))
+      return true;
+    else {
+      setState(() {
+        height = 0;
+      });
+      return false;
+    }
   }
 }
 
@@ -248,8 +203,14 @@ class NavItem extends StatefulWidget {
 }
 
 class _NavItemState extends State<NavItem> {
-  Color kBg = black;
-  Color kFg = Colors.white;
+  late Color kTextColor;
+
+  @override
+  void initState() {
+    super.initState();
+    kTextColor = widget.pageNo != widget.cur ? kWhite : Colors.pink;
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -263,32 +224,23 @@ class _NavItemState extends State<NavItem> {
       onHover: (isInside) {
         setState(() {
           if (widget.pageNo != widget.cur) if (isInside) {
-            kBg = Colors.white;
-            kFg = black;
+            kTextColor = Colors.pinkAccent;
           } else {
-            kBg = black;
-            kFg = Colors.white;
+            kTextColor = kWhite;
           }
         });
       },
-      child: Container(
-        decoration: BoxDecoration(
-          color: kBg,
-          border: Border(
-            left: BorderSide(width: 1.0, color: Colors.white),
-            bottom: BorderSide(
-                width: 1.0,
-                color: widget.pageNo == widget.cur ? black : Colors.white),
+      child: Card(
+        color: kCardBackground,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            widget.skills,
+            style: TextStyle(
+              color: kTextColor,
+            ),
+            textAlign: TextAlign.center,
           ),
-        ),
-        alignment: Alignment.center,
-        child: Text(
-          widget.skills,
-          style: GoogleFonts.bungee(
-            color: kFg,
-            fontSize: 18,
-          ),
-          textAlign: TextAlign.center,
         ),
       ),
     );
