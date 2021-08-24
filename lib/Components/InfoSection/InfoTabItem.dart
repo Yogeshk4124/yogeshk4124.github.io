@@ -33,8 +33,8 @@ class InfoTabItemState extends State<InfoTabItem> {
     setState(() {
       print('for:' + widget.idx.toString() + " i:" + c.toString());
       if (c) {
-        bg = Colors.white;
-        fg = black;
+        bg = Colors.pink;
+        fg = kWhite;
       } else {
         fg = Colors.white;
         bg = black;
@@ -72,18 +72,21 @@ class InfoTabItemState extends State<InfoTabItem> {
         if (inside && bg == black) {
           setSelected(true);
         } else if (!widget.selected) {
-          print('run');
+          // print('run');
           setSelected(false);
         }
       },
       child: Container(
         width: LessWidthMQ(860) ? double.maxFinite : 400,
-        height: 110,
+        height: 120,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: bg,
-          border: Border.all(
-              color: (widget.selected) ? black : Colors.white, width: 1),
+          borderRadius: BorderRadius.only(
+            bottomLeft:
+                widget.idx == 3 ? Radius.circular(50) : Radius.circular(0),
+            topLeft: widget.idx == 1 ? Radius.circular(50) : Radius.circular(0),
+          ),
         ),
         child: Text(
           widget.text,

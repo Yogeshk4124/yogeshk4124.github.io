@@ -37,10 +37,15 @@ class InfoPanelState extends State<InfoPanel> {
         width: MediaQuery.of(context).size.width < 860
             ? double.maxFinite
             : MediaQuery.of(context).size.width - 482,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 1),
-        ),
+        padding: EdgeInsets.only(left: 10, right: 10),
         alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: black,
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           // crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,9 +73,9 @@ class InfoPanelState extends State<InfoPanel> {
                 return Builder(
                   builder: (BuildContext context) {
                     return Card(
-                      color: black,
+                      color: kCardBackground,
                       shadowColor: Colors.white,
-                      elevation: 5,
+                      elevation: 3,
                       borderOnForeground: true,
                       margin: EdgeInsets.all(10),
                       child: Padding(
@@ -136,13 +141,18 @@ class InfoPanelState extends State<InfoPanel> {
       );
     else if (opt == 2)
       return Container(
+        padding: EdgeInsets.only(left: 10, right: 10),
+        decoration: BoxDecoration(
+          color: black,
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+        ),
         height: 360,
         width: MediaQuery.of(context).size.width < 860
             ? double.maxFinite
             : MediaQuery.of(context).size.width - 482,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 1),
-        ),
         alignment: Alignment.center,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -173,7 +183,7 @@ class InfoPanelState extends State<InfoPanel> {
                     return Card(
                       color: black,
                       shadowColor: Colors.white,
-                      elevation: 5,
+                      elevation: 3,
                       borderOnForeground: true,
                       margin: EdgeInsets.all(8),
                       child: Padding(
@@ -243,11 +253,16 @@ class InfoPanelState extends State<InfoPanel> {
     else
       return Container(
         height: 360,
+        padding: EdgeInsets.only(left: 10, right: 10),
         width: MediaQuery.of(context).size.width < 860
             ? double.maxFinite
             : MediaQuery.of(context).size.width - 482,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 1),
+          color: black,
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
         ),
         alignment: Alignment.center,
         child: CarouselSlider(
@@ -264,23 +279,23 @@ class InfoPanelState extends State<InfoPanel> {
               scrollDirection: Axis.horizontal),
           items: [
             Card(
-              color: black,
-              elevation: 5,
+              color: kCardBackground,
+              elevation: 3,
               shadowColor: Colors.white,
             ),
             Card(
-              color: black,
-              elevation: 5,
+              color: kCardBackground,
+              elevation: 3,
               shadowColor: Colors.white,
             ),
             Card(
-              color: black,
-              elevation: 5,
+              color: kCardBackground,
+              elevation: 3,
               shadowColor: Colors.white,
             ),
             Card(
-              color: black,
-              elevation: 5,
+              color: kCardBackground,
+              elevation: 3,
               shadowColor: Colors.white,
             ),
           ],

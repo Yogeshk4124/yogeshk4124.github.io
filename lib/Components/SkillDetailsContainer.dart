@@ -24,6 +24,9 @@ class SkillDetailsContainer extends StatelessWidget {
             ),
           );
         return Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
           color: kCardBackground,
           child: Container(
             padding: EdgeInsets.all(10),

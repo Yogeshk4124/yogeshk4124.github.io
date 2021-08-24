@@ -101,21 +101,28 @@ class BarChartSample1State extends State<BarChartSample1> {
           ),
         ),
         AnimatedContainer(
-          margin: EdgeInsets.symmetric(horizontal: margin, vertical: 20),
+          margin: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           duration: Duration(seconds: 1),
-          height: height,
-          width: width,
+          height: widget.chartHeight, //height
+          width: 300, //width
           curve: Curves.linear,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.white, width: 2),
+            border: Border.all(color: kDarkWhite, width: 2),
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ),
           ),
           // child: CustomBuilder.ListbuildHandler(skill),
-          child:
-              skill != '' ? SkillDetailsContainer(skill: skill) : Container(),
+          child: skill != ''
+              ? SkillDetailsContainer(skill: skill)
+              : Container(
+                  alignment: Alignment.center,
+                  child: Text('Select a bar to show skill Projects',
+                      style: TextStyle(
+                        color: kWhite,
+                      )),
+                ),
         ),
       ],
     );

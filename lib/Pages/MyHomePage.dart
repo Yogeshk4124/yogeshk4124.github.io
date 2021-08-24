@@ -56,15 +56,15 @@ class MyHomePageState extends State<MyHomePage> {
     aim = [
       Column(
         children: [
-          Container(
-            height: 30,
-            width: LessWidthMQ(860) ? double.maxFinite : 400,
-            alignment: Alignment.center,
-            child: Text(
-              'Click any tab to show details.',
-              style: GoogleFonts.titilliumWeb(color: Colors.white),
-            ),
-          ),
+          // Container(
+          //   height: 30,
+          //   width: LessWidthMQ(860) ? double.maxFinite : 400,
+          //   alignment: Alignment.center,
+          //   child: Text(
+          //     'Click any tab to show details.',
+          //     style: GoogleFonts.titilliumWeb(color: Colors.white),
+          //   ),
+          // ),
           InfoTabItem(
             text: 'Education',
             idx: 1,
@@ -112,17 +112,9 @@ class MyHomePageState extends State<MyHomePage> {
     List<String> title = ['Android', 'Web', 'IOS', 'UI/UX'];
 
     return Scaffold(
-      backgroundColor: black,
+      backgroundColor: kBackground,
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-            border: (MediaQuery.of(context).size.width < 700)
-                ? Border(
-                    left: BorderSide(color: Colors.white, width: 1),
-                    right: BorderSide(color: Colors.white, width: 1),
-                  )
-                : Border.all(width: 0),
-          ),
           padding: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, bottom: 10, right: 40)
               : EdgeInsets.zero,
@@ -131,12 +123,6 @@ class MyHomePageState extends State<MyHomePage> {
               NavBar(page: 0),
               Expanded(
                 child: Container(
-                  decoration: BoxDecoration(
-                    border: Border(
-                      left: BorderSide(color: Colors.white, width: 1),
-                      right: BorderSide(color: Colors.white, width: 1),
-                    ),
-                  ),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     physics: ClampingScrollPhysics(),
@@ -145,9 +131,11 @@ class MyHomePageState extends State<MyHomePage> {
                       children: [
                         Container(
                           width: double.maxFinite,
-                          height: LessWidthMQ(500) ? 600 : 350,
+                          // height: LessWidthMQ(500) ? 600 : 350,
                           alignment: Alignment.center,
                           child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 50),
                             width: MediaQuery.of(context).size.width * 0.8,
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -156,7 +144,7 @@ class MyHomePageState extends State<MyHomePage> {
                                 Text(
                                   "I'M Yogesh Kumar",
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.monoton(
+                                  style: GoogleFonts.bungee(
                                     //fruktur,monoton,cutivemono
                                     color: Colors.white,
                                     wordSpacing: 10,
@@ -167,7 +155,7 @@ class MyHomePageState extends State<MyHomePage> {
                                   height: LessWidthMQ(500) ? 150 : 100,
                                   alignment: Alignment.center,
                                   child: DefaultTextStyle(
-                                    style: GoogleFonts.monoton(
+                                    style: GoogleFonts.bungee(
                                       //fruktur,monoton,cutivemono
                                       color: Colors.white,
                                       fontSize: 30,
@@ -200,9 +188,10 @@ class MyHomePageState extends State<MyHomePage> {
                                       subtitle[
                                           Random().nextInt(subtitle.length)],
                                       4), // subtitle[5],
-                                  style: GoogleFonts.monoton(
+                                  style: GoogleFonts.titilliumWeb(
                                     //fruktur,monoton,cutivemono
                                     color: Colors.white,
+                                    fontWeight: FontWeight.bold,
                                     // wordSpacing: 90,
                                     fontSize: 18,
                                   ),
@@ -213,15 +202,6 @@ class MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                         Container(
-                          decoration: BoxDecoration(
-                            border: Border.symmetric(
-                              horizontal:
-                                  BorderSide(color: Colors.white, width: 1),
-                              // vertical:
-                              //     BorderSide(color: Colors.white, width: 1),
-                            ),
-                          ),
-                          height: 350,
                           alignment: Alignment.center,
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.78,
@@ -239,14 +219,6 @@ class MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                         Container(
-                          decoration: BoxDecoration(
-                            border: Border.symmetric(
-                              horizontal:
-                                  BorderSide(color: Colors.white, width: 1),
-                              vertical:
-                                  BorderSide(color: Colors.white, width: 1),
-                            ),
-                          ),
                           child: GridView.builder(
                               primary: false,
                               scrollDirection: Axis.vertical,
@@ -318,8 +290,16 @@ class MyHomePageState extends State<MyHomePage> {
                                     projectsList, i, '/Project');
                               }),
                         ),
-                        Container(
-                          width: double.maxFinite,
+                        Card(
+                          margin: EdgeInsets.only(top: 20),
+                          color: kCardBackground,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(50),
+                                topLeft: Radius.circular(50),
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20)),
+                          ),
                           // height: 450,
                           child: Wrap(
                               direction: Axis.horizontal,
@@ -342,15 +322,15 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Container buildProjectCard(List<Project> proj, int i, String pageRoute) {
-    Container c = Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.white, width: 1),
+  Card buildProjectCard(List<Project> proj, int i, String pageRoute) {
+    Card c = Card(
+      color: kCardBackground,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
       ),
-      height: 600,
-      alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(),
           Text(
