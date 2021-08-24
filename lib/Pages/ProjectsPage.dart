@@ -31,33 +31,17 @@ class ProjectsState extends State<Projects> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: black,
+      backgroundColor: kBackground,
       body: SafeArea(
         child: Container(
           padding: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, bottom: 10, right: 40)
               : EdgeInsets.zero,
-          decoration: BoxDecoration(
-            border: (MediaQuery.of(context).size.width < 700)
-                ? Border(
-                    left: BorderSide(color: Colors.white, width: 1),
-                    right: BorderSide(color: Colors.white, width: 1),
-                  )
-                : Border.all(width: 0),
-          ),
           child: Column(
             children: [
-              NavBar(
-                page: 2,
-              ),
+              NavBar(page: 2),
               Expanded(
                 child: Container(
-                  decoration: BoxDecoration(
-                    border: Border(
-                      left: BorderSide(color: Colors.white, width: 1),
-                      right: BorderSide(color: Colors.white, width: 1),
-                    ),
-                  ),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     physics: ClampingScrollPhysics(),
@@ -65,25 +49,34 @@ class ProjectsState extends State<Projects> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Container(
-                          height: 200,
+                          padding: EdgeInsets.only(top: 40),
                           width: MediaQuery.of(context).size.width * 0.8,
                           alignment: Alignment.center,
                           child: Text(
-                            'Here    are    some    of    my    good    work.',
-                            style: GoogleFonts.monoton(
+                            'Projects',
+                            style: GoogleFonts.bungee(
                               fontSize: 34,
-                              color: Colors.white,
+                              color: kWhite,
                               wordSpacing: 15,
                             ),
                             textAlign: TextAlign.center,
                           ),
                         ),
                         Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              top: BorderSide(color: Colors.white, width: 1),
+                          padding: EdgeInsets.only(bottom: 40),
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Here are some of my good work.',
+                            style: GoogleFonts.titilliumWeb(
+                              fontSize: 18,
+                              color: kDarkWhite,
+                              wordSpacing: 2,
                             ),
+                            textAlign: TextAlign.center,
                           ),
+                        ),
+                        Container(
                           child: Column(
                             children: [
                               GestureDetector(
@@ -106,21 +99,21 @@ class ProjectsState extends State<Projects> {
                                       child: Text(
                                         'Filter',
                                         style: GoogleFonts.titilliumWeb(
-                                            fontSize: 22, color: Colors.white),
+                                            fontSize: 22, color: kWhite),
                                       ),
                                     ),
-                                    Expanded(
-                                      child: Container(
-                                        height: 20,
-                                        width: 20,
-                                        color: Colors.transparent,
-                                      ),
-                                    ),
+                                    // Expanded(
+                                    //   child: Container(
+                                    //     height: 20,
+                                    //     width: 20,
+                                    //     color: Colors.transparent,
+                                    //   ),
+                                    // ),
                                     Container(
                                       padding: EdgeInsets.only(right: 10),
                                       child: Icon(
                                         Icons.arrow_downward,
-                                        color: Colors.white,
+                                        color: kWhite,
                                       ),
                                     ),
                                   ],
@@ -131,14 +124,6 @@ class ProjectsState extends State<Projects> {
                                 alignment: Alignment.center,
                                 width: double.maxFinite,
                                 duration: Duration(seconds: 1),
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    top: BorderSide(
-                                        color: Colors.white, width: 1),
-                                    bottom: BorderSide(
-                                        color: Colors.white, width: 1),
-                                  ),
-                                ),
                                 onEnd: () {
                                   setState(() {
                                     if (h != 0) vis = true;
@@ -190,17 +175,16 @@ class ProjectsState extends State<Projects> {
                               projectsList[i]
                                   .tech!
                                   .contains(filterBy.toString()))
-                            Container(
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom:
-                                      BorderSide(color: Colors.white, width: 1),
-                                ),
+                            Card(
+                              margin: EdgeInsets.only(top: 20),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0),
                               ),
-                              // height: 450,
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.only(left: 20, right: 20),
-                              child: buildProjectRow(projectsList[i], c++),
+                              color: kCardBackground,
+                              child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 15, horizontal: 20),
+                                  child: buildProjectRow(projectsList[i], c++)),
                             ),
                         Footer(),
                       ],
@@ -225,15 +209,14 @@ class ProjectsState extends State<Projects> {
               padding: EdgeInsets.only(top: 30),
               child: Text(
                 proj.title.toString(),
-                style:
-                    GoogleFonts.titilliumWeb(color: Colors.white, fontSize: 40),
+                style: GoogleFonts.titilliumWeb(
+                    color: Colors.pinkAccent, fontSize: 40),
               ),
             ),
             Container(
               child: Text(
                 proj.subtitle.toString(),
-                style:
-                    GoogleFonts.titilliumWeb(color: Colors.white, fontSize: 16),
+                style: GoogleFonts.titilliumWeb(color: kWhite, fontSize: 16),
               ),
             ),
           ],
@@ -262,15 +245,15 @@ class ProjectsState extends State<Projects> {
                     padding: EdgeInsets.only(top: 30),
                     child: Text(
                       proj.title.toString(),
-                      style:
-                          GoogleFonts.bungee(color: Colors.white, fontSize: 40),
+                      style: GoogleFonts.bungee(
+                          color: Colors.pinkAccent, fontSize: 36),
                     ),
                   ),
                   Container(
                     child: Text(
                       proj.subtitle.toString(),
-                      style: GoogleFonts.titilliumWeb(
-                          color: Colors.white, fontSize: 16),
+                      style:
+                          GoogleFonts.titilliumWeb(color: kWhite, fontSize: 16),
                     ),
                   ),
                 ],
@@ -282,7 +265,7 @@ class ProjectsState extends State<Projects> {
               child: Text(
                 proj.summary.toString(),
                 style: GoogleFonts.titilliumWeb(
-                    color: Colors.white,
+                    color: kDarkWhite,
                     fontSize: 20,
                     fontWeight: FontWeight.normal),
                 textAlign: TextAlign.justify,
@@ -299,7 +282,7 @@ class ProjectsState extends State<Projects> {
                     'Technology Used:',
                     style: GoogleFonts.titilliumWeb(
                       fontSize: 18,
-                      color: Colors.white,
+                      color: kWhite,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
