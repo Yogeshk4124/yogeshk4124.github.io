@@ -37,12 +37,14 @@ class ProjectsState extends State<Projects> {
           padding: (MediaQuery.of(context).size.width > 700)
               ? EdgeInsets.only(top: 20, left: 40, bottom: 10, right: 40)
               : EdgeInsets.zero,
-          // decoration: BoxDecoration(
-          //   border: Border(
-          //     left: BorderSide(color: Colors.white, width: 1),
-          //     right: BorderSide(color: Colors.white, width: 1),
-          //   ),
-          // ),
+          decoration: BoxDecoration(
+            border: (MediaQuery.of(context).size.width < 700)
+                ? Border(
+                    left: BorderSide(color: Colors.white, width: 1),
+                    right: BorderSide(color: Colors.white, width: 1),
+                  )
+                : Border.all(width: 0),
+          ),
           child: Column(
             children: [
               NavBar(

@@ -249,10 +249,55 @@ class InfoPanelState extends State<InfoPanel> {
         decoration: BoxDecoration(
           border: Border.all(color: Colors.white, width: 1),
         ),
-        child: Image.asset(
-          'flutter.jpg',
-          fit: BoxFit.fitWidth,
+        alignment: Alignment.center,
+        child: CarouselSlider(
+          options: CarouselOptions(
+              enableInfiniteScroll: false,
+              disableCenter: true,
+              pageSnapping: true,
+              height: 280,
+              initialPage: 0,
+              viewportFraction:
+                  MediaQuery.of(context).size.width < 750 ? 0.45 : 0.35,
+              // viewportFraction: 0.4,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal),
+          items: [
+            Card(
+              color: black,
+              elevation: 5,
+              shadowColor: Colors.white,
+            ),
+            Card(
+              color: black,
+              elevation: 5,
+              shadowColor: Colors.white,
+            ),
+            Card(
+              color: black,
+              elevation: 5,
+              shadowColor: Colors.white,
+            ),
+            Card(
+              color: black,
+              elevation: 5,
+              shadowColor: Colors.white,
+            ),
+          ],
         ),
       );
+    // return Container(
+    //   height: 360,
+    //   width: MediaQuery.of(context).size.width < 860
+    //       ? double.maxFinite
+    //       : MediaQuery.of(context).size.width - 482,
+    //   decoration: BoxDecoration(
+    //     border: Border.all(color: Colors.white, width: 1),
+    //   ),
+    //   child: Image.asset(
+    //     'flutter.jpg',
+    //     fit: BoxFit.fitWidth,
+    //   ),
+    // );
   }
 }
