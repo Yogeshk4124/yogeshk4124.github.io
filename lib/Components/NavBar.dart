@@ -21,6 +21,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   List navLinks = ['/Skills', '/Projects', '/Projects'];
   late bool isVisible;
   double height = 0;
+  bool isPlaying = false;
   late final AnimationController _controller;
 
   @override
@@ -29,7 +30,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
     _controller = AnimationController(
       duration: Duration(seconds: 1),
       vsync: this,
-    )..repeat();
+    );
     isVisible = false;
     height = 0;
   }
@@ -38,6 +39,13 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  void _handleOnPressed() {
+    setState(() {
+      isPlaying = !isPlaying;
+      isPlaying ? _controller.forward() : _controller.reverse();
+    });
   }
 
   @override
@@ -105,13 +113,15 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                         height = 0;
                       }
                     });
+                    _handleOnPressed();
                   },
                   child: Container(
                     width: 40,
                     alignment: Alignment.center,
-                    child: Icon(
-                      Icons.menu,
+                    child: AnimatedIcon(
+                      icon: AnimatedIcons.menu_close,
                       color: Colors.white,
+                      progress: _controller,
                     ),
                   ),
                 ),
@@ -233,11 +243,12 @@ class _NavItemState extends State<NavItem> {
       child: Card(
         color: kCardBackground,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 14),
           child: Text(
             widget.skills,
-            style: TextStyle(
+            style: GoogleFonts.titilliumWeb(
               color: kTextColor,
+              fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
           ),

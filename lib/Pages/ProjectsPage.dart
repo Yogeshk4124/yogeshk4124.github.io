@@ -19,13 +19,34 @@ class Projects extends StatefulWidget {
   ProjectsState createState() => ProjectsState();
 }
 
-class ProjectsState extends State<Projects> {
+class ProjectsState extends State<Projects>
+    with SingleTickerProviderStateMixin {
   double h = 0;
   bool vis = false;
   String filterBy = '';
+  bool isPlaying = false;
+  late final AnimationController _controller;
+
   @override
   void initState() {
     super.initState();
+    _controller = AnimationController(
+      duration: Duration(milliseconds: 450),
+      vsync: this,
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _handleOnPressed() {
+    setState(() {
+      isPlaying = !isPlaying;
+      isPlaying ? _controller.forward() : _controller.reverse();
+    });
   }
 
   @override
@@ -91,6 +112,7 @@ class ProjectsState extends State<Projects> {
                                       vis = false;
                                     }
                                   });
+                                  _handleOnPressed();
                                 },
                                 child: Row(
                                   children: [
@@ -105,18 +127,16 @@ class ProjectsState extends State<Projects> {
                                         ),
                                       ),
                                     ),
-                                    // Expanded(
-                                    //   child: Container(
-                                    //     height: 20,
-                                    //     width: 20,
-                                    //     color: Colors.transparent,
-                                    //   ),
-                                    // ),
                                     Container(
-                                      padding: EdgeInsets.only(right: 10),
-                                      child: Icon(
-                                        Icons.arrow_downward,
-                                        color: kDeepBlue,
+                                      padding:
+                                          EdgeInsets.only(left: 5, right: 10),
+                                      child: RotationTransition(
+                                        turns: Tween(begin: 0.0, end: 0.5)
+                                            .animate(_controller),
+                                        child: Icon(
+                                          Icons.arrow_downward,
+                                          color: kDeepBlue,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -126,7 +146,7 @@ class ProjectsState extends State<Projects> {
                                 height: h,
                                 alignment: Alignment.center,
                                 width: double.maxFinite,
-                                duration: Duration(seconds: 1),
+                                duration: Duration(milliseconds: 450),
                                 onEnd: () {
                                   setState(() {
                                     if (h != 0) vis = true;
