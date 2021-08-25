@@ -40,7 +40,7 @@ class InfoPanelState extends State<InfoPanel> {
         padding: EdgeInsets.only(left: 10, right: 10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: black,
+          color: kCardBackground,
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(20),
             bottomRight: Radius.circular(20),
@@ -73,9 +73,9 @@ class InfoPanelState extends State<InfoPanel> {
                 return Builder(
                   builder: (BuildContext context) {
                     return Card(
-                      color: kCardBackground,
-                      shadowColor: Colors.white,
-                      elevation: 3,
+                      color: black,
+                      shadowColor: Colors.pink,
+                      elevation: 10,
                       borderOnForeground: true,
                       margin: EdgeInsets.all(10),
                       child: Padding(
@@ -104,18 +104,19 @@ class InfoPanelState extends State<InfoPanel> {
                                 height: 10,
                               ),
                               Text(
-                                i.institute + ',',
+                                i.institute,
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 24,
-                                    color: Colors.white,
-                                    height: 1),
+                                    color: kPink,
+                                    height: 1,
+                                    fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 i.location,
                                 style: GoogleFonts.titilliumWeb(
-                                    fontSize: 24,
-                                    color: Colors.white,
-                                    height: 1),
+                                    color: kPink,
+                                    height: 1,
+                                    fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
                                 height: 10,
@@ -124,7 +125,7 @@ class InfoPanelState extends State<InfoPanel> {
                                 i.duration,
                                 style: GoogleFonts.titilliumWeb(
                                   fontSize: 12,
-                                  color: Colors.white,
+                                  color: kDarkWhite,
                                 ),
                               ),
                             ],
@@ -143,7 +144,7 @@ class InfoPanelState extends State<InfoPanel> {
       return Container(
         padding: EdgeInsets.only(left: 10, right: 10),
         decoration: BoxDecoration(
-          color: black,
+          color: kCardBackground,
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(20),
             bottomRight: Radius.circular(20),
@@ -182,8 +183,8 @@ class InfoPanelState extends State<InfoPanel> {
                   builder: (BuildContext context) {
                     return Card(
                       color: black,
-                      shadowColor: Colors.white,
-                      elevation: 3,
+                      shadowColor: Colors.pink,
+                      elevation: 10,
                       borderOnForeground: true,
                       margin: EdgeInsets.all(8),
                       child: Padding(
@@ -196,18 +197,19 @@ class InfoPanelState extends State<InfoPanel> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                i.companyName + ',',
+                                i.companyName,
                                 style: GoogleFonts.titilliumWeb(
                                     fontSize: 24,
-                                    color: Colors.white,
-                                    height: 1),
+                                    color: kPink,
+                                    height: 1,
+                                    fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 i.location,
                                 style: GoogleFonts.titilliumWeb(
-                                    fontSize: 24,
-                                    color: Colors.white,
-                                    height: 1),
+                                    color: kPink,
+                                    height: 1,
+                                    fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
                                 height: 2,
@@ -215,7 +217,9 @@ class InfoPanelState extends State<InfoPanel> {
                               Text(
                                 i.position,
                                 style: GoogleFonts.titilliumWeb(
-                                    fontSize: 14, color: Colors.white),
+                                  fontSize: 14,
+                                  color: kDarkWhite,
+                                ),
                               ),
                               SizedBox(
                                 height: 8,
@@ -258,7 +262,7 @@ class InfoPanelState extends State<InfoPanel> {
             ? double.maxFinite
             : MediaQuery.of(context).size.width - 482,
         decoration: BoxDecoration(
-          color: black,
+          color: kCardBackground,
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(20),
             bottomRight: Radius.circular(20),
@@ -279,9 +283,9 @@ class InfoPanelState extends State<InfoPanel> {
               scrollDirection: Axis.horizontal),
           items: [
             Card(
-              color: kCardBackground,
-              elevation: 3,
-              shadowColor: Colors.white,
+              color: black,
+              elevation: 5,
+              shadowColor: Colors.pink,
             ),
             Card(
               color: kCardBackground,

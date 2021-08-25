@@ -97,9 +97,12 @@ class ProjectsState extends State<Projects> {
                                     Container(
                                       padding: EdgeInsets.only(left: 10),
                                       child: Text(
-                                        'Filter',
+                                        'Languages',
                                         style: GoogleFonts.titilliumWeb(
-                                            fontSize: 22, color: kWhite),
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold,
+                                          color: kDeepBlue,
+                                        ),
                                       ),
                                     ),
                                     // Expanded(
@@ -113,7 +116,7 @@ class ProjectsState extends State<Projects> {
                                       padding: EdgeInsets.only(right: 10),
                                       child: Icon(
                                         Icons.arrow_downward,
-                                        color: kWhite,
+                                        color: kDeepBlue,
                                       ),
                                     ),
                                   ],
@@ -210,7 +213,8 @@ class ProjectsState extends State<Projects> {
               child: Text(
                 proj.title.toString(),
                 style: GoogleFonts.titilliumWeb(
-                    color: Colors.pinkAccent, fontSize: 40),
+                    color: i % 2 == 0 ? Colors.pinkAccent : kDeepBlue,
+                    fontSize: 40),
               ),
             ),
             Container(
@@ -246,7 +250,8 @@ class ProjectsState extends State<Projects> {
                     child: Text(
                       proj.title.toString(),
                       style: GoogleFonts.bungee(
-                          color: Colors.pinkAccent, fontSize: 36),
+                          color: i % 2 == 0 ? Colors.pinkAccent : kDeepBlue,
+                          fontSize: 36),
                     ),
                   ),
                   Container(

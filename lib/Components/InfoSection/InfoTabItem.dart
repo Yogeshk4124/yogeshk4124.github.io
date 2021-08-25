@@ -21,11 +21,12 @@ class InfoTabItem extends StatefulWidget {
 }
 
 class InfoTabItemState extends State<InfoTabItem> {
-  Color bg = black, fg = Colors.white;
+  Color bg = kCardBackground, fg = kWhite;
 
   @override
   void initState() {
     // TODO: implement initState
+    if (widget.selected) setSelected(true);
     super.initState();
   }
 
@@ -36,8 +37,8 @@ class InfoTabItemState extends State<InfoTabItem> {
         bg = Colors.pink;
         fg = kWhite;
       } else {
-        fg = Colors.white;
-        bg = black;
+        fg = kWhite;
+        bg = kCardBackground;
       }
     });
   }

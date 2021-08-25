@@ -148,6 +148,10 @@ Color kWhite = Color(0xffd3d4d4);
 Color kDarkWhite = Color(0xff787a7b);
 Color kBackground = Color(0xff212324);
 Color kCardBackground = Color(0xff18191A);
+Color kDeepBlue = Color(0xff4F46E5);
+Color kPink = Colors.pink;
+Color kPinkAccent = Colors.pinkAccent;
+
 List<Project> projectsList = [
   Project(
     imgsrc:

@@ -36,7 +36,7 @@ class MyHomePageState extends State<MyHomePage> {
     "I won't let the server crash until it is running on my pc.",
     "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
   ];
-  int option = -1;
+  int option = 1;
   @override
   void initState() {
     super.initState();
@@ -157,7 +157,7 @@ class MyHomePageState extends State<MyHomePage> {
                                   child: DefaultTextStyle(
                                     style: GoogleFonts.bungee(
                                       //fruktur,monoton,cutivemono
-                                      color: Colors.white,
+                                      color: kDeepBlue,
                                       fontSize: 30,
                                     ),
                                     child: AnimatedTextKit(
@@ -190,7 +190,7 @@ class MyHomePageState extends State<MyHomePage> {
                                       4), // subtitle[5],
                                   style: GoogleFonts.titilliumWeb(
                                     //fruktur,monoton,cutivemono
-                                    color: Colors.white,
+                                    color: kDarkWhite,
                                     fontWeight: FontWeight.bold,
                                     // wordSpacing: 90,
                                     fontSize: 18,
@@ -243,7 +243,7 @@ class MyHomePageState extends State<MyHomePage> {
                                     children: [
                                       CircleAvatar(
                                         radius: 40,
-                                        backgroundColor: Colors.redAccent,
+                                        backgroundColor: kPink,
                                         child: icons[i],
                                       ),
                                       SizedBox(
@@ -336,7 +336,7 @@ class MyHomePageState extends State<MyHomePage> {
           Text(
             proj[i].title.toString(),
             style: GoogleFonts.bungee(
-              color: Colors.white,
+              color: kPink,
               fontSize: 26,
             ),
             textAlign: TextAlign.center,
@@ -344,7 +344,7 @@ class MyHomePageState extends State<MyHomePage> {
           Text(
             proj[i].subtitle.toString(),
             style: GoogleFonts.titilliumWeb(
-              color: Colors.white,
+              color: kWhite,
               fontSize: 16,
             ),
             textAlign: TextAlign.center,

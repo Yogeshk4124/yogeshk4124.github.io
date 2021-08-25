@@ -16,7 +16,7 @@ class SkillDetailsContainer extends StatelessWidget {
       itemBuilder: (context, i) {
         if (i == 0)
           return Card(
-            color: myColor[colorgenerator()],
+            color: kDeepBlue,
             child: Text(
               skill,
               style: TextStyle(fontSize: 20, color: Colors.white),

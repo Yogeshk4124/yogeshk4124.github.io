@@ -74,7 +74,7 @@ class BarChartSample1State extends State<BarChartSample1> {
                         'Click the bar to see details',
                         style: TextStyle(
                             // color: const Color(0xff379982),
-                            color: Colors.blueAccent,
+                            color: kPink,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
@@ -141,7 +141,7 @@ class BarChartSample1State extends State<BarChartSample1> {
       barRods: [
         BarChartRodData(
           y: isTouched ? y : y,
-          colors: isTouched ? [Colors.yellow] : [barColor],
+          colors: isTouched ? [kDeepBlue] : [barColor],
           width: width,
           backDrawRodData: BackgroundBarChartRodData(
             show: true,
@@ -217,7 +217,7 @@ class BarChartSample1State extends State<BarChartSample1> {
                   TextSpan(
                     text: (rod.y).toString(),
                     style: TextStyle(
-                      color: Colors.yellow,
+                      color: kDeepBlue,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
