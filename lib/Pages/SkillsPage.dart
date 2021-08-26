@@ -65,6 +65,7 @@ class _SkillsState extends State<Skills> {
                                   'On a long journey, Need to learn a lot of new things.',
                                   style: GoogleFonts.titilliumWeb(
                                     fontSize: 18,
+                                    fontWeight: FontWeight.bold,
                                     color: kDarkWhite,
                                   ),
                                   textAlign: TextAlign.center,

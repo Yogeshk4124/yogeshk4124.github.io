@@ -42,6 +42,9 @@ class InfoPanelState extends State<InfoPanel> {
         decoration: BoxDecoration(
           color: kCardBackground,
           borderRadius: BorderRadius.only(
+            topLeft: MediaQuery.of(context).size.width < 960
+                ? Radius.circular(20)
+                : Radius.zero,
             topRight: Radius.circular(20),
             bottomRight: Radius.circular(20),
           ),
@@ -146,6 +149,9 @@ class InfoPanelState extends State<InfoPanel> {
         decoration: BoxDecoration(
           color: kCardBackground,
           borderRadius: BorderRadius.only(
+            topLeft: MediaQuery.of(context).size.width < 960
+                ? Radius.circular(20)
+                : Radius.zero,
             topRight: Radius.circular(20),
             bottomRight: Radius.circular(20),
           ),
@@ -171,10 +177,10 @@ class InfoPanelState extends State<InfoPanel> {
                   enableInfiniteScroll: false,
                   disableCenter: true,
                   pageSnapping: true,
-                  height: 280,
+                  height: 271,
                   initialPage: 0,
                   viewportFraction:
-                      MediaQuery.of(context).size.width < 750 ? 0.45 : 0.35,
+                      MediaQuery.of(context).size.width < 750 ? 0.5 : 0.35,
                   // viewportFraction: 0.4,
                   enlargeCenterPage: true,
                   scrollDirection: Axis.horizontal),
@@ -193,7 +199,7 @@ class InfoPanelState extends State<InfoPanel> {
                         child: Container(
                           // height: 150,
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
@@ -264,8 +270,13 @@ class InfoPanelState extends State<InfoPanel> {
         decoration: BoxDecoration(
           color: kCardBackground,
           borderRadius: BorderRadius.only(
+            topLeft: MediaQuery.of(context).size.width < 960
+                ? Radius.circular(20)
+                : Radius.zero,
             topRight: Radius.circular(20),
-            bottomRight: Radius.circular(20),
+            bottomRight: MediaQuery.of(context).size.width > 960
+                ? Radius.circular(20)
+                : Radius.circular(0),
           ),
         ),
         alignment: Alignment.center,

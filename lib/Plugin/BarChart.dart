@@ -118,7 +118,7 @@ class BarChartSample1State extends State<BarChartSample1> {
               ? SkillDetailsContainer(skill: skill)
               : Container(
                   alignment: Alignment.center,
-                  child: Text('Select a bar to show skill Projects',
+                  child: Text('Select a bar to show projects',
                       style: TextStyle(
                         color: kWhite,
                       )),

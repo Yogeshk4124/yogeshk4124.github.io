@@ -232,9 +232,10 @@ class ProjectsState extends State<Projects>
               padding: EdgeInsets.only(top: 30),
               child: Text(
                 proj.title.toString(),
-                style: GoogleFonts.titilliumWeb(
+                style: GoogleFonts.bungee(
                     color: i % 2 == 0 ? Colors.pinkAccent : kDeepBlue,
                     fontSize: 40),
+                textAlign: TextAlign.center,
               ),
             ),
             Container(

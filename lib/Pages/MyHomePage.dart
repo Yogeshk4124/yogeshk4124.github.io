@@ -146,13 +146,14 @@ class MyHomePageState extends State<MyHomePage> {
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.bungee(
                                     //fruktur,monoton,cutivemono
+                                    height: 1,
                                     color: Colors.white,
                                     wordSpacing: 10,
                                     fontSize: 40,
                                   ),
                                 ),
                                 Container(
-                                  height: LessWidthMQ(500) ? 150 : 100,
+                                  height: 100,
                                   alignment: Alignment.center,
                                   child: DefaultTextStyle(
                                     style: GoogleFonts.bungee(
@@ -296,9 +297,14 @@ class MyHomePageState extends State<MyHomePage> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(50),
-                                topLeft: Radius.circular(50),
+                                topLeft: MediaQuery.of(context).size.width < 960
+                                    ? Radius.circular(20)
+                                    : Radius.circular(50),
                                 topRight: Radius.circular(20),
-                                bottomRight: Radius.circular(20)),
+                                bottomRight:
+                                    MediaQuery.of(context).size.width < 960
+                                        ? Radius.circular(50)
+                                        : Radius.circular(20)),
                           ),
                           // height: 450,
                           child: Wrap(

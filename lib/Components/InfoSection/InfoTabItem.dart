@@ -32,7 +32,6 @@ class InfoTabItemState extends State<InfoTabItem> {
 
   setSelected(bool c) {
     setState(() {
-      print('for:' + widget.idx.toString() + " i:" + c.toString());
       if (c) {
         bg = Colors.pink;
         fg = kWhite;
@@ -86,7 +85,13 @@ class InfoTabItemState extends State<InfoTabItem> {
           borderRadius: BorderRadius.only(
             bottomLeft:
                 widget.idx == 3 ? Radius.circular(50) : Radius.circular(0),
-            topLeft: widget.idx == 1 ? Radius.circular(50) : Radius.circular(0),
+            topLeft: MediaQuery.of(context).size.width > 960 && widget.idx == 1
+                ? Radius.circular(50)
+                : Radius.circular(0),
+            bottomRight:
+                MediaQuery.of(context).size.width < 960 && widget.idx == 3
+                    ? Radius.circular(50)
+                    : Radius.circular(0),
           ),
         ),
         child: Text(
