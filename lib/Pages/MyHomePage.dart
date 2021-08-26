@@ -261,6 +261,11 @@ class MyHomePageState extends State<MyHomePage> {
                               }),
                         ),
                         Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  MediaQuery.of(context).size.width < 800
+                                      ? 15
+                                      : 0),
                           child: GridView.builder(
                               primary: false,
                               scrollDirection: Axis.vertical,
@@ -292,7 +297,14 @@ class MyHomePageState extends State<MyHomePage> {
                               }),
                         ),
                         Card(
-                          margin: EdgeInsets.only(top: 20),
+                          margin: EdgeInsets.only(
+                              top: 20,
+                              left: MediaQuery.of(context).size.width < 700
+                                  ? 15
+                                  : 0,
+                              right: MediaQuery.of(context).size.width < 700
+                                  ? 15
+                                  : 0),
                           color: kCardBackground,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(

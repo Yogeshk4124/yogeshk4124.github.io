@@ -144,7 +144,8 @@ List<Color> myColor = [
   Colors.lightBlueAccent,
   Colors.purpleAccent,
 ];
-Color kWhite = Color(0xffd3d4d4);
+// Color kWhite = Color(0xffd3d4d4);
+Color kWhite = Colors.white;
 Color kDarkWhite = Color(0xff787a7b);
 Color kBackground = Color(0xff212324);
 Color kCardBackground = Color(0xff18191A);

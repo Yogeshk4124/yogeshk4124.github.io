@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/Components/kIconButton.dart';
+import 'package:portfolio/Pages/CustomWebView.dart';
 import 'package:portfolio/Utility/Constants.dart';
 
 class Footer extends StatelessWidget {
@@ -17,33 +20,15 @@ class Footer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Container(
-            width: 35,
-            alignment: Alignment.center,
-            child: FaIcon(
-              FontAwesomeIcons.instagram,
-              color: kDarkWhite,
-              size: 25,
-            ),
-          ),
-          Container(
-            width: 35,
-            alignment: Alignment.center,
-            child: FaIcon(
-              FontAwesomeIcons.linkedin,
-              color: kDarkWhite,
-              size: 25,
-            ),
-          ),
-          Container(
-            width: 35,
-            alignment: Alignment.center,
-            child: FaIcon(
-              FontAwesomeIcons.envelope,
-              color: kDarkWhite,
-              size: 25,
-            ),
-          ),
+          // kIconButton(
+          //     icon: FontAwesomeIcons.instagram,
+          //     link: 'https://in.linkedin.com/in/yogeshk4124'),
+          kIconButton(
+              icon: FontAwesomeIcons.linkedin,
+              link: 'https://in.linkedin.com/in/yogeshk4124'),
+          kIconButton(
+              icon: FontAwesomeIcons.envelope,
+              link: 'mailto:yogeshk4124@gmail.com'),
           Spacer(),
           Text(
             'Made with love',

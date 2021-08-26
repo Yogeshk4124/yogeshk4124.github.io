@@ -10,16 +10,26 @@ import 'package:universal_html/js.dart' as js;
 class CustomButton extends StatefulWidget {
   String pageRoute, text;
   int type;
+  Color? background;
   CustomButton(
-      {required this.pageRoute, required this.type, required this.text});
+      {required this.pageRoute,
+      required this.type,
+      required this.text,
+      this.background});
   @override
   _CustomButtonState createState() => _CustomButtonState();
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  Color shadow = kDeepBlue;
+  late Color shadow;
   Color bg = kWhite;
   // var fileDownloaderProvider;
+  @override
+  void initState() {
+    super.initState();
+    shadow = widget.background ?? kDeepBlue;
+  }
+
   @override
   Widget build(BuildContext context) {
     // fileDownloaderProvider =
@@ -44,9 +54,9 @@ class _CustomButtonState extends State<CustomButton> {
         setState(() {
           if (val) {
             shadow = kBackground;
-            bg = kDeepBlue;
+            bg = widget.background ?? kDeepBlue;
           } else {
-            shadow = kDeepBlue;
+            shadow = widget.background ?? kDeepBlue;
             bg = kWhite;
           }
         });

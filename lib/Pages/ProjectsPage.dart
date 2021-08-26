@@ -278,8 +278,8 @@ class ProjectsState extends State<Projects>
                   Container(
                     child: Text(
                       proj.subtitle.toString(),
-                      style:
-                          GoogleFonts.titilliumWeb(color: kWhite, fontSize: 16),
+                      style: GoogleFonts.titilliumWeb(
+                          color: kDarkWhite, fontSize: 16),
                     ),
                   ),
                 ],
@@ -291,7 +291,7 @@ class ProjectsState extends State<Projects>
               child: Text(
                 proj.summary.toString(),
                 style: GoogleFonts.titilliumWeb(
-                    color: kDarkWhite,
+                    color: kWhite.withOpacity(0.9),
                     fontSize: 20,
                     fontWeight: FontWeight.normal),
                 textAlign: TextAlign.justify,
@@ -341,11 +341,13 @@ class ProjectsState extends State<Projects>
                   pageRoute: proj.viewMore.toString(),
                   text: 'View More',
                   type: 1,
+                  background: i % 2 == 0 ? Colors.pinkAccent : kDeepBlue,
                 ),
                 CustomButton(
                   pageRoute: proj.apk.toString(),
                   text: 'Download APK',
                   type: 2,
+                  background: i % 2 == 0 ? Colors.pinkAccent : kDeepBlue,
                 ),
               ],
             ),
