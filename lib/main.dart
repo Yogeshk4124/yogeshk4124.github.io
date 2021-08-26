@@ -7,6 +7,7 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 
 import 'Pages/MyHomePage.dart';
 import 'Pages/ProjectsPage.dart';
+import 'Pages/Resume.dart';
 import 'Pages/SkillsPage.dart';
 import 'Utility/keys.dart';
 
@@ -65,8 +66,10 @@ class MyApp extends StatelessWidget {
                     return Projects(
                       key: projectKey,
                     );
-                  default:
+                  case '/Resume':
                     return Skills();
+                  default:
+                    return Container();
                 }
               },
               transitionDuration: const Duration(seconds: 1),
