@@ -1,7 +1,7 @@
 // ignore: camel_case_types
 class Project {
   String? title, summary, subtitle;
-  String? imgsrc;
+  List<String>? imgsrc;
   List<String>? tech;
   String? viewMore, apk, code;
   Project(

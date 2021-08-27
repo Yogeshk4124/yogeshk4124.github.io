@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Components/CustomButton.dart';
 import 'package:portfolio/Components/Footer.dart';
@@ -292,8 +293,7 @@ class MyHomePageState extends State<MyHomePage> {
                                       ? 4
                                       : 3,
                               itemBuilder: (context, i) {
-                                return buildProjectCard(
-                                    projectsList, i, '/Project');
+                                return buildProjectCard(i, '/Project');
                               }),
                         ),
                         Card(
@@ -340,7 +340,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Card buildProjectCard(List<Project> proj, int i, String pageRoute) {
+  Card buildProjectCard(int i, String pageRoute) {
     Card c = Card(
       color: kCardBackground,
       shape: RoundedRectangleBorder(
@@ -352,7 +352,7 @@ class MyHomePageState extends State<MyHomePage> {
         children: [
           Container(),
           Text(
-            proj[i].title.toString(),
+            projectsList[i].title.toString(),
             style: GoogleFonts.bungee(
               color: kPink,
               fontSize: 26,
@@ -360,20 +360,72 @@ class MyHomePageState extends State<MyHomePage> {
             textAlign: TextAlign.center,
           ),
           Text(
-            proj[i].subtitle.toString(),
+            projectsList[i].subtitle.toString(),
             style: GoogleFonts.titilliumWeb(
               color: kWhite,
               fontSize: 16,
             ),
             textAlign: TextAlign.center,
           ),
-          Image.network(
-            proj[i].imgsrc.toString(),
+          ImageSlideshow(
+            width: 200,
             height: 400,
+            initialPage: 0,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            children: [
+              for (int j = 0; j < projectsList[i].imgsrc!.length.toInt(); j++)
+                Image.network(
+                  projectsList[i].imgsrc![j],
+                  loadingBuilder: (a, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+
+                    return Container(
+                      height: 400,
+                      width: 200,
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircularProgressIndicator(),
+                          Text(
+                            'Loading Image...',
+                            style: GoogleFonts.titilliumWeb(
+                                fontSize: 20, color: kWhite),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  errorBuilder: (a, child, error) {
+                    return Container(
+                      height: 400,
+                      width: 200,
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.error_outline,
+                            color: kWhite,
+                          ),
+                          Text(
+                            'Error...',
+                            style: GoogleFonts.titilliumWeb(
+                                fontSize: 20, color: kWhite),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+            ],
+            onPageChanged: (value) {},
+            autoPlayInterval: 3000,
           ),
           CustomButton(
             type: 1,
-            pageRoute: proj[i].viewMore.toString(),
+            pageRoute: projectsList[i].viewMore.toString(),
             text: 'View More',
           ),
           Container(),

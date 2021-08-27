@@ -11,6 +11,7 @@ import 'package:portfolio/Components/NavBar.dart';
 import 'package:portfolio/Models/project.dart';
 import 'package:portfolio/Pages/SkillsPage.dart';
 import 'package:portfolio/Utility/Constants.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 class Projects extends StatefulWidget {
   const Projects({required Key key}) : super(key: key);
@@ -247,13 +248,68 @@ class ProjectsState extends State<Projects>
           ],
         ),
       ),
-      Container(
+      ImageSlideshow(
+        width: 200,
         height: 400,
-        child: Image.network(
-          proj.imgsrc.toString(),
-          width: 200,
-        ),
+        initialPage: 0,
+        indicatorColor: Colors.blue,
+        indicatorBackgroundColor: Colors.grey,
+        children: [
+          for (int i = 0; i < proj.imgsrc!.length.toInt(); i++)
+            Image.network(
+              proj.imgsrc![i],
+              loadingBuilder: (a, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Container(
+                  height: 400,
+                  width: 200,
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircularProgressIndicator(),
+                      Text(
+                        'Loading Image...',
+                        style: GoogleFonts.titilliumWeb(
+                            fontSize: 20, color: kWhite),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              errorBuilder: (a, child, error) {
+                return Container(
+                  height: 400,
+                  width: 200,
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.error_outline,
+                        color: kWhite,
+                      ),
+                      Text(
+                        'Error...',
+                        style: GoogleFonts.titilliumWeb(
+                            fontSize: 20, color: kWhite),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+        ],
+        onPageChanged: (value) {},
+        autoPlayInterval: 3000,
       ),
+      // Container(
+      //   height: 400,
+      //   child: Image.network(
+      //     proj.imgsrc.toString(),
+      //     width: 200,
+      //   ),
+      // ),
       Container(
         alignment: Alignment.center,
         padding: EdgeInsets.only(bottom: 30, left: 10, right: 10),
