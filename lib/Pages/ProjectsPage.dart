@@ -251,6 +251,7 @@ class ProjectsState extends State<Projects>
       ImageSlideshow(
         width: 200,
         height: 400,
+        isLoop: true,
         initialPage: 0,
         indicatorColor: Colors.blue,
         indicatorBackgroundColor: Colors.grey,

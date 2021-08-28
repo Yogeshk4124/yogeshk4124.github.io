@@ -297,6 +297,38 @@ class InfoPanelState extends State<InfoPanel> {
               color: black,
               elevation: 5,
               shadowColor: Colors.pink,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15.0),
+                      topRight: Radius.circular(15.0),
+                    )),
+                    child: Image.network(
+                      'https://static.displate.com/857x1200/displate/2021-03-07/d8bc38177fd64186a5deb25bf1a6fabd_f4f948dfdc8a4d55c75b934875af8759.jpg',
+                      height: 150,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      errorBuilder: (a, b, c) {
+                        return Text(b.toString(),
+                            style: GoogleFonts.titilliumWeb(
+                                fontWeight: FontWeight.bold, color: kWhite));
+                      },
+                    ),
+                  ),
+                  Text('Gamer by Night',
+                      style: GoogleFonts.titilliumWeb(
+                          fontWeight: FontWeight.bold, color: kWhite)),
+                  // Text('Some long long long long long long long long long long text'),
+                  Text('Engineer by Day',
+                      style: GoogleFonts.titilliumWeb(
+                          fontWeight: FontWeight.bold, color: kWhite)),
+                ],
+              ),
             ),
             Card(
               color: kCardBackground,
