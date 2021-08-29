@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:portfolio/Pages/ProjectsPage.dart';
+import 'package:portfolio/Pages/AnimatedSkillDisplay.dart';
 
 import '../Components/InfoSection/InfoPanel.dart';
 import '../Components/InfoSection/InfoTabItem.dart';
@@ -11,3 +12,5 @@ GlobalKey<ProjectsState> projectKey = GlobalKey<ProjectsState>();
 GlobalKey<InfoTabItemState> k1 = GlobalKey<InfoTabItemState>();
 GlobalKey<InfoTabItemState> k2 = GlobalKey<InfoTabItemState>();
 GlobalKey<InfoTabItemState> k3 = GlobalKey<InfoTabItemState>();
+GlobalKey<AnimatedSkillDisplayState> skillKey =
+    GlobalKey<AnimatedSkillDisplayState>();

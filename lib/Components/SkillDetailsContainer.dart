@@ -19,7 +19,10 @@ class SkillDetailsContainer extends StatelessWidget {
             color: kDeepBlue,
             child: Text(
               skill,
-              style: TextStyle(fontSize: 20, color: Colors.white),
+              style: GoogleFonts.titilliumWeb(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white),
               textAlign: TextAlign.center,
             ),
           );

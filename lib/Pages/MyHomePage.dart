@@ -7,7 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/CustomButton.dart';
+import 'package:portfolio/Components/Buttons/CustomButton.dart';
 import 'package:portfolio/Components/Footer.dart';
 import 'package:portfolio/Components/InfoSection/InfoPanel.dart';
 import 'package:portfolio/Components/InfoSection/InfoTabItem.dart';
