@@ -50,6 +50,7 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
   @override
   Widget build(BuildContext context) {
     return Wrap(
+      alignment: WrapAlignment.center,
       children: [
         Container(
           width: 450,

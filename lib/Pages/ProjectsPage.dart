@@ -56,9 +56,6 @@ class ProjectsState extends State<Projects>
       backgroundColor: kBackground,
       body: SafeArea(
         child: Container(
-          padding: (MediaQuery.of(context).size.width > 700)
-              ? EdgeInsets.only(top: 20, left: 40, bottom: 10, right: 40)
-              : EdgeInsets.zero,
           child: Column(
             children: [
               NavBar(page: 2),
@@ -99,6 +96,8 @@ class ProjectsState extends State<Projects>
                           ),
                         ),
                         Container(
+                          padding:
+                              EdgeInsets.only(left: 40, right: 40, bottom: 5),
                           child: Column(
                             children: [
                               GestureDetector(
@@ -129,8 +128,7 @@ class ProjectsState extends State<Projects>
                                       ),
                                     ),
                                     Container(
-                                      padding:
-                                          EdgeInsets.only(left: 5, right: 10),
+                                      padding: EdgeInsets.only(left: 5),
                                       child: RotationTransition(
                                         turns: Tween(begin: 0.0, end: 0.5)
                                             .animate(_controller),
@@ -199,16 +197,21 @@ class ProjectsState extends State<Projects>
                               projectsList[i]
                                   .tech!
                                   .contains(filterBy.toString()))
-                            Card(
-                              margin: EdgeInsets.only(top: 20),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: 30, right: 30, bottom: 5),
+                              child: Card(
+                                margin: EdgeInsets.only(top: 20),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                color: kCardBackground,
+                                child: Container(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 15, horizontal: 20),
+                                    child:
+                                        buildProjectRow(projectsList[i], c++)),
                               ),
-                              color: kCardBackground,
-                              child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 15, horizontal: 20),
-                                  child: buildProjectRow(projectsList[i], c++)),
                             ),
                         Footer(),
                       ],

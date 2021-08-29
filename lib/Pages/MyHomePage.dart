@@ -116,9 +116,6 @@ class MyHomePageState extends State<MyHomePage> {
       backgroundColor: kBackground,
       body: SafeArea(
         child: Container(
-          padding: (MediaQuery.of(context).size.width > 700)
-              ? EdgeInsets.only(top: 20, left: 40, bottom: 10, right: 40)
-              : EdgeInsets.zero,
           child: Column(
             children: [
               NavBar(page: 0),
@@ -256,10 +253,10 @@ class MyHomePageState extends State<MyHomePage> {
                             }),
                       ),
                       Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: MediaQuery.of(context).size.width < 800
-                                ? 15
-                                : 0),
+                        margin: EdgeInsets.symmetric(
+                            horizontal: MediaQuery.of(context).size.width > 700
+                                ? 40
+                                : 15),
                         child: GridView.builder(
                             primary: false,
                             scrollDirection: Axis.vertical,

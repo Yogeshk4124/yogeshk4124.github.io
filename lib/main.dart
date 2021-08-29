@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
                       key: projectKey,
                     );
                   case '/Resume':
-                    return AnimatedSkillDisplay();
+                    return Skills();
                   default:
                     return Container();
                 }

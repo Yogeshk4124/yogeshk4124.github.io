@@ -24,9 +24,6 @@ class _SkillsState extends State<Skills> {
       backgroundColor: kBackground,
       body: SafeArea(
         child: Container(
-          margin: (MediaQuery.of(context).size.width > 700)
-              ? EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 10)
-              : EdgeInsets.zero,
           child: Column(
             children: [
               NavBar(

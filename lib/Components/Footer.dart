@@ -16,6 +16,9 @@ class Footer extends StatelessWidget {
       // decoration: BoxDecoration(
       //   border: Border.all(color: Colors.white, width: 1),
       // ),
+      padding: EdgeInsets.symmetric(
+        horizontal: 30,
+      ),
       height: 50,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -31,13 +34,15 @@ class Footer extends StatelessWidget {
               link: 'mailto:yogeshk4124@gmail.com'),
           Spacer(),
           Text(
-            'Made with love',
+            '💻Trying not to hardcode everything.',
             style: GoogleFonts.titilliumWeb(
-                color: kDarkWhite, fontWeight: FontWeight.bold),
+              color: kDarkWhite,
+              fontWeight: FontWeight.bold,
+            ).copyWith(fontFamily: 'EmojiOne'),
           ),
           Container(
             width: 20,
-          )
+          ),
         ],
       ),
     );

@@ -57,6 +57,9 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
           padding: MediaQuery.of(context).size.width < 800
               ? EdgeInsets.symmetric(horizontal: 10)
               : null,
+          margin: (MediaQuery.of(context).size.width > 700)
+              ? EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 10)
+              : EdgeInsets.zero,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
