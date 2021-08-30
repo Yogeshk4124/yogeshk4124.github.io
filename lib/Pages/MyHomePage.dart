@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -57,15 +56,6 @@ class MyHomePageState extends State<MyHomePage> {
     aim = [
       Column(
         children: [
-          // Container(
-          //   height: 30,
-          //   width: LessWidthMQ(860) ? double.maxFinite : 400,
-          //   alignment: Alignment.center,
-          //   child: Text(
-          //     'Click any tab to show details.',
-          //     style: GoogleFonts.titilliumWeb(color: Colors.white),
-          //   ),
-          // ),
           InfoTabItem(
             text: 'Education',
             idx: 1,

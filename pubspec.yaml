@@ -38,10 +38,11 @@ dependencies:
   carousel_slider: ^4.0.0
   event_hub: ^0.1.1
   webview_flutter: ^2.0.12
-  universal_html: ^1.2.1
   universal_platform: ^1.0.0+1
   flutter_downloader: ^1.6.1
   flutter_image_slideshow: ^0.1.1
+  syncfusion_flutter_pdfviewer: ^19.2.57-beta
+  universal_html: ^2.0.8
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ flutter:
   assets:
     - flutter.jpg
     - ic_launcher.png
+    - Resume.pdf
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

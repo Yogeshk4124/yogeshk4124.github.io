@@ -5,7 +5,7 @@ set -e
 
 #flutter clean build
 # build
-flutter build web --no-sound-null-safety --release
+flutter build web --no-sound-null-safety --release --web-renderer html
 
 # navigate into the build output directory
 cd build

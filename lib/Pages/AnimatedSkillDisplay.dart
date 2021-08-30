@@ -186,7 +186,7 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
               ? SkillDetailsContainer(skill: skill)
               : Container(
                   alignment: Alignment.center,
-                  child: Text('Select a bar to show projects',
+                  child: Text('Select a language to show projects.',
                       style: TextStyle(
                         color: kWhite,
                       )),

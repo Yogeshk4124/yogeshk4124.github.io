@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
                       key: projectKey,
                     );
                   case '/Resume':
-                    return Skills();
+                    return Resume();
                   default:
                     return Container();
                 }
