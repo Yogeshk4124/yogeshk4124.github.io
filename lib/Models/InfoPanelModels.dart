@@ -26,3 +26,14 @@ class Education {
     required this.location,
   });
 }
+
+class FunFact {
+  String heading;
+  String description;
+  String img;
+  FunFact({
+    required this.heading,
+    required this.description,
+    required this.img,
+  });
+}

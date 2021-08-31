@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/Models/InfoPanelModels.dart';
 import 'package:portfolio/Pages/SkillsPage.dart';
 import 'package:portfolio/Utility/Constants.dart';
 
@@ -292,60 +293,7 @@ class InfoPanelState extends State<InfoPanel> {
               // viewportFraction: 0.4,
               enlargeCenterPage: true,
               scrollDirection: Axis.horizontal),
-          items: [
-            Card(
-              color: black,
-              elevation: 5,
-              shadowColor: Colors.pink,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15.0),
-                      topRight: Radius.circular(15.0),
-                    )),
-                    child: Image.network(
-                      'https://static.displate.com/857x1200/displate/2021-03-07/d8bc38177fd64186a5deb25bf1a6fabd_f4f948dfdc8a4d55c75b934875af8759.jpg',
-                      height: 150,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                      errorBuilder: (a, b, c) {
-                        return Text(b.toString(),
-                            style: GoogleFonts.titilliumWeb(
-                                fontWeight: FontWeight.bold, color: kWhite));
-                      },
-                    ),
-                  ),
-                  Text('Gamer by Night',
-                      style: GoogleFonts.titilliumWeb(
-                          fontWeight: FontWeight.bold, color: kWhite)),
-                  // Text('Some long long long long long long long long long long text'),
-                  Text('Engineer by Day',
-                      style: GoogleFonts.titilliumWeb(
-                          fontWeight: FontWeight.bold, color: kWhite)),
-                ],
-              ),
-            ),
-            Card(
-              color: kCardBackground,
-              elevation: 3,
-              shadowColor: Colors.white,
-            ),
-            Card(
-              color: kCardBackground,
-              elevation: 3,
-              shadowColor: Colors.white,
-            ),
-            Card(
-              color: kCardBackground,
-              elevation: 3,
-              shadowColor: Colors.white,
-            ),
-          ],
+          items: [for (var i in funFactList) getFunFact(i)],
         ),
       );
     // return Container(
@@ -361,5 +309,69 @@ class InfoPanelState extends State<InfoPanel> {
     //     fit: BoxFit.fitWidth,
     //   ),
     // );
+  }
+
+  Card getFunFact(FunFact f) {
+    return Card(
+      color: black,
+      elevation: 5,
+      shadowColor: Colors.pink,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15.0),
+              topRight: Radius.circular(15.0),
+            ),
+            child: Image.asset(
+              f.img,
+              height: 165,
+              alignment: Alignment.topCenter,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              errorBuilder: (a, b, c) {
+                return Text(b.toString(),
+                    style: GoogleFonts.titilliumWeb(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                        color: kWhite));
+              },
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 12),
+            alignment: Alignment.center,
+            child: Text(
+              f.heading,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.titilliumWeb(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: kPink,
+                height: 1,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              alignment: Alignment.topCenter,
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              child: Text(f.description,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.titilliumWeb(
+                    fontWeight: FontWeight.bold,
+                    color: kWhite,
+                  )),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

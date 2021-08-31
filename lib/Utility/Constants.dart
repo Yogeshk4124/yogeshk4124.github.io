@@ -153,6 +153,22 @@ Color kDeepBlue = Color(0xff4F46E5);
 Color kPink = Colors.pink;
 Color kPinkAccent = Colors.pinkAccent;
 
+List<FunFact> funFactList = [
+  FunFact(
+      heading: 'Engineer by Day, Gamer by Night',
+      description: "Full on rush Gameplay. Do or Die..☠. That's my style.",
+      img: 'game.jpg'),
+  FunFact(
+      heading: 'Do you like Anime?',
+      description:
+          'If Yes, We need to meet to talk about a lot of anime like Naruto, SAO, Black C...',
+      img: 'Anime.jpeg'),
+  FunFact(
+      heading: 'A Big Foodie',
+      description:
+          "I can buy you anything, but please don't take from my plate",
+      img: 'foodie.png'),
+];
 List<Project> projectsList = [
   Project(
     imgsrc: [
