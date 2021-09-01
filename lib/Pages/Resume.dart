@@ -31,7 +31,9 @@ class _ResumeState extends State<Resume> {
         scrollDirection: Axis.vertical,
         physics: ClampingScrollPhysics(),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 112),
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width < 800 ? 10 : 112,
+              vertical: MediaQuery.of(context).size.width < 800 ? 20 : 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
@@ -81,13 +83,17 @@ class _ResumeState extends State<Resume> {
                     topLeft: Radius.circular(12),
                   ),
                 ),
-                margin: EdgeInsets.only(top: 40, right: 40, left: 40),
+                margin: MediaQuery.of(context).size.width < 800
+                    ? EdgeInsets.symmetric(horizontal: 10)
+                    : EdgeInsets.only(top: 40, right: 40, left: 40),
               ),
               Container(
                 height: 1240,
                 padding: EdgeInsets.all(30),
                 color: kCardBackground,
-                margin: EdgeInsets.only(bottom: 40, right: 40, left: 40),
+                margin: MediaQuery.of(context).size.width < 800
+                    ? EdgeInsets.symmetric(horizontal: 10)
+                    : EdgeInsets.only(top: 40, right: 40, left: 40),
                 child: SfPdfViewer.asset(
                   'something.pdf',
                   key: pdfViewerKey,

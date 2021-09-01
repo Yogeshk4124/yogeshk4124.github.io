@@ -20,58 +20,60 @@ class Skills extends StatefulWidget {
 class _SkillsState extends State<Skills> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kBackground,
-      child: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height - 80),
-          child: IntrinsicHeight(
-            child: Container(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 40),
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Skills',
-                      style: GoogleFonts.bungee(
-                        fontSize: 34,
-                        color: kWhite,
-                        wordSpacing: 15,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: Container(
+    return Material(
+      child: Container(
+        color: kBackground,
+        child: SingleChildScrollView(
+          physics: ClampingScrollPhysics(),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+                minHeight: MediaQuery.of(context).size.height - 80),
+            child: IntrinsicHeight(
+              child: Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 40),
                       width: MediaQuery.of(context).size.width * 0.8,
                       alignment: Alignment.center,
                       child: Text(
-                        'On a long journey, Need to learn a lot of new things.',
-                        style: GoogleFonts.titilliumWeb(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: kDarkWhite,
+                        'Skills',
+                        style: GoogleFonts.bungee(
+                          fontSize: 34,
+                          color: kWhite,
+                          wordSpacing: 15,
                         ),
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: AnimatedSkillDisplay(
-                      key: skillKey,
+                    Container(
+                      alignment: Alignment.center,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'On a long journey, Need to learn a lot of new things.',
+                          style: GoogleFonts.titilliumWeb(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: kDarkWhite,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
-                    //  BarChartSample1(
-                    //     chartWidth: 500, chartHeight: 400)
-                  ),
-                  Footer(),
-                ],
+                    Expanded(
+                      child: AnimatedSkillDisplay(
+                        key: skillKey,
+                      ),
+                      //  BarChartSample1(
+                      //     chartWidth: 500, chartHeight: 400)
+                    ),
+                    Footer(),
+                  ],
+                ),
               ),
             ),
           ),
