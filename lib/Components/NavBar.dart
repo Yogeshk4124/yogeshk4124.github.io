@@ -1,10 +1,13 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/Components/Buttons/RadioButton.dart';
 import 'package:portfolio/Models/project.dart';
 import 'package:portfolio/Pages/ProjectsPage.dart';
 import 'package:portfolio/Pages/SkillsPage.dart';
 import 'package:portfolio/Utility/Constants.dart';
+import 'package:portfolio/Utility/keys.dart';
 
 class NavBar extends StatefulWidget {
   // BuildContext pageContext;
@@ -12,10 +15,10 @@ class NavBar extends StatefulWidget {
   final int page;
   NavBar({required this.page});
   @override
-  _NavBarState createState() => _NavBarState();
+  NavBarState createState() => NavBarState();
 }
 
-class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
+class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   List<Color> navItemBgColor = [black, black, black],
       navItemTextColor = [Colors.white, Colors.white, Colors.white];
   List navLinks = ['/Skills', '/Projects', '/Projects'];
@@ -23,6 +26,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   double height = 0;
   bool isPlaying = false;
   late final AnimationController _controller;
+  late int cur;
 
   @override
   void initState() {
@@ -33,6 +37,11 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
     );
     isVisible = false;
     height = 0;
+    cur = widget.page;
+    for (int i = 0; i < SharedAxisTransitionType.values.length; i++)
+      print(i.toString() +
+          " " +
+          SharedAxisTransitionType.values.elementAt(i).toString());
   }
 
   @override
@@ -65,7 +74,11 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.of(context).pushReplacementNamed('/');
+                  if (POKey.currentState!.pageNumber != 0) {
+                    POKey.currentState!.setState(() {
+                      POKey.currentState!.pageNumber = 0;
+                    });
+                  }
                 },
                 onHover: (val) {},
                 child: Container(
@@ -83,26 +96,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               Spacer(),
               Visibility(
                 visible: MediaQuery.of(context).size.width >= 800,
-                child: Row(
-                  children: [
-                    NavItem(
-                      skills: 'Skills',
-                      pageNo: 1,
-                      cur: widget.page,
-                    ),
-                    // buildInkWell('Skills', 0),
-                    NavItem(
-                      skills: 'Projects',
-                      pageNo: 2,
-                      cur: widget.page,
-                    ),
-                    NavItem(
-                      skills: 'Resume',
-                      pageNo: 3,
-                      cur: widget.page,
-                    ),
-                  ],
-                ),
+                child: CustomNavButtons(),
               ),
               Visibility(
                 visible: updateNav(),
@@ -203,60 +197,5 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
       });
       return false;
     }
-  }
-}
-
-class NavItem extends StatefulWidget {
-  final String skills;
-  final int pageNo;
-  final int cur;
-  NavItem({required this.skills, required this.pageNo, required this.cur});
-  @override
-  _NavItemState createState() => _NavItemState();
-}
-
-class _NavItemState extends State<NavItem> {
-  late Color kTextColor;
-
-  @override
-  void initState() {
-    super.initState();
-    kTextColor = widget.pageNo != widget.cur ? kWhite : Colors.pink;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        if (widget.pageNo != widget.cur)
-          Navigator.pushReplacementNamed(
-            context,
-            '/' + widget.skills,
-          );
-      },
-      onHover: (isInside) {
-        setState(() {
-          if (widget.pageNo != widget.cur) if (isInside) {
-            kTextColor = Colors.pinkAccent;
-          } else {
-            kTextColor = kWhite;
-          }
-        });
-      },
-      child: Card(
-        color: kCardBackground,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 14),
-          child: Text(
-            widget.skills,
-            style: GoogleFonts.titilliumWeb(
-              color: kTextColor,
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
-    );
   }
 }

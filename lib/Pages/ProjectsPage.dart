@@ -52,175 +52,151 @@ class ProjectsState extends State<Projects>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kBackground,
-      body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              NavBar(page: 2),
-              Expanded(
-                child: Container(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    physics: ClampingScrollPhysics(),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
+    return Container(
+      color: kBackground,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        physics: ClampingScrollPhysics(),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 40),
+              width: MediaQuery.of(context).size.width * 0.8,
+              alignment: Alignment.center,
+              child: Text(
+                'Projects',
+                style: GoogleFonts.bungee(
+                  fontSize: 34,
+                  color: kWhite,
+                  wordSpacing: 15,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(bottom: 40),
+              width: MediaQuery.of(context).size.width * 0.8,
+              alignment: Alignment.center,
+              child: Text(
+                'Here are some of my good work.',
+                style: GoogleFonts.titilliumWeb(
+                  fontSize: 18,
+                  color: kDarkWhite,
+                  wordSpacing: 2,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 40, right: 40, bottom: 5),
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (h == 0)
+                          MediaQuery.of(context).size.width < 500
+                              ? h = 200
+                              : h = 100;
+                        else {
+                          h = 0;
+                          vis = false;
+                        }
+                      });
+                      _handleOnPressed();
+                    },
+                    child: Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(top: 40),
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          alignment: Alignment.center,
+                          padding: EdgeInsets.only(left: 10),
                           child: Text(
-                            'Projects',
-                            style: GoogleFonts.bungee(
-                              fontSize: 34,
-                              color: kWhite,
-                              wordSpacing: 15,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(bottom: 40),
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Here are some of my good work.',
+                            'Languages',
                             style: GoogleFonts.titilliumWeb(
-                              fontSize: 18,
-                              color: kDarkWhite,
-                              wordSpacing: 2,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: kDeepBlue,
                             ),
-                            textAlign: TextAlign.center,
                           ),
                         ),
                         Container(
-                          padding:
-                              EdgeInsets.only(left: 40, right: 40, bottom: 5),
-                          child: Column(
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    if (h == 0)
-                                      MediaQuery.of(context).size.width < 500
-                                          ? h = 200
-                                          : h = 100;
-                                    else {
-                                      h = 0;
-                                      vis = false;
-                                    }
-                                  });
-                                  _handleOnPressed();
-                                },
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(left: 10),
-                                      child: Text(
-                                        'Languages',
-                                        style: GoogleFonts.titilliumWeb(
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.bold,
-                                          color: kDeepBlue,
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.only(left: 5),
-                                      child: RotationTransition(
-                                        turns: Tween(begin: 0.0, end: 0.5)
-                                            .animate(_controller),
-                                        child: Icon(
-                                          Icons.arrow_downward,
-                                          color: kDeepBlue,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              AnimatedContainer(
-                                height: h,
-                                alignment: Alignment.center,
-                                width: double.maxFinite,
-                                duration: Duration(milliseconds: 450),
-                                onEnd: () {
-                                  setState(() {
-                                    if (h != 0) vis = true;
-                                  });
-                                },
-                                child: Visibility(
-                                  visible: vis,
-                                  child: Wrap(
-                                    alignment: WrapAlignment.center,
-                                    runSpacing: 20,
-                                    children: [
-                                      CustomPill(
-                                          text: 'Flutter',
-                                          type: filterBy == 'Flutter' ? 2 : 1),
-                                      CustomPill(
-                                          text: 'Android',
-                                          type: filterBy == 'Android' ? 2 : 1),
-                                      CustomPill(
-                                          text: 'Dart',
-                                          type: filterBy == 'Dart' ? 2 : 1),
-                                      CustomPill(
-                                          text: 'Java',
-                                          type: filterBy == 'Java' ? 2 : 1),
-                                      CustomPill(
-                                          text: 'HTML',
-                                          type: filterBy == 'HTML' ? 2 : 1),
-                                      CustomPill(
-                                          text: 'CSS',
-                                          type: filterBy == 'CSS' ? 2 : 1),
-                                      CustomPill(
-                                          text: 'JavaScript',
-                                          type:
-                                              filterBy == 'JavaScript' ? 2 : 1),
-                                      CustomPill(
-                                          text: 'Flask',
-                                          type: filterBy == 'Flask' ? 2 : 1),
-                                      CustomPill(
-                                          text: 'Firebase',
-                                          type: filterBy == 'Firebase' ? 2 : 1),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
+                          padding: EdgeInsets.only(left: 5),
+                          child: RotationTransition(
+                            turns: Tween(begin: 0.0, end: 0.5)
+                                .animate(_controller),
+                            child: Icon(
+                              Icons.arrow_downward,
+                              color: kDeepBlue,
+                            ),
                           ),
                         ),
-                        for (int i = 0, c = 0; i < projectsList.length; i++)
-                          if (filterBy == '' ||
-                              projectsList[i]
-                                  .tech!
-                                  .contains(filterBy.toString()))
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  left: 30, right: 30, bottom: 5),
-                              child: Card(
-                                margin: EdgeInsets.only(top: 20),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                color: kCardBackground,
-                                child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 15, horizontal: 20),
-                                    child:
-                                        buildProjectRow(projectsList[i], c++)),
-                              ),
-                            ),
-                        Footer(),
                       ],
                     ),
                   ),
-                ),
+                  AnimatedContainer(
+                    height: h,
+                    alignment: Alignment.center,
+                    width: double.maxFinite,
+                    duration: Duration(milliseconds: 450),
+                    onEnd: () {
+                      setState(() {
+                        if (h != 0) vis = true;
+                      });
+                    },
+                    child: Visibility(
+                      visible: vis,
+                      child: Wrap(
+                        alignment: WrapAlignment.center,
+                        runSpacing: 20,
+                        children: [
+                          CustomPill(
+                              text: 'Flutter',
+                              type: filterBy == 'Flutter' ? 2 : 1),
+                          CustomPill(
+                              text: 'Android',
+                              type: filterBy == 'Android' ? 2 : 1),
+                          CustomPill(
+                              text: 'Dart', type: filterBy == 'Dart' ? 2 : 1),
+                          CustomPill(
+                              text: 'Java', type: filterBy == 'Java' ? 2 : 1),
+                          CustomPill(
+                              text: 'HTML', type: filterBy == 'HTML' ? 2 : 1),
+                          CustomPill(
+                              text: 'CSS', type: filterBy == 'CSS' ? 2 : 1),
+                          CustomPill(
+                              text: 'JavaScript',
+                              type: filterBy == 'JavaScript' ? 2 : 1),
+                          CustomPill(
+                              text: 'Flask', type: filterBy == 'Flask' ? 2 : 1),
+                          CustomPill(
+                              text: 'Firebase',
+                              type: filterBy == 'Firebase' ? 2 : 1),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            for (int i = 0, c = 0; i < projectsList.length; i++)
+              if (filterBy == '' ||
+                  projectsList[i].tech!.contains(filterBy.toString()))
+                Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30, bottom: 5),
+                  child: Card(
+                    margin: EdgeInsets.only(top: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    color: kCardBackground,
+                    child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                        child: buildProjectRow(projectsList[i], c++)),
+                  ),
+                ),
+            Footer(),
+          ],
         ),
       ),
     );

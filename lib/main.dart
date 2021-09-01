@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_page_transition/flutter_page_transition.dart';
 import 'package:portfolio/Pages/CustomWebView.dart';
 import 'package:portfolio/Pages/AnimatedSkillDisplay.dart';
+import 'package:portfolio/Pages/PageOutlook.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 
@@ -16,7 +17,7 @@ void main() {
   runApp(MyApp());
 }
 
-final homeKey = GlobalKey<MyHomePageState>();
+// final homeKey = GlobalKey<MyHomePageState>();
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -53,9 +54,8 @@ class MyApp extends StatelessWidget {
                   Animation<double> secondaryAnimation) {
                 switch (routeSettings.name) {
                   case '/':
-                    return MyHomePage(
-                      title: 'Home',
-                      key: homeKey,
+                    return PageOutlook(
+                      key: POKey,
                     );
                   case '/Skills':
                     return Skills();

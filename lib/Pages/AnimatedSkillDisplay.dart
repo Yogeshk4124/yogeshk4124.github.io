@@ -48,6 +48,14 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller.dispose();
+    _controller2.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Wrap(
       alignment: WrapAlignment.center,

@@ -43,6 +43,7 @@ dependencies:
   flutter_image_slideshow: ^0.1.1
   syncfusion_flutter_pdfviewer: ^19.2.57-beta
   universal_html: ^2.0.8
+  animations: ^2.0.1
 
 dev_dependencies:
   flutter_test:

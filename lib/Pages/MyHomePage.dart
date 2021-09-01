@@ -102,217 +102,191 @@ class MyHomePageState extends State<MyHomePage> {
     ];
     List<String> title = ['Android', 'Web', 'IOS', 'UI/UX'];
 
-    return Scaffold(
-      backgroundColor: kBackground,
-      body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              NavBar(page: 0),
-              Expanded(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  physics: ClampingScrollPhysics(),
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: double.maxFinite,
-                        // height: LessWidthMQ(500) ? 600 : 350,
-                        alignment: Alignment.center,
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 50),
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "I'M Yogesh Kumar",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.bungee(
-                                  //fruktur,monoton,cutivemono
-                                  height: 1,
-                                  color: Colors.white,
-                                  wordSpacing: 10,
-                                  fontSize: 40,
-                                ),
-                              ),
-                              Container(
-                                height: 100,
-                                alignment: Alignment.center,
-                                child: DefaultTextStyle(
-                                  style: GoogleFonts.bungee(
-                                    //fruktur,monoton,cutivemono
-                                    color: kDeepBlue,
-                                    fontSize: 30,
-                                  ),
-                                  child: AnimatedTextKit(
-                                    animatedTexts: [
-                                      RotateAnimatedText(
-                                        stringMod('Flutter Developer', 4),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      RotateAnimatedText(
-                                        stringMod('Android Developer', 4),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      RotateAnimatedText(
-                                        stringMod('Techie', 4),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ],
-                                    repeatForever: true,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                stringMod(
-                                    subtitle[Random().nextInt(subtitle.length)],
-                                    4), // subtitle[5],
-                                style: GoogleFonts.titilliumWeb(
-                                  //fruktur,monoton,cutivemono
-                                  color: kDarkWhite,
-                                  fontWeight: FontWeight.bold,
-                                  // wordSpacing: 90,
-                                  fontSize: 18,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        ),
+    return Container(
+      color: kBackground,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        physics: ClampingScrollPhysics(),
+        child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: double.maxFinite,
+              // height: LessWidthMQ(500) ? 600 : 350,
+              alignment: Alignment.center,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "I'M Yogesh Kumar",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.bungee(
+                        //fruktur,monoton,cutivemono
+                        height: 1,
+                        color: Colors.white,
+                        wordSpacing: 10,
+                        fontSize: 40,
                       ),
-                      Container(
-                        alignment: Alignment.center,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.78,
-                          child: Text(
-                            stringMod(
-                                'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
-                                1),
-                            style: GoogleFonts.titilliumWeb(
-                                //amaticaSc
-                                color: Colors.white,
-                                fontSize: 25,
-                                fontWeight: FontWeight.w300),
-                            textAlign: TextAlign.center,
-                          ),
+                    ),
+                    Container(
+                      height: 100,
+                      alignment: Alignment.center,
+                      child: DefaultTextStyle(
+                        style: GoogleFonts.bungee(
+                          //fruktur,monoton,cutivemono
+                          color: kDeepBlue,
+                          fontSize: 30,
                         ),
-                      ),
-                      Container(
-                        child: GridView.builder(
-                            primary: false,
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount:
-                                  (MediaQuery.of(context).size.width > 560)
-                                      ? 4
-                                      : 2,
-                              // childAspectRatio: 4,
-                              mainAxisExtent:
-                                  200, // <== change the height to fit your needs
+                        child: AnimatedTextKit(
+                          animatedTexts: [
+                            RotateAnimatedText(
+                              stringMod('Flutter Developer', 4),
+                              textAlign: TextAlign.center,
                             ),
-                            itemCount: 4,
-                            itemBuilder: (context, i) {
-                              return Container(
-                                width: 100,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 40,
-                                      backgroundColor: kPink,
-                                      child: icons[i],
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      title[i],
-                                      style: GoogleFonts.titilliumWeb(
-                                          color: Colors.white, fontSize: 20),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }),
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: MediaQuery.of(context).size.width > 700
-                                ? 40
-                                : 15),
-                        child: GridView.builder(
-                            primary: false,
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: (MediaQuery.of(context)
-                                          .size
-                                          .width >
-                                      960)
-                                  ? 3
-                                  : (MediaQuery.of(context).size.width > 700)
-                                      ? 2
-                                      : 1,
-                              // childAspectRatio: 4,
-                              mainAxisExtent:
-                                  600, // <== change the height to fit your needs
+                            RotateAnimatedText(
+                              stringMod('Android Developer', 4),
+                              textAlign: TextAlign.center,
                             ),
-                            itemCount: (MediaQuery.of(context).size.width > 960)
-                                ? 3
-                                : (MediaQuery.of(context).size.width > 700)
-                                    ? 4
-                                    : 3,
-                            itemBuilder: (context, i) {
-                              return buildProjectCard(i, '/Project');
-                            }),
-                      ),
-                      Card(
-                        margin: EdgeInsets.only(
-                            top: 20,
-                            left: MediaQuery.of(context).size.width < 700
-                                ? 15
-                                : 0,
-                            right: MediaQuery.of(context).size.width < 700
-                                ? 15
-                                : 0),
-                        color: kCardBackground,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(50),
-                              topLeft: MediaQuery.of(context).size.width < 960
-                                  ? Radius.circular(20)
-                                  : Radius.circular(50),
-                              topRight: Radius.circular(20),
-                              bottomRight:
-                                  MediaQuery.of(context).size.width < 960
-                                      ? Radius.circular(50)
-                                      : Radius.circular(20)),
+                            RotateAnimatedText(
+                              stringMod('Techie', 4),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                          repeatForever: true,
                         ),
-                        // height: 450,
-                        child: Wrap(
-                            direction: Axis.horizontal,
-                            runAlignment: WrapAlignment.end,
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            children: MediaQuery.of(context).size.width < 960
-                                ? aim.reversed.toList()
-                                : aim),
                       ),
-                      Footer(),
-                    ],
-                  ),
+                    ),
+                    Text(
+                      stringMod(subtitle[Random().nextInt(subtitle.length)],
+                          4), // subtitle[5],
+                      style: GoogleFonts.titilliumWeb(
+                        //fruktur,monoton,cutivemono
+                        color: kDarkWhite,
+                        fontWeight: FontWeight.bold,
+                        // wordSpacing: 90,
+                        fontSize: 18,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.78,
+                child: Text(
+                  stringMod(
+                      'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
+                      1),
+                  style: GoogleFonts.titilliumWeb(
+                      //amaticaSc
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w300),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Container(
+              child: GridView.builder(
+                  primary: false,
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount:
+                        (MediaQuery.of(context).size.width > 560) ? 4 : 2,
+                    // childAspectRatio: 4,
+                    mainAxisExtent:
+                        200, // <== change the height to fit your needs
+                  ),
+                  itemCount: 4,
+                  itemBuilder: (context, i) {
+                    return Container(
+                      width: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 40,
+                            backgroundColor: kPink,
+                            child: icons[i],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            title[i],
+                            style: GoogleFonts.titilliumWeb(
+                                color: Colors.white, fontSize: 20),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                  horizontal:
+                      MediaQuery.of(context).size.width > 700 ? 40 : 15),
+              child: GridView.builder(
+                  primary: false,
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: (MediaQuery.of(context).size.width > 960)
+                        ? 3
+                        : (MediaQuery.of(context).size.width > 700)
+                            ? 2
+                            : 1,
+                    // childAspectRatio: 4,
+                    mainAxisExtent:
+                        600, // <== change the height to fit your needs
+                  ),
+                  itemCount: (MediaQuery.of(context).size.width > 960)
+                      ? 3
+                      : (MediaQuery.of(context).size.width > 700)
+                          ? 4
+                          : 3,
+                  itemBuilder: (context, i) {
+                    return buildProjectCard(i, '/Project');
+                  }),
+            ),
+            Card(
+              margin: EdgeInsets.only(
+                  top: 20,
+                  left: MediaQuery.of(context).size.width < 700 ? 15 : 0,
+                  right: MediaQuery.of(context).size.width < 700 ? 15 : 0),
+              color: kCardBackground,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    topLeft: MediaQuery.of(context).size.width < 960
+                        ? Radius.circular(20)
+                        : Radius.circular(50),
+                    topRight: Radius.circular(20),
+                    bottomRight: MediaQuery.of(context).size.width < 960
+                        ? Radius.circular(50)
+                        : Radius.circular(20)),
+              ),
+              // height: 450,
+              child: Wrap(
+                  direction: Axis.horizontal,
+                  runAlignment: WrapAlignment.end,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: MediaQuery.of(context).size.width < 960
+                      ? aim.reversed.toList()
+                      : aim),
+            ),
+            Footer(),
+          ],
         ),
       ),
     );
