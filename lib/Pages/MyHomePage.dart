@@ -22,7 +22,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class MyHomePageState extends State<MyHomePage> {
-  late List<Widget> aim;
   List<String> subtitle = [
     'I am Popeye not with spinach but with Computer.',
     'I can code and build stuff for you.',
@@ -32,18 +31,8 @@ class MyHomePageState extends State<MyHomePage> {
     "I won't let the server crash until it is running on my pc.",
     "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
   ];
-  int option = 1;
-
   @override
   Widget build(BuildContext context) {
-    bool LessWidthMQ(double x) {
-      return MediaQuery.of(context).size.width < x;
-    }
-
-    aim = [
-      CustomTabButtons(),
-      InfoPanel(key: infoPanelKey, opt: option),
-    ];
     List<Widget> icons = [
       Icon(
         Icons.android,
@@ -74,11 +63,9 @@ class MyHomePageState extends State<MyHomePage> {
         scrollDirection: Axis.vertical,
         physics: ClampingScrollPhysics(),
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               width: double.maxFinite,
-              // height: LessWidthMQ(500) ? 600 : 350,
               alignment: Alignment.center,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 50),
@@ -243,13 +230,7 @@ class MyHomePageState extends State<MyHomePage> {
                         : Radius.circular(20)),
               ),
               // height: 450,
-              child: Wrap(
-                  direction: Axis.horizontal,
-                  runAlignment: WrapAlignment.end,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: MediaQuery.of(context).size.width < 960
-                      ? aim.reversed.toList()
-                      : aim),
+              child: CustomTabButtons(),
             ),
             Footer(),
           ],

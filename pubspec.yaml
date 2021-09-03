@@ -30,7 +30,6 @@ dependencies:
   responsive_framework: ^0.1.4
   font_awesome_flutter: ^9.1.0
   flutter_animation_progress_bar: ^2.0.0
-  fl_chart: ^0.36.3
   google_fonts: ^2.1.0
   animated_text_kit: ^4.2.1
   ionicons: ^0.1.2

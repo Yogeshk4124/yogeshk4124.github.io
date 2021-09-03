@@ -130,7 +130,6 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               onTap: () {
                 height = 0;
                 isVisible = false;
-                // Navigator.of(context).pushReplacementNamed('/Skills');
                 POKey.currentState!.setState(() {
                   POKey.currentState!.pageNumber = 1;
                   _controller.reverse();
@@ -151,8 +150,6 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               onTap: () {
                 height = 0;
                 isVisible = false;
-                // Navigator.of(context).pushReplacementNamed('/Projects',
-                //     arguments: {'key': Project});
                 POKey.currentState!.setState(() {
                   POKey.currentState!.pageNumber = 2;
                   _controller.reverse();
@@ -173,8 +170,6 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               onTap: () {
                 height = 0;
                 isVisible = false;
-                // Navigator.of(context).pushReplacementNamed('/Projects',
-                //     arguments: GlobalKey<ProjectsState>());
                 POKey.currentState!.setState(() {
                   POKey.currentState!.pageNumber = 3;
                   _controller.reverse();

@@ -6,29 +6,11 @@ import 'package:portfolio/Models/InfoPanelModels.dart';
 import 'package:portfolio/Pages/SkillsPage.dart';
 import 'package:portfolio/Utility/Constants.dart';
 
-class InfoPanel extends StatefulWidget {
-  final opt;
-  InfoPanel({required this.opt, Key? key}) : super(key: key);
-  @override
-  InfoPanelState createState() => InfoPanelState();
-}
-
-class InfoPanelState extends State<InfoPanel> {
+class InfoPanel extends StatelessWidget {
   int opt = -1;
   List<String> institute = [];
   List<String> duration = [];
-  @override
-  void initState() {
-    setState(() {
-      opt = widget.opt;
-    });
-  }
-
-  changeOption(int x) {
-    setState(() {
-      opt = x;
-    });
-  }
+  InfoPanel({required this.opt});
 
   @override
   Widget build(BuildContext context) {

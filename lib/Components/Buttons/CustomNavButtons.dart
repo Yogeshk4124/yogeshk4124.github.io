@@ -17,6 +17,11 @@ class CustomNavButtonsState extends State<CustomNavButtons> {
   void initState() {
     super.initState();
     sampleData.add(new RadioNavItem(
+      true,
+      false,
+      'Home',
+    ));
+    sampleData.add(new RadioNavItem(
       false,
       false,
       'Skills',
@@ -49,10 +54,9 @@ class CustomNavButtonsState extends State<CustomNavButtons> {
                     sampleData[index].isSelected = true;
                   });
                   POKey.currentState!.setState(() {
-                    POKey.currentState!.pageNumber = index + 1;
+                    POKey.currentState!.pageNumber = index;
                   });
                 }
-                print('cur:' + POKey.currentState!.pageNumber.toString());
               },
               onHover: (c) {
                 setState(() {

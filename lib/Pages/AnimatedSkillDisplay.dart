@@ -1,14 +1,9 @@
-import 'dart:async';
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/Buttons/PositionedInkWell.dart';
 import 'package:portfolio/Components/SkillDetailsContainer.dart';
-import 'package:portfolio/Pages/SkillsPage.dart';
 import 'package:portfolio/Utility/Constants.dart';
-import 'package:portfolio/Utility/keys.dart';
 import 'package:portfolio/my_flutter_app_icons.dart';
 
 const double degrees2Radians = math.pi / 180.0;
@@ -25,6 +20,9 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
     with TickerProviderStateMixin {
   late AnimationController _controller, _controller2;
   String skill = '';
+  int selected = 0;
+  int hover = 0;
+  // List sel = [false, false, false, false, false, false];
   @override
   void initState() {
     _controller = AnimationController(
@@ -32,7 +30,6 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
       vsync: this,
     );
     _controller.forward();
-
     _controller2 = AnimationController(
       duration: Duration(seconds: 2),
       vsync: this,
@@ -48,7 +45,6 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _controller.dispose();
     _controller2.dispose();
     super.dispose();
@@ -56,6 +52,7 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
 
   @override
   Widget build(BuildContext context) {
+    List sel = [false, false, false, false, false, false];
     return Wrap(
       alignment: WrapAlignment.center,
       children: [
@@ -69,7 +66,7 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
                 height: 450,
                 alignment: Alignment.center,
                 child: Stack(
-                  overflow: Overflow.visible,
+                  clipBehavior: Clip.none,
                   fit: StackFit.expand,
                   alignment: AlignmentDirectional.center,
                   children: [
@@ -112,61 +109,82 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
                         ),
                       ),
                     ),
-                    PositionedInkWell(
-                      top: 300,
-                      skill: 'Flutter',
-                      widget: FaIcon(
+                    PositionInkWell(
+                      null,
+                      300,
+                      null,
+                      null,
+                      'Flutter',
+                      1,
+                      FaIcon(
                         MyFlutterApp.mediamodifier_design__1_,
-                        color: kWhite,
+                        color: hover == 1 ? kPink : kWhite,
                         size: 55,
                       ),
                     ),
-                    PositionedInkWell(
-                        top: 115,
-                        left: 300,
-                        skill: 'Android',
-                        widget: FaIcon(
-                          FontAwesomeIcons.android,
-                          color: kWhite,
-                          size: 55,
-                        )),
-                    PositionedInkWell(
-                      top: 115,
-                      right: 300,
-                      skill: 'HTML',
-                      widget: FaIcon(
+                    PositionInkWell(
+                      null,
+                      115,
+                      300,
+                      null,
+                      'Android',
+                      2,
+                      FaIcon(
+                        FontAwesomeIcons.android,
+                        color: hover == 2 ? kPink : kWhite,
+                        size: 55,
+                      ),
+                    ),
+                    PositionInkWell(
+                      null,
+                      115,
+                      null,
+                      300,
+                      'HTML',
+                      3,
+                      FaIcon(
                         FontAwesomeIcons.html5,
-                        color: kWhite,
+                        color: hover == 3 ? kPink : kWhite,
                         size: 55,
                       ),
                     ),
-                    PositionedInkWell(
-                      bottom: 300,
-                      skill: 'JavaScript',
-                      widget: FaIcon(
+                    PositionInkWell(
+                      300,
+                      null,
+                      null,
+                      null,
+                      'JavaScript',
+                      4,
+                      FaIcon(
                         FontAwesomeIcons.jsSquare,
-                        color: kWhite,
+                        color: hover == 4 ? kPink : kWhite,
                         size: 55,
                       ),
                     ),
-                    PositionedInkWell(
-                      bottom: 115,
-                      right: 300,
-                      skill: 'CSS',
-                      widget: FaIcon(
+                    PositionInkWell(
+                      115,
+                      null,
+                      null,
+                      300,
+                      'CSS',
+                      5,
+                      FaIcon(
                         FontAwesomeIcons.css3Alt,
-                        color: kWhite,
+                        color: hover == 5 ? kPink : kWhite,
                         size: 55,
                       ),
                     ),
-                    PositionedInkWell(
-                      bottom: 115,
-                      left: 300,
-                      skill: 'C++',
-                      widget: Text(
+                    PositionInkWell(
+                      115,
+                      null,
+                      300,
+                      null,
+                      'C++',
+                      6,
+                      Text(
                         'C++',
                         style: GoogleFonts.poppins(
-                            color: kWhite,
+                            color: hover == 6 ? kPink : kWhite,
                             fontSize: 30,
                             fontWeight: FontWeight.bold),
                       ),
@@ -200,6 +218,47 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
                 ),
         ),
       ],
+    );
+  }
+
+  Positioned PositionInkWell(bottom, top, left, right, mskill, idx, widget) {
+    Color bg = kCardBackground;
+    return Positioned(
+      bottom: bottom,
+      left: left,
+      right: right,
+      top: top,
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            skill = mskill;
+            hover = 0;
+            selected = idx;
+          });
+        },
+        focusColor: Colors.transparent,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        onHover: (c) {
+          setState(() {
+            if (idx != selected && c)
+              hover = idx;
+            else
+              hover = 0;
+          });
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: selected == idx ? kPink : kCardBackground,
+            borderRadius: BorderRadius.all(Radius.circular(100)),
+          ),
+          width: 100,
+          height: 100,
+          alignment: Alignment.center,
+          child: widget,
+        ),
+      ),
     );
   }
 }

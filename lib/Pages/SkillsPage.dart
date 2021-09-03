@@ -2,11 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Components/Footer.dart';
-import 'package:portfolio/Components/NavBar.dart';
 import 'package:portfolio/Pages/AnimatedSkillDisplay.dart';
-import 'package:portfolio/Plugin/BarChart.dart';
 import 'package:portfolio/Utility/Constants.dart';
-import 'package:portfolio/Utility/keys.dart';
 
 Color black = Color(0xff121212);
 
@@ -65,11 +62,7 @@ class _SkillsState extends State<Skills> {
                       ),
                     ),
                     Expanded(
-                      child: AnimatedSkillDisplay(
-                        key: skillKey,
-                      ),
-                      //  BarChartSample1(
-                      //     chartWidth: 500, chartHeight: 400)
+                      child: AnimatedSkillDisplay(),
                     ),
                     Footer(),
                   ],
@@ -80,9 +73,5 @@ class _SkillsState extends State<Skills> {
         ),
       ),
     );
-    // Text(
-    //   'check',
-    //   style: TextStyle(color: Colors.white),
-    // )
   }
 }
