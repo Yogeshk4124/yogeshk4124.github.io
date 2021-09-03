@@ -1,11 +1,9 @@
-import 'package:event_hub/event_hub.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Models/InfoPanelModels.dart';
 import 'package:portfolio/Models/Skill.dart';
 
 import '../Models/project.dart';
 
-EventHub eventHub = EventHub();
 Map<String, Skill> mySkills = {
   'Python': Skill(
     title: [

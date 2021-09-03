@@ -8,7 +8,6 @@ import 'package:portfolio/Pages/ProjectsPage.dart';
 import 'package:portfolio/Pages/Resume.dart';
 import 'package:portfolio/Utility/Constants.dart';
 import 'package:portfolio/Utility/keys.dart';
-import 'package:portfolio/main.dart';
 
 import 'SkillsPage.dart';
 
@@ -22,7 +21,6 @@ class PageOutlook extends StatefulWidget {
 const s = "HomePage";
 // ignore: non_constant_identifier_names
 var HomePage = MyHomePage(
-  key: homeKey,
   title: s,
 );
 var ProjectPage = Projects(

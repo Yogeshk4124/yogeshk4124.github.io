@@ -2,11 +2,8 @@ import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/Buttons/RadioButton.dart';
-import 'package:portfolio/Models/project.dart';
-import 'package:portfolio/Pages/ProjectsPage.dart';
+import 'package:portfolio/Components/Buttons/CustomNavButtons.dart';
 import 'package:portfolio/Pages/SkillsPage.dart';
-import 'package:portfolio/Utility/Constants.dart';
 import 'package:portfolio/Utility/keys.dart';
 
 class NavBar extends StatefulWidget {

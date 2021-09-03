@@ -99,13 +99,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.3"
-  event_hub:
-    dependency: "direct main"
-    description:
-      name: event_hub
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
   fake_async:
     dependency: transitive
     description:
@@ -160,13 +153,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.1"
-  flutter_page_transition:
-    dependency: "direct main"
-    description:
-      name: flutter_page_transition
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.6"
   flutter_test:
     dependency: "direct dev"
     description: flutter

@@ -30,13 +30,11 @@ dependencies:
   responsive_framework: ^0.1.4
   font_awesome_flutter: ^9.1.0
   flutter_animation_progress_bar: ^2.0.0
-  flutter_page_transition: ^0.1.6
   fl_chart: ^0.36.3
   google_fonts: ^2.1.0
   animated_text_kit: ^4.2.1
   ionicons: ^0.1.2
   carousel_slider: ^4.0.0
-  event_hub: ^0.1.1
   webview_flutter: ^2.0.12
   universal_platform: ^1.0.0+1
   flutter_downloader: ^1.6.1

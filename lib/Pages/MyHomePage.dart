@@ -8,13 +8,9 @@ import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Components/Buttons/CustomButton.dart';
 import 'package:portfolio/Components/Footer.dart';
+import 'package:portfolio/Components/InfoSection/CustomTab.dart';
 import 'package:portfolio/Components/InfoSection/InfoPanel.dart';
-import 'package:portfolio/Components/InfoSection/InfoTabItem.dart';
-import 'package:portfolio/Models/project.dart';
 import 'package:portfolio/Utility/Utility.dart';
-
-import './SkillsPage.dart';
-import '../Components/NavBar.dart';
 import '../Utility/Constants.dart';
 import '../Utility/keys.dart';
 
@@ -37,15 +33,6 @@ class MyHomePageState extends State<MyHomePage> {
     "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
   ];
   int option = 1;
-  @override
-  void initState() {
-    super.initState();
-    eventHub.on('reset', (idx) {
-      setState(() {
-        option = idx;
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,28 +41,7 @@ class MyHomePageState extends State<MyHomePage> {
     }
 
     aim = [
-      Column(
-        children: [
-          InfoTabItem(
-            text: 'Education',
-            idx: 1,
-            selected: option == 1,
-            key: k1,
-          ),
-          InfoTabItem(
-            text: 'Work Experience',
-            idx: 2,
-            selected: option == 2,
-            key: k2,
-          ),
-          InfoTabItem(
-            text: 'Fun Fact',
-            idx: 3,
-            selected: option == 3,
-            key: k3,
-          ),
-        ],
-      ),
+      CustomTabButtons(),
       InfoPanel(key: infoPanelKey, opt: option),
     ];
     List<Widget> icons = [
@@ -234,7 +200,7 @@ class MyHomePageState extends State<MyHomePage> {
             Container(
               margin: EdgeInsets.symmetric(
                   horizontal:
-                      MediaQuery.of(context).size.width > 700 ? 40 : 15),
+                      MediaQuery.of(context).size.width > 860 ? 15 : 20),
               child: GridView.builder(
                   primary: false,
                   scrollDirection: Axis.vertical,
@@ -262,8 +228,8 @@ class MyHomePageState extends State<MyHomePage> {
             Card(
               margin: EdgeInsets.only(
                   top: 20,
-                  left: MediaQuery.of(context).size.width < 700 ? 15 : 0,
-                  right: MediaQuery.of(context).size.width < 700 ? 15 : 0),
+                  left: MediaQuery.of(context).size.width < 860 ? 20 : 0,
+                  right: MediaQuery.of(context).size.width < 860 ? 20 : 0),
               color: kCardBackground,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
