@@ -47,14 +47,14 @@ class CustomNavButtonsState extends State<CustomNavButtons> {
           for (int index = 0; index < sampleData.length.toInt(); index++)
             InkWell(
               onTap: () {
-                print('cur:' + POKey.currentState!.pageNumber.toString());
+                print('cur:' + PoKey.currentState!.pageNumber.toString());
                 if (sampleData[index].isSelected != true) {
                   setState(() {
                     sampleData.forEach((element) => element.isSelected = false);
                     sampleData[index].isSelected = true;
                   });
-                  POKey.currentState!.setState(() {
-                    POKey.currentState!.pageNumber = index;
+                  PoKey.currentState!.setState(() {
+                    PoKey.currentState!.pageNumber = index;
                   });
                 }
               },

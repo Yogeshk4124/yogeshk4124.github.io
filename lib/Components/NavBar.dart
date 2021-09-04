@@ -142,7 +142,10 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 width: double.infinity,
                 child: Text(
                   'Skills',
-                  style: TextStyle(color: Colors.white),
+                  style: GoogleFonts.titilliumWeb(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
             ),
@@ -162,7 +165,10 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 width: double.infinity,
                 child: Text(
                   'Project',
-                  style: TextStyle(color: Colors.white),
+                  style: GoogleFonts.titilliumWeb(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
             ),
@@ -182,7 +188,10 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 width: double.infinity,
                 child: Text(
                   'Resume',
-                  style: TextStyle(color: Colors.white),
+                  style: GoogleFonts.titilliumWeb(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
             ),

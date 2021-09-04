@@ -8,10 +8,7 @@ import 'package:portfolio/Utility/Constants.dart';
 
 class InfoPanel extends StatelessWidget {
   int opt = -1;
-  List<String> institute = [];
-  List<String> duration = [];
   InfoPanel({required this.opt});
-
   @override
   Widget build(BuildContext context) {
     if (opt == 1)
@@ -36,13 +33,6 @@ class InfoPanel extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Education',
-                style: GoogleFonts.bungee(fontSize: 30, color: Colors.white),
-              ),
-            ),
             CarouselSlider(
               options: CarouselOptions(
                   enableInfiniteScroll: false,
@@ -54,6 +44,7 @@ class InfoPanel extends StatelessWidget {
                       MediaQuery.of(context).size.width < 750 ? 0.45 : 0.35,
                   // viewportFraction: 0.4,
                   enlargeCenterPage: true,
+                  // aspectRatio: 2,
                   scrollDirection: Axis.horizontal),
               items: education.map((i) {
                 return Builder(
@@ -62,6 +53,9 @@ class InfoPanel extends StatelessWidget {
                       color: black,
                       shadowColor: Colors.pink,
                       elevation: 10,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
                       borderOnForeground: true,
                       margin: EdgeInsets.all(10),
                       child: Padding(
@@ -71,6 +65,7 @@ class InfoPanel extends StatelessWidget {
                           // height: 150,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            // mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
                             // mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -148,13 +143,6 @@ class InfoPanel extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(6.0),
-              child: Text(
-                'Experience',
-                style: GoogleFonts.bungee(fontSize: 30, color: Colors.white),
-              ),
-            ),
             CarouselSlider(
               options: CarouselOptions(
                   enableInfiniteScroll: false,
@@ -163,7 +151,7 @@ class InfoPanel extends StatelessWidget {
                   height: 271,
                   initialPage: 0,
                   viewportFraction:
-                      MediaQuery.of(context).size.width < 750 ? 0.5 : 0.35,
+                      MediaQuery.of(context).size.width < 730 ? 0.7 : 0.35,
                   // viewportFraction: 0.4,
                   enlargeCenterPage: true,
                   scrollDirection: Axis.horizontal),
@@ -174,6 +162,9 @@ class InfoPanel extends StatelessWidget {
                       color: black,
                       shadowColor: Colors.pink,
                       elevation: 10,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
                       borderOnForeground: true,
                       margin: EdgeInsets.all(8),
                       child: Padding(
@@ -278,19 +269,6 @@ class InfoPanel extends StatelessWidget {
           items: [for (var i in funFactList) getFunFact(i)],
         ),
       );
-    // return Container(
-    //   height: 360,
-    //   width: MediaQuery.of(context).size.width < 860
-    //       ? double.maxFinite
-    //       : MediaQuery.of(context).size.width - 482,
-    //   decoration: BoxDecoration(
-    //     border: Border.all(color: Colors.white, width: 1),
-    //   ),
-    //   child: Image.asset(
-    //     'flutter.jpg',
-    //     fit: BoxFit.fitWidth,
-    //   ),
-    // );
   }
 
   Card getFunFact(FunFact f) {
@@ -302,45 +280,51 @@ class InfoPanel extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15.0),
-              topRight: Radius.circular(15.0),
-            ),
-            child: Image.asset(
-              f.img,
-              height: 165,
-              alignment: Alignment.topCenter,
-              width: double.infinity,
-              fit: BoxFit.cover,
-              errorBuilder: (a, b, c) {
-                return Text(b.toString(),
-                    style: GoogleFonts.titilliumWeb(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                        color: kWhite));
-              },
-            ),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 12),
-            alignment: Alignment.center,
-            child: Text(
-              f.heading,
-              textAlign: TextAlign.center,
-              style: GoogleFonts.titilliumWeb(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: kPink,
-                height: 1,
+          Expanded(
+            flex: 3,
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15.0),
+                topRight: Radius.circular(15.0),
+              ),
+              child: Image.asset(
+                f.img,
+                // height: 165,
+                alignment: Alignment.topCenter,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                errorBuilder: (a, b, c) {
+                  return Text(b.toString(),
+                      style: GoogleFonts.titilliumWeb(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          color: kWhite));
+                },
               ),
             ),
           ),
           Expanded(
+            flex: 1,
+            child: Container(
+              // color: kDeepBlue,
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 12),
+              alignment: Alignment.center,
+              child: Text(
+                f.heading,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.titilliumWeb(
+                  fontSize: 19,
+                  fontWeight: FontWeight.bold,
+                  color: kPink,
+                  height: 1,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
             child: Container(
               alignment: Alignment.topCenter,
               padding: EdgeInsets.symmetric(horizontal: 12),
@@ -349,6 +333,7 @@ class InfoPanel extends StatelessWidget {
                   style: GoogleFonts.titilliumWeb(
                     fontWeight: FontWeight.bold,
                     color: kWhite,
+                    height: 1,
                   )),
             ),
           ),

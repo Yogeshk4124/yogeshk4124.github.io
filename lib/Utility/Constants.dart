@@ -158,8 +158,7 @@ List<FunFact> funFactList = [
       img: 'game.jpg'),
   FunFact(
       heading: 'Do you like Anime?',
-      description:
-          'If Yes, We need to meet to talk about a lot of anime like Naruto, SAO, Black C...',
+      description: 'If Yes, We must meet to talk about a lot of anime.',
       img: 'Anime.jpeg'),
   FunFact(
       heading: 'A Big Foodie',
