@@ -18,18 +18,18 @@ class AnimatedSkillDisplay extends StatefulWidget {
 
 class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
     with TickerProviderStateMixin {
-  late AnimationController _controller, _controller2;
+  late AnimationController _controller1, _controller2;
   String skill = '';
   int selected = 0;
   int hover = 0;
   // List sel = [false, false, false, false, false, false];
   @override
   void initState() {
-    _controller = AnimationController(
+    _controller1 = AnimationController(
       duration: const Duration(milliseconds: 800),
       vsync: this,
     );
-    _controller.forward();
+    _controller1.forward();
     _controller2 = AnimationController(
       duration: Duration(seconds: 2),
       vsync: this,
@@ -45,7 +45,7 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller1.dispose();
     _controller2.dispose();
     super.dispose();
   }
@@ -59,7 +59,7 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
           width: 450,
           height: 450,
           child: RotationTransition(
-              turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+              turns: Tween(begin: 0.0, end: 1.0).animate(_controller1),
               child: Container(
                 width: 450,
                 height: 450,
@@ -73,8 +73,8 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
                       width: 110,
                       child: GestureDetector(
                         onTap: () {
-                          _controller.reset();
-                          _controller.forward();
+                          _controller1.reset();
+                          _controller1.forward();
                         },
                         child: Container(
                           decoration: BoxDecoration(

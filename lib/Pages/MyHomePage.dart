@@ -134,11 +134,11 @@ class MyHomePageState extends State<MyHomePage> {
                 child: Text(
                   stringMod(
                       // 'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
-                      '''Hello! I'm Yogesh, a dev who love open source community.
+                      '''Hello! I'm Yogesh, a dev who loves the open-source community.
 
-I enjoy creating things that look good on the computer technical speaking software(not back cover or lamination), whether that can be applications, websites, mobile applications, or anything. I always try to build pixel-perfect products that can work like butter.
+I enjoy creating things that look good on the computer technical speaking software(not back cover or lamination), whether that can be applications, websites, mobile applications, or anything. I always try to build pixel-perfect products that work like butter.
 
-While Uchiha Madara was trying his best in the world great ninja war, I was pursuing my Bachelor's degree in Computer science and Engineering, and while people are waiting for AOT final season I am currently doing internships.
+While Naruto was fighting his best in the World Great Ninja War, I was pursuing my Bachelor's degree in Computer science and Engineering and while people are waiting for AOT's final season, I am currently doing internships.
 ''', 1),
                   style: GoogleFonts.titilliumWeb(
                       //amaticaSc
