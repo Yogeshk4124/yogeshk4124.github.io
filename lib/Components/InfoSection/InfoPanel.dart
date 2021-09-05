@@ -20,7 +20,6 @@ class InfoPanel extends StatelessWidget {
         padding: EdgeInsets.only(left: 10, right: 10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: kCardBackground,
           borderRadius: BorderRadius.only(
             topLeft: MediaQuery.of(context).size.width < 960
                 ? Radius.circular(20)
@@ -50,7 +49,7 @@ class InfoPanel extends StatelessWidget {
                 return Builder(
                   builder: (BuildContext context) {
                     return Card(
-                      color: black,
+                      color: kBackgroundAccent,
                       shadowColor: Colors.pink,
                       elevation: 10,
                       shape: RoundedRectangleBorder(
@@ -125,7 +124,6 @@ class InfoPanel extends StatelessWidget {
       return Container(
         padding: EdgeInsets.only(left: 10, right: 10),
         decoration: BoxDecoration(
-          color: kCardBackground,
           borderRadius: BorderRadius.only(
             topLeft: MediaQuery.of(context).size.width < 960
                 ? Radius.circular(20)
@@ -159,7 +157,7 @@ class InfoPanel extends StatelessWidget {
                 return Builder(
                   builder: (BuildContext context) {
                     return Card(
-                      color: black,
+                      color: kBackgroundAccent,
                       shadowColor: Colors.pink,
                       elevation: 10,
                       shape: RoundedRectangleBorder(
@@ -242,7 +240,6 @@ class InfoPanel extends StatelessWidget {
             ? double.maxFinite
             : MediaQuery.of(context).size.width - 482,
         decoration: BoxDecoration(
-          color: kCardBackground,
           borderRadius: BorderRadius.only(
             topLeft: MediaQuery.of(context).size.width < 960
                 ? Radius.circular(20)
@@ -273,7 +270,7 @@ class InfoPanel extends StatelessWidget {
 
   Card getFunFact(FunFact f) {
     return Card(
-      color: black,
+      color: kBackgroundAccent,
       elevation: 5,
       shadowColor: Colors.pink,
       shape: RoundedRectangleBorder(
@@ -308,7 +305,6 @@ class InfoPanel extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              // color: kDeepBlue,
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 12),
               alignment: Alignment.center,
               child: Text(

@@ -84,6 +84,7 @@ class ProjectsState extends State<Projects>
                   fontSize: 18,
                   color: kDarkWhite,
                   wordSpacing: 2,
+                  fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),

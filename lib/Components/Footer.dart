@@ -17,11 +17,11 @@ class Footer extends StatelessWidget {
       //   border: Border.all(color: Colors.white, width: 1),
       // ),
       padding: EdgeInsets.symmetric(
-        horizontal: 30,
+        horizontal: 35,
       ),
-      height: 50,
+      height: 80,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           // kIconButton(
           //     icon: FontAwesomeIcons.instagram,
@@ -32,6 +32,9 @@ class Footer extends StatelessWidget {
           kIconButton(
               icon: FontAwesomeIcons.envelope,
               link: 'mailto:yogeshk4124@gmail.com'),
+          kIconButton(
+              icon: FontAwesomeIcons.github,
+              link: 'https://github.com/Yogeshk4124'),
           Spacer(),
           Text(
             '💻Trying not to hardcode everything.',

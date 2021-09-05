@@ -55,9 +55,7 @@ class _ResumeState extends State<Resume> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {
-                      print('Download');
-                    },
+                    onTap: () {},
                     child: Container(
                         width: 80,
                         margin: EdgeInsets.only(right: 10, top: 4, bottom: 4),

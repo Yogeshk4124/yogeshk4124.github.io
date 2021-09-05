@@ -68,7 +68,6 @@ class CustomTabButtonsState extends State<CustomTabButtons> {
                         sampleData
                             .forEach((element) => element.isSelected = false);
                         sampleData[index].isSelected = true;
-                        print(opt);
                       });
                     },
                     onHover: (c) {
@@ -110,7 +109,7 @@ class _RadioTabItemState extends State<RadioTabItem> {
       height: 120,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: widget._item.isSelected ? kPink : kCardBackground,
+        color: widget._item.isSelected ? kPink : null,
         borderRadius: BorderRadius.only(
           bottomLeft:
               widget.index == 2 ? Radius.circular(50) : Radius.circular(0),

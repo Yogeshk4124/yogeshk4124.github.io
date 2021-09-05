@@ -47,7 +47,6 @@ class CustomNavButtonsState extends State<CustomNavButtons> {
           for (int index = 0; index < sampleData.length.toInt(); index++)
             InkWell(
               onTap: () {
-                print('cur:' + PoKey.currentState!.pageNumber.toString());
                 if (sampleData[index].isSelected != true) {
                   setState(() {
                     sampleData.forEach((element) => element.isSelected = false);

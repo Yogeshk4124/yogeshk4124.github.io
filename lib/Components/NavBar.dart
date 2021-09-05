@@ -23,7 +23,6 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   double height = 0;
   bool isPlaying = false;
   late final AnimationController _controller;
-  late int cur;
 
   @override
   void initState() {
@@ -34,11 +33,6 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
     );
     isVisible = false;
     height = 0;
-    cur = widget.page;
-    for (int i = 0; i < SharedAxisTransitionType.values.length; i++)
-      print(i.toString() +
-          " " +
-          SharedAxisTransitionType.values.elementAt(i).toString());
   }
 
   @override
@@ -71,9 +65,9 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             children: [
               InkWell(
                 onTap: () {
-                  if (POKey.currentState!.pageNumber != 0) {
-                    POKey.currentState!.setState(() {
-                      POKey.currentState!.pageNumber = 0;
+                  if (PoKey.currentState!.pageNumber != 0) {
+                    PoKey.currentState!.setState(() {
+                      PoKey.currentState!.pageNumber = 0;
                     });
                   }
                 },
@@ -130,8 +124,8 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               onTap: () {
                 height = 0;
                 isVisible = false;
-                POKey.currentState!.setState(() {
-                  POKey.currentState!.pageNumber = 1;
+                PoKey.currentState!.setState(() {
+                  PoKey.currentState!.pageNumber = 1;
                   _controller.reverse();
                 });
               },
@@ -153,8 +147,8 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               onTap: () {
                 height = 0;
                 isVisible = false;
-                POKey.currentState!.setState(() {
-                  POKey.currentState!.pageNumber = 2;
+                PoKey.currentState!.setState(() {
+                  PoKey.currentState!.pageNumber = 2;
                   _controller.reverse();
                 });
               },
@@ -176,8 +170,8 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               onTap: () {
                 height = 0;
                 isVisible = false;
-                POKey.currentState!.setState(() {
-                  POKey.currentState!.pageNumber = 3;
+                PoKey.currentState!.setState(() {
+                  PoKey.currentState!.pageNumber = 3;
                   _controller.reverse();
                 });
               },

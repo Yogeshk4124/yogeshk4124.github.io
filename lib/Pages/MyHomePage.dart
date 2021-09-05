@@ -9,10 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Components/Buttons/CustomButton.dart';
 import 'package:portfolio/Components/Footer.dart';
 import 'package:portfolio/Components/InfoSection/CustomTab.dart';
-import 'package:portfolio/Components/InfoSection/InfoPanel.dart';
 import 'package:portfolio/Utility/Utility.dart';
 import '../Utility/Constants.dart';
-import '../Utility/keys.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -27,7 +25,7 @@ class MyHomePageState extends State<MyHomePage> {
     'I can code and build stuff for you.',
     'I can tolerate everything except A bug.',
     'I only visit one hub that is Github.',
-    'My favourite character is BugsLightYear.',
+    'My favourite character is BugzLightYear.',
     "I won't let the server crash until it is running on my pc.",
     "I can fix your bug and hack your friend's Instagram but can't fix your coffee machine.",
   ];
@@ -135,8 +133,13 @@ class MyHomePageState extends State<MyHomePage> {
                 width: MediaQuery.of(context).size.width * 0.78,
                 child: Text(
                   stringMod(
-                      'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
-                      1),
+                      // 'I am an aspiring Android Developer and a Competitive Programming Enthusiast, still a learner with the idea of implementing my work and growing into an open source contributor and a developer.',
+                      '''Hello! I'm Yogesh, a dev who love open source community.
+
+I enjoy creating things that look good on the computer technical speaking software(not back cover or lamination), whether that can be applications, websites, mobile applications, or anything. I always try to build pixel-perfect products that can work like butter.
+
+While Uchiha Madara was trying his best in the world great ninja war, I was pursuing my Bachelor's degree in Computer science and Engineering, and while people are waiting for AOT final season I am currently doing internships.
+''', 1),
                   style: GoogleFonts.titilliumWeb(
                       //amaticaSc
                       color: Colors.white,
@@ -212,13 +215,12 @@ class MyHomePageState extends State<MyHomePage> {
                     return buildProjectCard(i, '/Project');
                   }),
             ),
-            Card(
+            Container(
               margin: EdgeInsets.only(
                   top: 20,
                   left: MediaQuery.of(context).size.width < 860 ? 20 : 0,
                   right: MediaQuery.of(context).size.width < 860 ? 20 : 0),
-              color: kCardBackground,
-              shape: RoundedRectangleBorder(
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(50),
                     topLeft: MediaQuery.of(context).size.width < 960
