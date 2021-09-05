@@ -70,6 +70,15 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                       PoKey.currentState!.pageNumber = 0;
                     });
                   }
+                  setState(() {
+                    isVisible = !isVisible;
+                    if (isVisible) {
+                      height = 30;
+                    } else {
+                      height = 0;
+                    }
+                  });
+                  _handleOnPressed();
                 },
                 onHover: (val) {},
                 child: Container(
@@ -120,6 +129,29 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            GestureDetector(
+              onTap: () {
+                height = 0;
+                isVisible = false;
+                PoKey.currentState!.setState(() {
+                  PoKey.currentState!.pageNumber = 0;
+                  _controller.reverse();
+                });
+              },
+              child: AnimatedContainer(
+                duration: Duration(seconds: 1),
+                height: height,
+                alignment: Alignment.center,
+                width: double.infinity,
+                child: Text(
+                  'Home',
+                  style: GoogleFonts.titilliumWeb(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+            ),
             GestureDetector(
               onTap: () {
                 height = 0;

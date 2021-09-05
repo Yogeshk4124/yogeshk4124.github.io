@@ -325,6 +325,9 @@ While Uchiha Madara was trying his best in the world great ninja war, I was purs
             onPageChanged: (value) {},
             autoPlayInterval: 3000,
           ),
+          SizedBox(
+            height: 10,
+          ),
           CustomButton(
             type: 1,
             pageRoute: projectsList[i].viewMore.toString(),

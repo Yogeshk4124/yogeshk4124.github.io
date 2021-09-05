@@ -26,7 +26,7 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
   @override
   void initState() {
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 800),
       vsync: this,
     );
     _controller.forward();
@@ -52,7 +52,6 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
 
   @override
   Widget build(BuildContext context) {
-    List sel = [false, false, false, false, false, false];
     return Wrap(
       alignment: WrapAlignment.center,
       children: [

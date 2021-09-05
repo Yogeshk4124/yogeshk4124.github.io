@@ -7,9 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Components/Buttons/CustomButton.dart';
 import 'package:portfolio/Components/Buttons/CustomPills.dart';
 import 'package:portfolio/Components/Footer.dart';
-import 'package:portfolio/Components/NavBar.dart';
 import 'package:portfolio/Models/project.dart';
-import 'package:portfolio/Pages/SkillsPage.dart';
 import 'package:portfolio/Utility/Constants.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 

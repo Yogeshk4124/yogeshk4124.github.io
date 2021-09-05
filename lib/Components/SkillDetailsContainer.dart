@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/Pages/CustomWebView.dart';
 import 'package:portfolio/Utility/Constants.dart';
-import 'package:portfolio/Utility/Utility.dart';
+import 'package:universal_html/js.dart' as js;
 
 class SkillDetailsContainer extends StatelessWidget {
   final skill;
@@ -45,6 +47,9 @@ class SkillDetailsContainer extends StatelessWidget {
                     height: 1,
                   ),
                 ),
+                SizedBox(
+                  height: 1,
+                ),
                 Text(
                   data.subheading[i - 1],
                   style: TextStyle(
@@ -62,19 +67,30 @@ class SkillDetailsContainer extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
-                  margin: EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    border: Border.all(color: Colors.white, width: 2),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
+                GestureDetector(
+                  onTap: () async {
+                    if (kIsWeb) {
+                      js.context.callMethod('open', [data.links[i - 1]]);
+                    } else {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              CustomWebView(link: 'pageRoute')));
+                    }
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                    margin: EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      border: Border.all(color: Colors.white, width: 2),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    data.buttonText[i - 1],
-                    style: TextStyle(color: Colors.black),
+                    child: Text(
+                      data.buttonText[i - 1],
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
               ],

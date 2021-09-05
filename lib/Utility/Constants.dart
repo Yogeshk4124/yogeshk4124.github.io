@@ -18,6 +18,7 @@ Map<String, Skill> mySkills = {
     buttonText: [
       'View Certificate',
     ],
+    links: [''],
   ),
   'HTML': Skill(
     title: [
@@ -36,6 +37,7 @@ Map<String, Skill> mySkills = {
       'View Certificate',
       'View Website',
     ],
+    links: ['', 'https://github.com/Yogeshk4124/Programmer-Clock'],
   ),
   'C++': Skill(
     title: [
@@ -50,6 +52,7 @@ Map<String, Skill> mySkills = {
     buttonText: [
       'View Certificate',
     ],
+    links: [''],
   ),
   'JavaScript': Skill(
     title: [
@@ -68,6 +71,7 @@ Map<String, Skill> mySkills = {
       'View Certificate',
       'View Website',
     ],
+    links: ['', 'https://github.com/Yogeshk4124/Programmer-Clock'],
   ),
   'CSS': Skill(
     title: [
@@ -86,6 +90,7 @@ Map<String, Skill> mySkills = {
       'View Certificate',
       'View Website',
     ],
+    links: ['', 'https://github.com/Yogeshk4124/Programmer-Clock'],
   ),
   'Flutter': Skill(
     title: [
@@ -116,6 +121,13 @@ Map<String, Skill> mySkills = {
       'View More',
       'View More',
     ],
+    links: [
+      'https://github.com/Yogeshk4124/Gmail-UI-Clone',
+      'https://github.com/Yogeshk4124/Card-Space',
+      'https://github.com/Yogeshk4124/SyncPlayer',
+      'https://github.com/Yogeshk4124/CalorieMeter',
+      'https://github.com/Yogeshk4124/weather-app'
+    ],
   ),
   'Android': Skill(
     title: [
@@ -130,6 +142,7 @@ Map<String, Skill> mySkills = {
     buttonText: [
       'View More',
     ],
+    links: ['https://github.com/Yogeshk4124/Chatter-Box-Translator'],
   ),
 };
 List<Color> myColor = [

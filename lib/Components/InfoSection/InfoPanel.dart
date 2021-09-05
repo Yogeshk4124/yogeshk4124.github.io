@@ -38,7 +38,7 @@ class InfoPanel extends StatelessWidget {
                   disableCenter: true,
                   pageSnapping: true,
                   height: 200.0,
-                  initialPage: 0,
+                  initialPage: 1,
                   viewportFraction:
                       MediaQuery.of(context).size.width < 750 ? 0.45 : 0.35,
                   // viewportFraction: 0.4,
@@ -147,7 +147,7 @@ class InfoPanel extends StatelessWidget {
                   disableCenter: true,
                   pageSnapping: true,
                   height: 271,
-                  initialPage: 0,
+                  initialPage: 1,
                   viewportFraction:
                       MediaQuery.of(context).size.width < 730 ? 0.7 : 0.35,
                   // viewportFraction: 0.4,
@@ -219,7 +219,7 @@ class InfoPanel extends StatelessWidget {
                                           fontSize: 12, color: Colors.white),
                                     ),
                                   ),
-                                )
+                                ),
                             ],
                           ),
                         ),
@@ -257,7 +257,7 @@ class InfoPanel extends StatelessWidget {
               disableCenter: true,
               pageSnapping: true,
               height: 280,
-              initialPage: 0,
+              initialPage: 1,
               viewportFraction:
                   MediaQuery.of(context).size.width < 750 ? 0.45 : 0.35,
               // viewportFraction: 0.4,
