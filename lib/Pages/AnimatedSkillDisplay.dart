@@ -29,7 +29,7 @@ class AnimatedSkillDisplayState extends State<AnimatedSkillDisplay>
       duration: const Duration(milliseconds: 800),
       vsync: this,
     );
-    _controller1.forward();
+
     _controller2 = AnimationController(
       duration: Duration(seconds: 2),
       vsync: this,

@@ -24,12 +24,12 @@ class ProjectsState extends State<Projects>
   bool vis = false;
   String filterBy = '';
   bool isPlaying = false;
-  late final AnimationController _controller;
+  late final AnimationController _languageController;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
+    _languageController = AnimationController(
       duration: Duration(milliseconds: 450),
       vsync: this,
     );
@@ -37,14 +37,14 @@ class ProjectsState extends State<Projects>
 
   @override
   void dispose() {
-    _controller.dispose();
+    _languageController.dispose();
     super.dispose();
   }
 
   void _handleOnPressed() {
     setState(() {
       isPlaying = !isPlaying;
-      isPlaying ? _controller.forward() : _controller.reverse();
+      isPlaying ? _languageController.forward() : _languageController.reverse();
     });
   }
 
@@ -122,7 +122,7 @@ class ProjectsState extends State<Projects>
                           padding: EdgeInsets.only(left: 5),
                           child: RotationTransition(
                             turns: Tween(begin: 0.0, end: 0.5)
-                                .animate(_controller),
+                                .animate(_languageController),
                             child: Icon(
                               Icons.arrow_downward,
                               color: kDeepBlue,

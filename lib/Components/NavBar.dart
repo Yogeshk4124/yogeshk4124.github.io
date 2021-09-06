@@ -28,7 +28,7 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: Duration(milliseconds: 600),
       vsync: this,
     );
     isVisible = false;
@@ -63,7 +63,7 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              InkWell(
+              GestureDetector(
                 onTap: () {
                   if (PoKey.currentState!.pageNumber != 0) {
                     PoKey.currentState!.setState(() {
@@ -80,14 +80,14 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                   });
                   _handleOnPressed();
                 },
-                onHover: (val) {},
+                onDoubleTap: () {},
                 child: Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Yogesh',
                     style: GoogleFonts.bungeeInline(
                       color: Colors.pink,
-                      fontSize: 20,
+                      fontSize: 24,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -119,6 +119,7 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                       icon: AnimatedIcons.menu_close,
                       color: Colors.white,
                       progress: _controller,
+                      size: 24,
                     ),
                   ),
                 ),
@@ -134,12 +135,15 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 height = 0;
                 isVisible = false;
                 PoKey.currentState!.setState(() {
-                  PoKey.currentState!.pageNumber = 0;
-                  _controller.reverse();
+                  if (PoKey.currentState!.pageNumber != 0) {
+                    PoKey.currentState!.pageNumber = 0;
+                  }
+                  _handleOnPressed();
                 });
               },
+              onDoubleTap: () {},
               child: AnimatedContainer(
-                duration: Duration(seconds: 1),
+                duration: Duration(milliseconds: 600),
                 height: height,
                 alignment: Alignment.center,
                 width: double.infinity,
@@ -157,12 +161,15 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 height = 0;
                 isVisible = false;
                 PoKey.currentState!.setState(() {
-                  PoKey.currentState!.pageNumber = 1;
-                  _controller.reverse();
+                  if (PoKey.currentState!.pageNumber != 1) {
+                    PoKey.currentState!.pageNumber = 1;
+                  }
+                  _handleOnPressed();
                 });
               },
+              onDoubleTap: () {},
               child: AnimatedContainer(
-                duration: Duration(seconds: 1),
+                duration: Duration(milliseconds: 600),
                 height: height,
                 alignment: Alignment.center,
                 width: double.infinity,
@@ -180,12 +187,15 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 height = 0;
                 isVisible = false;
                 PoKey.currentState!.setState(() {
-                  PoKey.currentState!.pageNumber = 2;
-                  _controller.reverse();
+                  if (PoKey.currentState!.pageNumber != 2) {
+                    PoKey.currentState!.pageNumber = 2;
+                  }
+                  _handleOnPressed();
                 });
               },
+              onDoubleTap: () {},
               child: AnimatedContainer(
-                duration: Duration(seconds: 1),
+                duration: Duration(milliseconds: 600),
                 height: height,
                 alignment: Alignment.center,
                 width: double.infinity,
@@ -203,12 +213,15 @@ class NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 height = 0;
                 isVisible = false;
                 PoKey.currentState!.setState(() {
-                  PoKey.currentState!.pageNumber = 3;
-                  _controller.reverse();
+                  if (PoKey.currentState!.pageNumber != 3) {
+                    PoKey.currentState!.pageNumber = 3;
+                  }
+                  _handleOnPressed();
                 });
               },
+              onDoubleTap: () {},
               child: AnimatedContainer(
-                duration: Duration(seconds: 1),
+                duration: Duration(milliseconds: 600),
                 height: height,
                 alignment: Alignment.center,
                 width: double.infinity,
