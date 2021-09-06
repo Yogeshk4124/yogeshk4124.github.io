@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Utility/Constants.dart';
-import 'package:portfolio/Utility/keys.dart';
+import 'package:portfolio/Utility/Colors.dart';
+import 'package:portfolio/main.dart';
 
 class CustomNavButtons extends StatefulWidget {
   @override

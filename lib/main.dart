@@ -5,13 +5,12 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'Pages/ProjectsPage.dart';
 import 'Pages/Resume.dart';
 import 'Pages/SkillsPage.dart';
-import 'Utility/keys.dart';
+
+GlobalKey<PageOutlookState> PoKey = GlobalKey<PageOutlookState>();
 
 void main() {
   runApp(MyApp());
 }
-
-// final homeKey = GlobalKey<MyHomePageState>();
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -46,9 +45,7 @@ class MyApp extends StatelessWidget {
               key: PoKey,
             ),
         '/Skills': (a) => Skills(),
-        '/Projects': (a) => Projects(
-              key: projectKey,
-            ),
+        '/Projects': (a) => Projects(),
         '/Resume': (a) => Resume(),
       },
     );

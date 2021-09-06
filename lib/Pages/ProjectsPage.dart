@@ -8,11 +8,12 @@ import 'package:portfolio/Components/Buttons/CustomButton.dart';
 import 'package:portfolio/Components/Buttons/CustomPills.dart';
 import 'package:portfolio/Components/Footer.dart';
 import 'package:portfolio/Models/project.dart';
+import 'package:portfolio/Utility/Colors.dart';
 import 'package:portfolio/Utility/Constants.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 class Projects extends StatefulWidget {
-  const Projects({required Key key}) : super(key: key);
+  const Projects({Key? key}) : super(key: key);
 
   @override
   ProjectsState createState() => ProjectsState();
@@ -149,27 +150,95 @@ class ProjectsState extends State<Projects>
                         runSpacing: 20,
                         children: [
                           CustomPill(
-                              text: 'Flutter',
-                              type: filterBy == 'Flutter' ? 2 : 1),
+                            text: 'Flutter',
+                            type: 0,
+                            selected: filterBy == 'Flutter',
+                            onTap: () {
+                              setState(() {
+                                filterBy = 'Flutter';
+                              });
+                            },
+                          ),
                           CustomPill(
-                              text: 'Android',
-                              type: filterBy == 'Android' ? 2 : 1),
+                            text: 'Android',
+                            type: 0,
+                            selected: filterBy == 'Android',
+                            onTap: () {
+                              setState(() {
+                                filterBy = 'Android';
+                              });
+                            },
+                          ),
                           CustomPill(
-                              text: 'Dart', type: filterBy == 'Dart' ? 2 : 1),
+                            text: 'Dart',
+                            type: 0,
+                            selected: filterBy == 'Dart',
+                            onTap: () {
+                              setState(() {
+                                filterBy = 'Dart';
+                              });
+                            },
+                          ),
                           CustomPill(
-                              text: 'Java', type: filterBy == 'Java' ? 2 : 1),
+                            text: 'Java',
+                            type: 0,
+                            selected: filterBy == 'Java',
+                            onTap: () {
+                              setState(() {
+                                filterBy = 'Java';
+                              });
+                            },
+                          ),
                           CustomPill(
-                              text: 'HTML', type: filterBy == 'HTML' ? 2 : 1),
+                            text: 'HTML',
+                            type: 0,
+                            selected: filterBy == 'HTML',
+                            onTap: () {
+                              setState(() {
+                                filterBy = 'HTML';
+                              });
+                            },
+                          ),
                           CustomPill(
-                              text: 'CSS', type: filterBy == 'CSS' ? 2 : 1),
+                            text: 'CSS',
+                            type: 0,
+                            selected: filterBy == 'CSS',
+                            onTap: () {
+                              setState(() {
+                                filterBy = 'CSS';
+                              });
+                            },
+                          ),
                           CustomPill(
-                              text: 'JavaScript',
-                              type: filterBy == 'JavaScript' ? 2 : 1),
+                            text: 'JavaScript',
+                            type: 0,
+                            selected: filterBy == 'JavaScript',
+                            onTap: () {
+                              setState(() {
+                                filterBy = 'JavaScript';
+                              });
+                            },
+                          ),
                           CustomPill(
-                              text: 'Flask', type: filterBy == 'Flask' ? 2 : 1),
+                            text: 'Flask',
+                            type: 0,
+                            selected: filterBy == 'Flask',
+                            onTap: () {
+                              setState(() {
+                                filterBy = 'Flask';
+                              });
+                            },
+                          ),
                           CustomPill(
-                              text: 'Firebase',
-                              type: filterBy == 'Firebase' ? 2 : 1),
+                            text: 'Firebase',
+                            type: 0,
+                            selected: filterBy == 'Firebase',
+                            onTap: () {
+                              setState(() {
+                                filterBy = 'Firebase';
+                              });
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -357,7 +426,13 @@ class ProjectsState extends State<Projects>
                       alignment: WrapAlignment.start,
                       children: [
                         for (int j = 0; j < proj.tech!.length; j++)
-                          CustomPill(text: proj.tech![j], type: 0),
+                          CustomPill(
+                            text: proj.tech![j],
+                            type: 1,
+                            onTap: () {
+                              filterBy = proj.tech![j];
+                            },
+                          ),
                       ],
                     ),
                   ),

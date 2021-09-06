@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Components/Buttons/CustomButton.dart';
 import 'package:portfolio/Components/Footer.dart';
 import 'package:portfolio/Components/InfoSection/CustomTab.dart';
+import 'package:portfolio/Utility/Colors.dart';
 import 'package:portfolio/Utility/Utility.dart';
 import '../Utility/Constants.dart';
 

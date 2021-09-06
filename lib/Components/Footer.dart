@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Components/Buttons/kIconButton.dart';
-import 'package:portfolio/Pages/CustomWebView.dart';
-import 'package:portfolio/Utility/Constants.dart';
+import 'package:portfolio/Utility/Colors.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);

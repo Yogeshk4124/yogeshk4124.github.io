@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Pages/CustomWebView.dart';
+import 'package:portfolio/Utility/Colors.dart';
 import 'package:portfolio/Utility/Constants.dart';
 import 'package:universal_html/js.dart' as js;
 
@@ -12,7 +13,7 @@ class SkillDetailsContainer extends StatelessWidget {
   const SkillDetailsContainer({Key? key, this.skill}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var data = mySkills[skill]!;
+    var data = kSkills[skill]!;
     return ListView.builder(
       itemCount: data.title.length + 1,
       itemBuilder: (context, i) {

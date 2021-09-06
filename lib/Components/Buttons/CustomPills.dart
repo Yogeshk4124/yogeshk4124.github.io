@@ -1,11 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/Utility/keys.dart';
 
 class CustomPill extends StatefulWidget {
   String text;
   int type;
-  CustomPill({required this.text, required this.type});
+  bool? selected;
+  var onTap;
+  CustomPill(
+      {required this.text,
+      required this.type,
+      required this.onTap,
+      this.selected});
   @override
   _CustomPillState createState() => _CustomPillState();
 }
@@ -15,11 +20,7 @@ class _CustomPillState extends State<CustomPill> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        projectKey.currentState!.setState(() {
-          projectKey.currentState!.filterBy = widget.text;
-        });
-      },
+      onTap: widget.onTap,
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       onHover: (inside) {
@@ -35,17 +36,26 @@ class _CustomPillState extends State<CustomPill> {
       },
       child: Container(
         padding: EdgeInsets.symmetric(
-            horizontal: widget.type != 0 ? 20 : 10,
-            vertical: widget.type != 0 ? 8 : 3),
+            horizontal: widget.type == 0 ? 20 : 10,
+            vertical: widget.type == 0 ? 8 : 3),
         margin: EdgeInsets.only(left: 15),
         decoration: BoxDecoration(
-          color: widget.type == 1 ? bgColor : getPillColor(widget.text),
-          border: widget.type == 1 ? Border.all(color: Colors.white) : Border(),
+          color: widget.type != 1
+              ? !widget.selected!
+                  ? bgColor
+                  : getPillColor(widget.text)
+              : getPillColor(widget.text),
+          border: widget.type != 1 ? Border.all(color: Colors.white) : Border(),
           borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
         child: Text(
           widget.text,
-          style: TextStyle(color: widget.type == 1 ? textColor : Colors.black),
+          style: TextStyle(
+              color: widget.type != 1
+                  ? !widget.selected!
+                      ? textColor
+                      : Colors.black
+                  : Colors.black),
         ),
       ),
     );
@@ -59,8 +69,6 @@ class _CustomPillState extends State<CustomPill> {
         return Colors.blue;
       case 'C++':
         return Colors.redAccent;
-      case 'Android Studio':
-        return Colors.lightGreenAccent;
       case 'Android':
         return Colors.lightGreenAccent;
       case 'HTML':

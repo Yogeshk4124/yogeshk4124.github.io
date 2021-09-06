@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Models/InfoPanelModels.dart';
-import 'package:portfolio/Pages/SkillsPage.dart';
+import 'package:portfolio/Utility/Colors.dart';
 import 'package:portfolio/Utility/Constants.dart';
 
 class InfoPanel extends StatelessWidget {

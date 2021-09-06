@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Components/Footer.dart';
 import 'package:portfolio/Pages/AnimatedSkillDisplay.dart';
-import 'package:portfolio/Utility/Constants.dart';
+import 'package:portfolio/Utility/Colors.dart';
 
 Color black = Color(0xff121212);
 

@@ -1,14 +1,11 @@
 import 'dart:math';
-
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/Components/NavBar.dart';
 import 'package:portfolio/Pages/MyHomePage.dart';
 import 'package:portfolio/Pages/ProjectsPage.dart';
 import 'package:portfolio/Pages/Resume.dart';
-import 'package:portfolio/Utility/Constants.dart';
-import 'package:portfolio/Utility/keys.dart';
-
+import 'package:portfolio/Utility/Colors.dart';
 import 'SkillsPage.dart';
 
 class PageOutlook extends StatefulWidget {
@@ -23,9 +20,7 @@ const s = "HomePage";
 var HomePage = MyHomePage(
   title: s,
 );
-var ProjectPage = Projects(
-  key: projectKey,
-);
+var ProjectPage = Projects();
 
 class PageOutlookState extends State<PageOutlook> {
   int pageNumber = 0;
@@ -56,13 +51,11 @@ class PageOutlookState extends State<PageOutlook> {
         reverse: Random().nextInt(2) % 2 == 0,
         transitionBuilder: (child, animation, secondaryAnimation) =>
             SharedAxisTransition(
-          fillColor: kCardBackground,
-          child: child,
-          animation: animation,
-          secondaryAnimation: secondaryAnimation,
-          transitionType:
-              SharedAxisTransitionType.values.elementAt(Random().nextInt(3)),
-        ),
+                fillColor: kCardBackground,
+                child: child,
+                animation: animation,
+                secondaryAnimation: secondaryAnimation,
+                transitionType: SharedAxisTransitionType.horizontal),
         child: getPage(pageNumber),
       );
 
