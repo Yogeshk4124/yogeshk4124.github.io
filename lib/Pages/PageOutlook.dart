@@ -1,11 +1,11 @@
 import 'dart:math';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/Components/NavBar.dart';
-import 'package:portfolio/Pages/MyHomePage.dart';
-import 'package:portfolio/Pages/ProjectsPage.dart';
-import 'package:portfolio/Pages/Resume.dart';
-import 'package:portfolio/Utility/Colors.dart';
+import 'package:yogeshk4124.github.io/Components/NavBar.dart';
+import 'package:yogeshk4124.github.io/Utility/Colors.dart';
+import 'MyHomePage.dart';
+import 'ProjectsPage.dart';
+import 'Resume.dart';
 import 'SkillsPage.dart';
 
 class PageOutlook extends StatefulWidget {

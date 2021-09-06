@@ -2,9 +2,10 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/SkillDetailsContainer.dart';
-import 'package:portfolio/Utility/Colors.dart';
-import 'package:portfolio/my_flutter_app_icons.dart';
+import 'package:yogeshk4124.github.io/Components/SkillDetailsContainer.dart';
+import 'package:yogeshk4124.github.io/Utility/Colors.dart';
+
+import '../my_flutter_app_icons.dart';
 
 const double degrees2Radians = math.pi / 180.0;
 

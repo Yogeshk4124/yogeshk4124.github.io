@@ -2,9 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Models/InfoPanelModels.dart';
-import 'package:portfolio/Utility/Colors.dart';
-import 'package:portfolio/Utility/Constants.dart';
+import 'package:yogeshk4124.github.io/Models/InfoPanelModels.dart';
+import 'package:yogeshk4124.github.io/Utility/Colors.dart';
+import 'package:yogeshk4124.github.io/Utility/Constants.dart';
 
 class InfoPanel extends StatelessWidget {
   int opt = -1;

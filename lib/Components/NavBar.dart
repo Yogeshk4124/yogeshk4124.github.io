@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/Buttons/CustomNavButtons.dart';
-import 'package:portfolio/Pages/SkillsPage.dart';
-import 'package:portfolio/main.dart';
+import 'package:yogeshk4124.github.io/Components/Buttons/CustomNavButtons.dart';
+import 'package:yogeshk4124.github.io/Pages/SkillsPage.dart';
+import 'package:yogeshk4124.github.io/main.dart';
 
 class NavBar extends StatefulWidget {
   // BuildContext pageContext;

@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/Buttons/kIconButton.dart';
-import 'package:portfolio/Utility/Colors.dart';
+import 'package:yogeshk4124.github.io/Components/Buttons/kIconButton.dart';
+import 'package:yogeshk4124.github.io/Utility/Colors.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);

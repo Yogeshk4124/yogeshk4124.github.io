@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/Footer.dart';
-import 'package:portfolio/Pages/AnimatedSkillDisplay.dart';
-import 'package:portfolio/Utility/Colors.dart';
+import 'package:yogeshk4124.github.io/Components/Footer.dart';
+import 'package:yogeshk4124.github.io/Utility/Colors.dart';
+
+import 'AnimatedSkillDisplay.dart';
 
 Color black = Color(0xff121212);
 

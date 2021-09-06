@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/Pages/PageOutlook.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
+import 'package:yogeshk4124.github.io/Pages/PageOutlook.dart';
 import 'Pages/ProjectsPage.dart';
 import 'Pages/Resume.dart';
 import 'Pages/SkillsPage.dart';

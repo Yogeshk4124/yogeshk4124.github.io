@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/Buttons/CustomButton.dart';
-import 'package:portfolio/Components/Buttons/CustomPills.dart';
-import 'package:portfolio/Components/Footer.dart';
-import 'package:portfolio/Models/project.dart';
-import 'package:portfolio/Utility/Colors.dart';
-import 'package:portfolio/Utility/Constants.dart';
+import 'package:yogeshk4124.github.io/Components/Buttons/CustomButton.dart';
+import 'package:yogeshk4124.github.io/Components/Buttons/CustomPills.dart';
+import 'package:yogeshk4124.github.io/Components/Footer.dart';
+import 'package:yogeshk4124.github.io/Models/project.dart';
+import 'package:yogeshk4124.github.io/Utility/Colors.dart';
+import 'package:yogeshk4124.github.io/Utility/Constants.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 class Projects extends StatefulWidget {

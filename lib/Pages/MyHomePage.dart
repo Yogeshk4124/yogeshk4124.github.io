@@ -6,11 +6,11 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/Buttons/CustomButton.dart';
-import 'package:portfolio/Components/Footer.dart';
-import 'package:portfolio/Components/InfoSection/CustomTab.dart';
-import 'package:portfolio/Utility/Colors.dart';
-import 'package:portfolio/Utility/Utility.dart';
+import 'package:yogeshk4124.github.io/Components/Buttons/CustomButton.dart';
+import 'package:yogeshk4124.github.io/Components/Footer.dart';
+import 'package:yogeshk4124.github.io/Components/InfoSection/CustomTab.dart';
+import 'package:yogeshk4124.github.io/Utility/Colors.dart';
+import 'package:yogeshk4124.github.io/Utility/Utility.dart';
 import '../Utility/Constants.dart';
 
 class MyHomePage extends StatefulWidget {

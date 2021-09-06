@@ -1,5 +1,5 @@
-import 'package:portfolio/Models/InfoPanelModels.dart';
-import 'package:portfolio/Models/Skill.dart';
+import 'package:yogeshk4124.github.io/Models/InfoPanelModels.dart';
+import 'package:yogeshk4124.github.io/Models/Skill.dart';
 import '../Models/project.dart';
 
 Map<String, Skill> kSkills = {

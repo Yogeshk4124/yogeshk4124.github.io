@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/Components/Footer.dart';
-import 'package:portfolio/Utility/Colors.dart';
-import 'package:portfolio/Utility/Constants.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import 'package:yogeshk4124.github.io/Components/Footer.dart';
+import 'package:yogeshk4124.github.io/Utility/Colors.dart';
 
 class Resume extends StatefulWidget {
   const Resume({Key? key}) : super(key: key);
