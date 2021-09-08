@@ -61,7 +61,6 @@ flutter:
         - asset: fonts/MyFlutterApp.ttf
 
   assets:
-    - flutter.jpg
     - ic_launcher.png
     - game.jpg
     - foodie.png

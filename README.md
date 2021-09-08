@@ -1,16 +1,18 @@
-# portfolio
+# Portfolio
 
-A new Flutter project.
+```My current portfolio. Please have a look.```
+## Deployment
 
-## Getting Started
+[Yogesh Kumar](https://yogeshk4124.github.io/) 
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+#### Desktop
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="./Screenshots/desktop/1.png"  height="400"/> <img src="./screenshots/desktop/2.png"  height="400"/> <img src="./Screenshots/desktop/3.png" height="400" />
+
+#### Mobile
+
+<img height="400" src="./Screenshots/mobile/1.png"  /> <img height="400" src="./screenshots/mobile/2.png"/> <img  height="400" src="./Screenshots/mobile/3.png" />
+
